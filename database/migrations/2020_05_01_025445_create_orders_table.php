@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('name', 100)->index();
             $table->string('cpf', 11)->unique();
+            $table->string('phone', 11);
             $table->date('birth');
             $table->timestamps();
         });
