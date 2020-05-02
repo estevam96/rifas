@@ -17,11 +17,13 @@ class CreateRafflesTable extends Migration
             $table->uuid('id')->primary();
             $table->string('title', 100)->index();
             $table->string('banner', 100);
-            $table->date('draw-day');
+            $table->date('draw-day')->nullable();
             $table->integer('tickets');
-            $table->float('ticket-price', 4, 2);
+            $table->float('ticket-price', 6, 2);
             $table->longText('description');
             $table->string('winner', 100)->nullable();
+            $table->enum('status', ['expired', 'concluded'])->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
