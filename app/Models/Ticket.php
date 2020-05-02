@@ -19,4 +19,14 @@ class Ticket extends Model
             $model->setAttribute($model->getKeyName(), Uuid::uuid4());
         });
     }
+
+    public function Raffle()
+    {
+        return $this->belongsTo('App/Models/Raffle');
+    }
+
+    public function order()
+    {
+        return $this->belongsTo('App/Models/Order');
+    }
 }
