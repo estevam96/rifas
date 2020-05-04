@@ -15,24 +15,16 @@ class TicketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($raffle_id)
     {
         try {
-            $tiket = Ticket::with(['raffle', 'order'])->all();
+            $tiket = Ticket::where('raffle_id', $raffle_id)
+                ->orderBy('ticket')
+                ->get();
             return Response()->json($tiket, 200);
         } catch (BadRequestHttpException $ex) {
             return Response()->json($ex, 400);
         }
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
     }
 
     /**
@@ -104,7 +96,6 @@ class TicketController extends Controller
                 return Response()->json(['message' => 'Ticket not found'], 401);
             }
             $tiket->delete();
-
         } catch (BadRequestHttpException $ex) {
             return Response()->json($ex, 400);
         }

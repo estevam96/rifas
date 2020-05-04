@@ -18,6 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('raffle', 'api\RaffleController')->except(['edit', 'create']);
+Route::apiResources([
+    'raffle' => 'api\RaffleController',
+    'orders' => 'api\OrderController'
+]);
 
-Route::resource('orders', 'api\OrderController')->except(['edit', 'create']);
+Route::apiResource('tickets', 'api\TicketController')->except(['index']);
+
+Route::get('tickets/raffle/{raffleId}', 'api\TicketController@index')->name('tickets.raffle.index');
