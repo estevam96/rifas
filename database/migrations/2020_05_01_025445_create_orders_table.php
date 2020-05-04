@@ -18,7 +18,11 @@ class CreateOrdersTable extends Migration
             $table->string('name', 100)->index();
             $table->string('cpf', 11)->unique();
             $table->string('phone', 11);
+            $table->decimal('value-total', 6,2);
             $table->date('birth');
+            $table->enum('status', ['waiting','paid out', 'canceled'])->default('waiting');
+            $table->uuid('raffle_id');
+            $table->foreign('raffle_id')->references('id')->on('raffles');
             $table->timestamps();
         });
     }
