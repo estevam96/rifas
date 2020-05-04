@@ -19,9 +19,9 @@ class CreatePaymentsTable extends Migration
             $table->string('bank', 80);
             $table->string('holder', 100);
             $table->string('cpf', 11);
-            $table->string('agency', 80);
-            $table->string('account', 80);
-            $table->longText('description');
+            $table->string('agency', 10);
+            $table->string('account', 20);
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }
