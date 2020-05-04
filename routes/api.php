@@ -18,4 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('raffle', 'api\RaffleController');
+Route::resource('raffle', 'api\RaffleController')->except(['edit', 'create']);
+
+Route::resource('orders', 'api\OrderController')->except(['edit', 'create']);
