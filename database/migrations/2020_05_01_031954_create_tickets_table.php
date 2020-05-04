@@ -16,7 +16,7 @@ class CreateTicketsTable extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->integer('ticket');
-            $table->enum('status', ['reserved', 'paid out']);
+            $table->enum('status', ['reserved', 'paid out'])->default('reserved');
             $table->foreignId('order_id')->constrained('orders')->onDelete('cascade');
             $table->uuid('raffle_id');
             $table->foreign('raffle_id')->references('id')->on('raffles')->onDelete('cascade');

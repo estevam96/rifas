@@ -12,6 +12,12 @@ class Ticket extends Model
     public $incrementing = false;
     public $timestamps = false;
 
+    public $fillable = [
+        'ticket',
+        'order_id',
+        'raffle_id'
+    ];
+
     protected static function Boot()
     {
         parent::boot();
@@ -22,11 +28,11 @@ class Ticket extends Model
 
     public function Raffle()
     {
-        return $this->belongsTo('App/Models/Raffle');
+        return $this->belongsTo('App\Models\Raffle');
     }
 
     public function order()
     {
-        return $this->belongsTo('App/Models/Order');
+        return $this->belongsTo('App\Models\Order');
     }
 }
