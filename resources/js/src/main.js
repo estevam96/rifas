@@ -8,6 +8,10 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import router from './router';
 
+import VueGlide from 'vue-glide-js'
+import 'vue-glide-js/dist/vue-glide.css'
+
+Vue.use(VueGlide)
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 

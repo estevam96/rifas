@@ -1,5 +1,5 @@
 <template>
-  <div class="h-100">
+  <div class=" bg-dark h-100">
     <router-view />
   </div>
 </template>
@@ -9,4 +9,5 @@ export default {};
 </script>
 
 <style>
+
 </style>
