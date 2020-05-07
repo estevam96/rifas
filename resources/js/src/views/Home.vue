@@ -37,6 +37,24 @@
         </b-carousel-slide>
       </b-carousel>
     </div>
+    <div class="container mt-1">
+        <b-row>
+          <b-col md="6">
+            <router-link to="#" class="btn btn-block">
+                <font-awesome-icon :icon="['fab', 'whatsapp']" size="2x" :style="{color: '#ffc107'}"/>
+                <p style="color:#ffc107">
+                    Envio de Comprovantes
+                </p>
+            </router-link>
+          </b-col>
+          <b-col md="6">
+            <router-link to="#" class="btn btn-block" >
+                <font-awesome-icon :icon="['fab', 'whatsapp']" size="2x" :style="{color: '#28a745'}"/>
+                <p style="color: #28a745">Duvidas: Entre para o grupo</p>
+            </router-link>
+          </b-col>
+        </b-row>
+    </div>
     <div class="container mt-3">
       <h4>GANHADORES DOS ÚLTIMOS SORTEIOS REALIZADOS</h4>
       <div class="ganhadores">

@@ -72,6 +72,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -248,6 +266,67 @@ var render = function() {
                 }
               ])
             })
+          ],
+          1
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "container mt-1" },
+      [
+        _c(
+          "b-row",
+          [
+            _c(
+              "b-col",
+              { attrs: { md: "6" } },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "btn btn-block", attrs: { to: "#" } },
+                  [
+                    _c("font-awesome-icon", {
+                      style: { color: "#ffc107" },
+                      attrs: { icon: ["fab", "whatsapp"], size: "2x" }
+                    }),
+                    _vm._v(" "),
+                    _c("p", { staticStyle: { color: "#ffc107" } }, [
+                      _vm._v(
+                        "\n                  Envio de Comprovantes\n              "
+                      )
+                    ])
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "b-col",
+              { attrs: { md: "6" } },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "btn btn-block", attrs: { to: "#" } },
+                  [
+                    _c("font-awesome-icon", {
+                      style: { color: "#28a745" },
+                      attrs: { icon: ["fab", "whatsapp"], size: "2x" }
+                    }),
+                    _vm._v(" "),
+                    _c("p", { staticStyle: { color: "#28a745" } }, [
+                      _vm._v("Duvidas: Entre para o grupo")
+                    ])
+                  ],
+                  1
+                )
+              ],
+              1
+            )
           ],
           1
         )
