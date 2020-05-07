@@ -65196,7 +65196,7 @@ var routes = [{
   children: [{
     path: 'home',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
+      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
     }
   }]
 }];

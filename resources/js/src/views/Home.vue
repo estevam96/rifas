@@ -40,18 +40,18 @@
     <div class="container mt-3">
       <h4>GANHADORES DOS ÚLTIMOS SORTEIOS REALIZADOS</h4>
       <div class="ganhadores">
-        <vue-glide :perView="3" :autoplay="3000" :grap="2">
+        <vue-glide :options="options">
           <vue-glide-slide>
-            <b-img src="https://picsum.photos/300/150/?image=41" fluid alt="Fluid image"></b-img>
+            <b-img src="https://picsum.photos/536/354/?image=41" fluid alt="Fluid image"></b-img>
           </vue-glide-slide>
           <vue-glide-slide>
-            <b-img src="https://picsum.photos/300/150/?image=41" fluid alt="Fluid image"></b-img>
+            <b-img src="https://picsum.photos/536/354/?image=42" fluid alt="Fluid image"></b-img>
           </vue-glide-slide>
           <vue-glide-slide>
-            <b-img src="https://picsum.photos/300/150/?image=41" fluid alt="Fluid image"></b-img>
+            <b-img src="https://picsum.photos/536/354/?image=43" fluid alt="Fluid image"></b-img>
           </vue-glide-slide>
           <vue-glide-slide>
-            <b-img src="https://picsum.photos/300/150/?image=41" fluid alt="Fluid image"></b-img>
+            <b-img src="https://picsum.photos/536/354/?image=44" fluid alt="Fluid image"></b-img>
           </vue-glide-slide>
         </vue-glide>
       </div>
@@ -70,7 +70,21 @@ export default {
   data() {
     return {
       slide: 0,
-      sliding: null
+      sliding: null,
+      options: {
+        gap: 5,
+        perView: 3,
+        type: "carousel",
+        autoplay: 3000,
+        breakpoints: {
+          600: {
+            perView: 1
+          },
+          1400: {
+            perView: 3
+          }
+        }
+      }
     };
   },
   methods: {
@@ -89,5 +103,8 @@ export default {
   background-repeat: round;
   height: 480px;
   width: 100%;
+}
+h4 {
+  color: #ffffff;
 }
 </style>

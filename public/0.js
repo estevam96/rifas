@@ -1,143 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/carousel.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/components/carousel.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _glidejs_glide__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @glidejs/glide */ "./node_modules/@glidejs/glide/dist/glide.esm.js");
-/* harmony import */ var _glidejs_glide_dist_css_glide_core_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @glidejs/glide/dist/css/glide.core.min.css */ "./node_modules/@glidejs/glide/dist/css/glide.core.min.css");
-/* harmony import */ var _glidejs_glide_dist_css_glide_core_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_glidejs_glide_dist_css_glide_core_min_css__WEBPACK_IMPORTED_MODULE_1__);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    settings: Object,
-    // {
-    //     type: String,
-    //     startAt: Number,
-    //     perView: Number,
-    //     focusAt: Number,
-    //     gap: Number,
-    //     autoplay: Boolean,
-    //     hoverpause: Boolean,
-    //     keyboard: Boolean,
-    //     bound: Boolean,
-    //     swipeThreshold: [Number, Boolean],
-    //     dragThreshold: [Number, Boolean],
-    //     perTouch: [Number, Boolean],
-    //     touchRatio: Number,
-    //     touchAngle: Number,
-    //     animationDuration: Number,
-    //     rewind: Boolean,
-    //     rewindDuration: Number,
-    //     animationTimingFunc: String,
-    //     direction: String,
-    //     peek: Object,
-    //     breakpoints: Object,
-    //     classes: Object,
-    //     throttle: Number,
-    //     data: Array,
-    // },
-    id: String,
-    className: String
-  },
-  data: function data() {
-    return {
-      total: 0,
-      mountTimeOut: -1,
-      resizeTimeOut: -1
-    };
-  },
-  mounted: function mounted() {
-    this.initGlide();
-  },
-  updated: function updated() {
-    this.destroyGlide();
-    this.initGlide();
-  },
-  beforeDestroy: function beforeDestroy() {
-    this.destroyGlide();
-  },
-  methods: {
-    initGlide: function initGlide() {
-      this.glideCarousel = new _glidejs_glide__WEBPACK_IMPORTED_MODULE_0__["default"](this.$refs.carouselImages, _objectSpread(_objectSpread({}, this.settings), {}, {
-        direction: "rtl"
-      }));
-      this.glideCarousel.mount();
-      this.total = this.glideCarousel._c.Html.slides.length;
-      this.glideCarousel.on("resize", this.onResize);
-      this.mountTimeOut = setTimeout(function () {
-        var event = document.createEvent("HTMLEvents");
-        event.initEvent("resize", false, false);
-        window.dispatchEvent(event);
-      }, 500);
-    },
-    destroyGlide: function destroyGlide() {
-      clearTimeout(this.resizeTimeOut);
-      clearTimeout(this.mountTimeOut);
-
-      if (this.glideCarousel) {
-        this.glideCarousel.destroy();
-      }
-    },
-    onResize: function onResize() {
-      var _this = this;
-
-      clearTimeout(this.resizeTimeOut);
-      this.resizeTimeOut = setTimeout(function () {
-        _this.glideCarousel.update();
-
-        _this.resizeTimeOut = -1;
-      }, 500);
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Home.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/Home.vue?vue&type=script&lang=js& ***!
@@ -147,23 +9,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_carousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/carousel */ "./resources/js/src/components/carousel.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var vue_glide_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-glide-js */ "./node_modules/vue-glide-js/dist/vue-glide.common.js");
+/* harmony import */ var vue_glide_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_glide_js__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -228,23 +75,24 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    carousel: _components_carousel__WEBPACK_IMPORTED_MODULE_0__["default"]
+    "vue-glide": vue_glide_js__WEBPACK_IMPORTED_MODULE_0__["Glide"],
+    "vue-glide-slide": vue_glide_js__WEBPACK_IMPORTED_MODULE_0__["GlideSlide"]
   },
   data: function data() {
     return {
       slide: 0,
       sliding: null,
-      glideBasicOption: {
-        gap: 1,
-        perView: 1,
-        autoplay: 4000,
+      options: {
+        gap: 5,
+        perView: 3,
         type: "carousel",
+        autoplay: 3000,
         breakpoints: {
           600: {
             perView: 1
           },
           1400: {
-            perView: 1
+            perView: 3
           }
         }
       }
@@ -262,94 +110,52 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/carousel.vue?vue&type=template&id=74e17b00&":
-/*!***************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/components/carousel.vue?vue&type=template&id=74e17b00& ***!
-  \***************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Home.vue?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/Home.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { ref: "carouselImages", staticClass: "glide" }, [
-      _c(
-        "div",
-        { staticClass: "glide__track", attrs: { "data-glide-el": "track" } },
-        [_c("div", { staticClass: "glide__slides" }, [_vm._t("default")], 2)]
-      ),
-      _vm._v(" "),
-      !_vm.settings.hideNav
-        ? _c(
-            "div",
-            {
-              staticClass: "glide__arrows slider-nav",
-              attrs: { "data-glide-el": "controls" }
-            },
-            [
-              _vm._m(0),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "glide__bullets slider-dot-container",
-                  attrs: { "data-glide-el": "controls[nav]" }
-                },
-                _vm._l(_vm.total, function(i) {
-                  return _c("button", {
-                    key: i,
-                    staticClass: "glide__bullet slider-dot",
-                    attrs: { "data-glide-dir": "=" + i }
-                  })
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _vm._m(1)
-            ]
-          )
-        : _vm._e()
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "glide__arrow glide__arrow--left left-arrow btn btn-link",
-        attrs: { "data-glide-dir": "<" }
-      },
-      [_c("i", { staticClass: "simple-icon-arrow-left" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass:
-          "glide__arrow glide__arrow--right right-arrow btn btn-link",
-        attrs: { "data-glide-dir": ">" }
-      },
-      [_c("i", { staticClass: "simple-icon-arrow-right" })]
-    )
-  }
-]
-render._withStripped = true
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
 
 
+// module
+exports.push([module.i, "\n.banner {\n  background-repeat: round;\n  height: 480px;\n  width: 100%;\n}\nh4 {\n  color: #ffffff;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Home.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/Home.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Home.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Home.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
 
 /***/ }),
 
@@ -368,227 +174,164 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
+  return _c("div", [
+    _c(
+      "div",
+      [
+        _c(
+          "b-carousel",
+          {
+            attrs: {
+              id: "carousel",
+              fade: "",
+              indicators: "",
+              interval: 3000,
+              background: "#ababab",
+              "img-width": "1024",
+              "img-height": "480"
+            },
+            on: {
+              "sliding-start": _vm.onSlideStart,
+              "sliding-end": _vm.onSlideEnd
+            },
+            model: {
+              value: _vm.slide,
+              callback: function($$v) {
+                _vm.slide = $$v
+              },
+              expression: "slide"
+            }
+          },
+          [
+            _c("b-carousel-slide", {
+              scopedSlots: _vm._u([
+                {
+                  key: "img",
+                  fn: function() {
+                    return [
+                      _c("img", {
+                        staticClass: "d-block img-fluid w-100",
+                        attrs: {
+                          width: "1024",
+                          height: "480",
+                          src:
+                            "https://www.rifasdovale.com.br/images/slider/rifasdovale_1588472510.jpg",
+                          alt: "image slot"
+                        }
+                      })
+                    ]
+                  },
+                  proxy: true
+                }
+              ])
+            }),
+            _vm._v(" "),
+            _c("b-carousel-slide", {
+              scopedSlots: _vm._u([
+                {
+                  key: "img",
+                  fn: function() {
+                    return [
+                      _c("img", {
+                        staticClass: "d-block img-fluid w-100",
+                        attrs: {
+                          width: "1024",
+                          height: "480",
+                          src:
+                            "https://www.rifasdovale.com.br/images/slider/rifasdovale_1588641071.jpg",
+                          alt: "image slot"
+                        }
+                      })
+                    ]
+                  },
+                  proxy: true
+                }
+              ])
+            })
+          ],
+          1
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "container mt-3" }, [
+      _c("h4", [_vm._v("GANHADORES DOS ÚLTIMOS SORTEIOS REALIZADOS")]),
+      _vm._v(" "),
       _c(
         "div",
+        { staticClass: "ganhadores" },
         [
           _c(
-            "b-carousel",
-            {
-              attrs: {
-                id: "carousel",
-                fade: "",
-                indicators: "",
-                interval: 4000,
-                background: "#ababab",
-                "img-width": "1024",
-                "img-height": "480"
-              },
-              on: {
-                "sliding-start": _vm.onSlideStart,
-                "sliding-end": _vm.onSlideEnd
-              },
-              model: {
-                value: _vm.slide,
-                callback: function($$v) {
-                  _vm.slide = $$v
-                },
-                expression: "slide"
-              }
-            },
+            "vue-glide",
+            { attrs: { options: _vm.options } },
             [
               _c(
-                "b-carousel-slide",
-                {
-                  attrs: {
-                    "img-src":
-                      "https://www.rifasdovale.com.br/images/slider/rifasdovale_1588472510.jpg"
-                  }
-                },
+                "vue-glide-slide",
                 [
-                  _c(
-                    "b-card",
-                    { attrs: { title: "Carro Honda civic" } },
-                    [
-                      _c("b-card-text", [_vm._v("ahkdjlashgfdiuehgfwgfyewgf")]),
-                      _vm._v(" "),
-                      _c("b-button", [_vm._v("ytety")])
-                    ],
-                    1
-                  )
+                  _c("b-img", {
+                    attrs: {
+                      src: "https://picsum.photos/536/354/?image=41",
+                      fluid: "",
+                      alt: "Fluid image"
+                    }
+                  })
                 ],
                 1
               ),
               _vm._v(" "),
               _c(
-                "b-carousel-slide",
-                {
-                  attrs: {
-                    "img-src":
-                      "https://www.rifasdovale.com.br/images/slider/rifasdovale_1588641071.jpg"
-                  }
-                },
+                "vue-glide-slide",
                 [
-                  _c(
-                    "div",
-                    { staticClass: "banner" },
-                    [
-                      _c(
-                        "b-row",
-                        [
-                          _c(
-                            "b-col",
-                            { attrs: { md: "6" } },
-                            [
-                              _c("h3", [_vm._v("Moto Modelo 2020")]),
-                              _vm._v(" "),
-                              _c("b-button", [_vm._v("ytety")])
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ]
+                  _c("b-img", {
+                    attrs: {
+                      src: "https://picsum.photos/536/354/?image=42",
+                      fluid: "",
+                      alt: "Fluid image"
+                    }
+                  })
+                ],
+                1
               ),
               _vm._v(" "),
-              _c("b-carousel-slide", {
-                attrs: { to: "home" },
-                scopedSlots: _vm._u([
-                  {
-                    key: "img",
-                    fn: function() {
-                      return [
-                        _c("img", {
-                          staticClass: "d-block img-fluid w-100",
-                          attrs: {
-                            width: "1024",
-                            height: "480",
-                            src:
-                              "https://www.rifasdovale.com.br/images/slider/rifasdovale_1588472510.jpg",
-                            alt: "image slot"
-                          }
-                        })
-                      ]
-                    },
-                    proxy: true
-                  }
-                ])
-              })
+              _c(
+                "vue-glide-slide",
+                [
+                  _c("b-img", {
+                    attrs: {
+                      src: "https://picsum.photos/536/354/?image=43",
+                      fluid: "",
+                      alt: "Fluid image"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "vue-glide-slide",
+                [
+                  _c("b-img", {
+                    attrs: {
+                      src: "https://picsum.photos/536/354/?image=44",
+                      fluid: "",
+                      alt: "Fluid image"
+                    }
+                  })
+                ],
+                1
+              )
             ],
             1
           )
         ],
         1
-      ),
-      _vm._v(" "),
-      _c("carousel", { attrs: { settings: _vm.glideBasicOption } }, [
-        _c("div", { staticClass: "glide__slide" }, [
-          _c("img", {
-            staticClass: "d-block img-fluid w-100",
-            attrs: {
-              width: "1024",
-              height: "480",
-              src:
-                "https://www.rifasdovale.com.br/images/slider/rifasdovale_1588472510.jpg",
-              alt: "image slot"
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "glide__slide" }, [
-          _c("img", {
-            staticClass: "d-block img-fluid w-100",
-            attrs: {
-              width: "1024",
-              height: "480",
-              src:
-                "https://www.rifasdovale.com.br/images/slider/rifasdovale_1588641071.jpg",
-              alt: "image slot"
-            }
-          })
-        ])
-      ])
-    ],
-    1
-  )
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./resources/js/src/components/carousel.vue":
-/*!**************************************************!*\
-  !*** ./resources/js/src/components/carousel.vue ***!
-  \**************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _carousel_vue_vue_type_template_id_74e17b00___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./carousel.vue?vue&type=template&id=74e17b00& */ "./resources/js/src/components/carousel.vue?vue&type=template&id=74e17b00&");
-/* harmony import */ var _carousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./carousel.vue?vue&type=script&lang=js& */ "./resources/js/src/components/carousel.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _carousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _carousel_vue_vue_type_template_id_74e17b00___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _carousel_vue_vue_type_template_id_74e17b00___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/src/components/carousel.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/src/components/carousel.vue?vue&type=script&lang=js&":
-/*!***************************************************************************!*\
-  !*** ./resources/js/src/components/carousel.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_carousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./carousel.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/carousel.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_carousel_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/src/components/carousel.vue?vue&type=template&id=74e17b00&":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/src/components/carousel.vue?vue&type=template&id=74e17b00& ***!
-  \*********************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_carousel_vue_vue_type_template_id_74e17b00___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./carousel.vue?vue&type=template&id=74e17b00& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/carousel.vue?vue&type=template&id=74e17b00&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_carousel_vue_vue_type_template_id_74e17b00___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_carousel_vue_vue_type_template_id_74e17b00___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -605,7 +348,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Home_vue_vue_type_template_id_e85b2cee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.vue?vue&type=template&id=e85b2cee& */ "./resources/js/src/views/Home.vue?vue&type=template&id=e85b2cee&");
 /* harmony import */ var _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.vue?vue&type=script&lang=js& */ "./resources/js/src/views/Home.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _Home_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Home.vue?vue&type=style&index=0&lang=css& */ "./resources/js/src/views/Home.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -613,7 +358,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Home_vue_vue_type_template_id_e85b2cee___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Home_vue_vue_type_template_id_e85b2cee___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -642,6 +387,22 @@ component.options.__file = "resources/js/src/views/Home.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Home.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Home.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/src/views/Home.vue?vue&type=style&index=0&lang=css&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/src/views/Home.vue?vue&type=style&index=0&lang=css& ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./Home.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Home.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
