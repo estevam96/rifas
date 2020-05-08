@@ -5,15 +5,17 @@
     <main>
         <router-view />
     </main>
-    <!-- <footer-component /> -->
+    <footer-component />
   </div>
 </template>
 
 <script>
 import TopNav from "../containers/TopNav";
+import Footer from "../containers/Footer";
 export default {
   components: {
-    "top-nav": TopNav
+    "top-nav": TopNav,
+    "footer-component": Footer,
   }
 };
 </script>
