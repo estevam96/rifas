@@ -90,6 +90,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -140,7 +199,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.banner {\n  background-repeat: round;\n  height: 480px;\n  width: 100%;\n}\nh4 {\n  color: #ffffff;\n}\n", ""]);
+exports.push([module.i, "\n.banner {\n  background-repeat: round;\n  height: 480px;\n  width: 100%;\n}\n.num{\n    color: white;\n    font-size: x-large;\n    font-weight: bold;\n}\n.number{\n    width: 50px;\n    height: 50px;\n    border-radius: 50%;\n}\n.instruction{\n    height: 100px;\n    display: flex;\n    align-items: center;\n}\n.instruction p {\n    text-align: justify;\n    font-size: 15px;\n}\nh4 {\n  color: #ffffff;\n}\n", ""]);
 
 // exports
 
@@ -295,7 +354,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("p", { staticStyle: { color: "#ffc107" } }, [
                       _vm._v(
-                        "\n                  Envio de Comprovantes\n              "
+                        "\n                    Envio de Comprovantes\n                "
                       )
                     ])
                   ],
@@ -334,72 +393,208 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "container mt-3" }, [
-      _c("h4", [_vm._v("GANHADORES DOS ÚLTIMOS SORTEIOS REALIZADOS")]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "ganhadores" },
-        [
+    _c(
+      "div",
+      { staticClass: "container mt-3" },
+      [
+        _c("h4", [_vm._v("GANHADORES DOS ÚLTIMOS SORTEIOS REALIZADOS")]),
+        _vm._v(" "),
+        _c("b-col", { attrs: { lg: "12" } }, [
           _c(
-            "vue-glide",
-            { attrs: { options: _vm.options } },
+            "div",
+            { staticClass: "ganhadores" },
             [
               _c(
-                "vue-glide-slide",
+                "vue-glide",
+                { attrs: { options: _vm.options } },
                 [
-                  _c("b-img", {
-                    attrs: {
-                      src: "https://picsum.photos/536/354/?image=41",
-                      fluid: "",
-                      alt: "Fluid image"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "vue-glide-slide",
-                [
-                  _c("b-img", {
-                    attrs: {
-                      src: "https://picsum.photos/536/354/?image=42",
-                      fluid: "",
-                      alt: "Fluid image"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "vue-glide-slide",
-                [
-                  _c("b-img", {
-                    attrs: {
-                      src: "https://picsum.photos/536/354/?image=43",
-                      fluid: "",
-                      alt: "Fluid image"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "vue-glide-slide",
-                [
-                  _c("b-img", {
-                    attrs: {
-                      src: "https://picsum.photos/536/354/?image=44",
-                      fluid: "",
-                      alt: "Fluid image"
-                    }
-                  })
+                  _c(
+                    "vue-glide-slide",
+                    [
+                      _c("b-img", {
+                        attrs: {
+                          src: "https://picsum.photos/536/354/?image=41",
+                          fluid: "",
+                          alt: "Fluid image"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vue-glide-slide",
+                    [
+                      _c("b-img", {
+                        attrs: {
+                          src: "https://picsum.photos/536/354/?image=42",
+                          fluid: "",
+                          alt: "Fluid image"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vue-glide-slide",
+                    [
+                      _c("b-img", {
+                        attrs: {
+                          src: "https://picsum.photos/536/354/?image=43",
+                          fluid: "",
+                          alt: "Fluid image"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "vue-glide-slide",
+                    [
+                      _c("b-img", {
+                        attrs: {
+                          src: "https://picsum.photos/536/354/?image=44",
+                          fluid: "",
+                          alt: "Fluid image"
+                        }
+                      })
+                    ],
+                    1
+                  )
                 ],
                 1
               )
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "b-row",
+          _vm._l(10, function(number, index) {
+            return _c(
+              "b-col",
+              { key: "id-" + index, attrs: { md: "4" } },
+              [
+                _c(
+                  "b-card",
+                  {
+                    staticClass: "mb-2",
+                    staticStyle: { "max-width": "20rem" },
+                    attrs: {
+                      "img-src":
+                        "https://picsum.photos/600/300/?image=2" + number,
+                      title: "Carro 0 km",
+                      "img-alt": "carro 0km",
+                      "img-top": "",
+                      "border-variant": "dark",
+                      "text-variant": "white",
+                      "bg-variant": "dark",
+                      "title-tag": "h4"
+                    }
+                  },
+                  [
+                    _c("b-card-text", [
+                      _vm._v(
+                        "\n                  Sorteio dia 07/05/2020\n                "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-success rounded-pill",
+                        attrs: { to: "#" }
+                      },
+                      [
+                        _c("b", [_vm._v("COMPRA RIFA")]),
+                        _vm._v(" "),
+                        _c("font-awesome-icon", {
+                          attrs: { icon: ["fas", "check"] }
+                        })
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          }),
+          1
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "bg-secondary pt-5 pb-3" }, [
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
+          _c(
+            "b-row",
+            [
+              _c("b-col", { attrs: { md: "3" } }, [
+                _c("h5", { staticClass: "text-white mb-2" }, [
+                  _vm._v("1º  ESCOLHA O SORTEIO")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-white-50" }, [
+                  _c("p", [
+                    _vm._v(
+                      "Escolha o prêmio que gostaria de concorrer, verifique a descrição, regulamento do sorteio e fotos em caso de dúvidas entre em contato com o administrado"
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("b-col", { attrs: { md: "3" } }, [
+                _c("h5", { staticClass: "text-white mb-2" }, [
+                  _vm._v("2º  SELECIONE SEUS NÚMEROS")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-white-50" }, [
+                  _c("p", [
+                    _vm._v(
+                      "Você pode escolher quantos números desejar! Mais números, mais chances de ganhar"
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("b-col", { attrs: { md: "3" } }, [
+                _c("h5", { staticClass: "text-white mb-2" }, [
+                  _vm._v("3º  FAÇA O PAGAMENTO")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-white-50" }, [
+                  _c("p", [
+                    _vm._v(
+                      "Faça o pagamento em umas das contas exibidas. Envie o comprovante ao administrador via whatsapp."
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("b-col", { attrs: { md: "3" } }, [
+                _c("h5", { staticClass: "text-white mb-2" }, [
+                  _vm._v("4º  AGUARDE O SORTEIO")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-white-50" }, [
+                  _c("p", [
+                    _vm._v(
+                      "Aguarde o sorteio pela Loteria Federal Cruze os dedos Você pode ser o próximo sorteado"
+                    )
+                  ])
+                ])
+              ])
             ],
             1
           )
@@ -409,7 +604,16 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-2 mb-2" }, [
+      _c("h4", [_vm._v("PROXIMOS SORTEIOS")])
+    ])
+  }
+]
 render._withStripped = true
 
 
