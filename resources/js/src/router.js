@@ -10,8 +10,12 @@ const routes = [
         redirect: '/home',
         children: [
             {
-                path: 'home',
-                component: () => import('./views/Home.vue')
+              path: 'home',
+              component: () => import('./views/Home.vue')
+            },
+            {
+              path: 'draw',
+              component: () => import('./views/Draw.vue')
             }
         ]
     }

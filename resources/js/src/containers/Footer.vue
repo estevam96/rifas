@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer pt-4">
+  <footer class="footer pt-4 pb-4">
       <div class="container">
       <b-row>
           <b-col md="6 d-flex align-items-end">

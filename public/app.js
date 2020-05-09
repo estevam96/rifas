@@ -137,7 +137,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.navbar {\n    min-height: 80px;\n}\n", ""]);
+exports.push([module.i, "\n.navbar {\n    min-height: 80px;\n}\n.custom-bg{\n    background-color: black !important;\n}\n", ""]);
 
 // exports
 
@@ -219,7 +219,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("footer", { staticClass: "footer pt-4" }, [
+  return _c("footer", { staticClass: "footer pt-4 pb-4" }, [
     _c(
       "div",
       { staticClass: "container" },
@@ -358,7 +358,10 @@ var render = function() {
     [
       _c(
         "b-navbar",
-        { attrs: { toggleable: "lg", type: "dark", variant: "dark" } },
+        {
+          staticClass: "custom-bg",
+          attrs: { toggleable: "lg", type: "dark", variant: "dark" }
+        },
         [
           _c("b-navbar-brand", { attrs: { href: "#" } }, [_vm._v("Rifas")]),
           _vm._v(" "),
@@ -373,19 +376,23 @@ var render = function() {
                 { staticClass: "ml-auto" },
                 [
                   _c("b-nav-item", { attrs: { href: "#" } }, [
-                    _c("b", [_vm._v("Inicio")])
+                    _c("b", { staticClass: "text-light" }, [_vm._v("Inicio")])
                   ]),
                   _vm._v(" "),
                   _c("b-nav-item", { attrs: { href: "#" } }, [
-                    _c("b", [_vm._v("Sorteios")])
+                    _c("b", { staticClass: "text-light" }, [_vm._v("Sorteios")])
                   ]),
                   _vm._v(" "),
                   _c("b-nav-item", { attrs: { href: "#" } }, [
-                    _c("b", [_vm._v("Como Pagar")])
+                    _c("b", { staticClass: "text-light" }, [
+                      _vm._v("Como Pagar")
+                    ])
                   ]),
                   _vm._v(" "),
                   _c("b-nav-item", { attrs: { href: "#" } }, [
-                    _c("b", [_vm._v("Fale conosco")])
+                    _c("b", { staticClass: "text-light" }, [
+                      _vm._v("Fale conosco")
+                    ])
                   ])
                 ],
                 1
