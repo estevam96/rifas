@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar class="custom-bg" toggleable="lg" type="dark" variant="dark">
-      <b-navbar-brand href="#">Rifas</b-navbar-brand>
+      <b-navbar-brand to="/home">Rifas</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 

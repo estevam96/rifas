@@ -363,7 +363,7 @@ var render = function() {
           attrs: { toggleable: "lg", type: "dark", variant: "dark" }
         },
         [
-          _c("b-navbar-brand", { attrs: { href: "#" } }, [_vm._v("Rifas")]),
+          _c("b-navbar-brand", { attrs: { to: "/home" } }, [_vm._v("Rifas")]),
           _vm._v(" "),
           _c("b-navbar-toggle", { attrs: { target: "nav-collapse" } }),
           _vm._v(" "),
