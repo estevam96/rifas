@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-4">
     <h3 class="text-uppercase text-white mb-4">Dados para pagamento via transferência</h3>
-    <h5 class="text-white">* Para realizar seu pagamento você deve efetivar transferência para uma de nossas contas.</h5>
+    <h5 class="text-white text-center">* Para realizar seu pagamento você deve efetivar transferência para uma de nossas contas.</h5>
     <div class="separator mb-5"></div>
     <b-row class="mb-5">
       <b-col md="3" v-for="(item, index) in item " :key="`id -${index}`">

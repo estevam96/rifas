@@ -271,7 +271,7 @@ var render = function() {
         _vm._v("Dados para pagamento via transferência")
       ]),
       _vm._v(" "),
-      _c("h5", { staticClass: "text-white" }, [
+      _c("h5", { staticClass: "text-white text-center" }, [
         _vm._v(
           "* Para realizar seu pagamento você deve efetivar transferência para uma de nossas contas."
         )
