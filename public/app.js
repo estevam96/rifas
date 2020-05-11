@@ -66,6 +66,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -362,6 +363,8 @@ var render = function() {
         [
           _c("b-navbar-brand", { attrs: { to: "/home" } }, [_vm._v("Rifas")]),
           _vm._v(" "),
+          _c("b-navbar-toggle", { attrs: { target: "nav-collapse" } }),
+          _vm._v(" "),
           _c(
             "b-collapse",
             { attrs: { id: "nav-collapse", "is-nav": "" } },
@@ -384,7 +387,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("b-nav-item", { attrs: { href: "#" } }, [
+                  _c("b-nav-item", { attrs: { to: "/contact" } }, [
                     _c("b", { staticClass: "text-light" }, [
                       _vm._v("Fale conosco")
                     ])

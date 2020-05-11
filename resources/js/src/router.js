@@ -20,6 +20,10 @@ const routes = [
             {
               path: 'payment',
               component: () => import('./views/Payment.vue')
+            },
+            {
+              path: 'contact',
+              component: () => import('./views/Contact.vue')
             }
         ]
     }
