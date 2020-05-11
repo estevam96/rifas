@@ -48,17 +48,25 @@
           <b-button block variant="info">Reserva</b-button>
         </b-col>
       </b-row>
-        <div class="separator mb-5 mt-5"></div>
+      <h4 class="text-uppercase text-white mt-5">Forma de pagamento</h4>
+        <div class="separator mb-5 "></div>
+        <b-row class="mb-5">
+          <b-col md="3" v-for="(item, index) in item " :key="`id -${index}`">
+            <bank-card :data="item"/>
+          </b-col>
+        </b-row>
   </div>
 </template>
 
 <script>
 import { Glide, GlideSlide } from "vue-glide-js";
+import BankCard from '../components/bank-card';
 
 export default {
   components: {
     "vue-glide": Glide,
-    "vue-glide-slide": GlideSlide
+    "vue-glide-slide": GlideSlide,
+    "bank-card": BankCard
   },
   data() {
     return {
@@ -72,7 +80,41 @@ export default {
             perView: 1
           }
         }
-      }
+      },
+      item: [
+        {
+          image: 'https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg',
+          bank: "Nubank",
+          holder: "Nome Do titular",
+          agency: "123",
+          account: "123459-9",
+          type: " Conta Corrente"
+        },
+        {
+          image: 'https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg',
+          bank: "Nubank",
+          holder: "Nome Do titular",
+          agency: "123",
+          account: "123459-9",
+          type: " Conta Corrente"
+        },
+        {
+          image: 'https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg',
+          bank: "Nubank",
+          holder: "Nome Do titular",
+          agency: "123",
+          account: "123459-9",
+          type: " Conta Corrente"
+        },
+        {
+          image: 'https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg',
+          bank: "Nubank",
+          holder: "Nome Do titular",
+          agency: "123",
+          account: "123459-9",
+          type: " Conta Corrente"
+        }
+      ]
     }
   },
 }
