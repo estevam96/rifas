@@ -66,9 +66,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -365,8 +362,6 @@ var render = function() {
         [
           _c("b-navbar-brand", { attrs: { to: "/home" } }, [_vm._v("Rifas")]),
           _vm._v(" "),
-          _c("b-navbar-toggle", { attrs: { target: "nav-collapse" } }),
-          _vm._v(" "),
           _c(
             "b-collapse",
             { attrs: { id: "nav-collapse", "is-nav": "" } },
@@ -375,7 +370,7 @@ var render = function() {
                 "b-navbar-nav",
                 { staticClass: "ml-auto" },
                 [
-                  _c("b-nav-item", { attrs: { href: "#" } }, [
+                  _c("b-nav-item", { attrs: { to: "/home" } }, [
                     _c("b", { staticClass: "text-light" }, [_vm._v("Inicio")])
                   ]),
                   _vm._v(" "),
@@ -383,7 +378,7 @@ var render = function() {
                     _c("b", { staticClass: "text-light" }, [_vm._v("Sorteios")])
                   ]),
                   _vm._v(" "),
-                  _c("b-nav-item", { attrs: { href: "#" } }, [
+                  _c("b-nav-item", { attrs: { to: "/payment" } }, [
                     _c("b", { staticClass: "text-light" }, [
                       _vm._v("Como Pagar")
                     ])
