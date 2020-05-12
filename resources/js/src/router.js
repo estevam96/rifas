@@ -15,7 +15,12 @@ const routes = [
             },
             {
               path: 'draw',
-              component: () => import('./views/Draw.vue')
+              redirect: 'draw/list',
+              component: () => import(/* webpackChunkName: "app" */'./views/Draw'),
+              children: [
+                { path: 'list', component: () => import('./views/Draw/Draw.vue') },
+                { path: 'show/:id', component: () => import('./views/Draw/Draw-show.vue'), }
+              ]
             },
             {
               path: 'payment',

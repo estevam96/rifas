@@ -7,7 +7,7 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
             <b-nav-item to="/home"><b class="text-light">Inicio</b></b-nav-item>
-            <b-nav-item href="#"><b class="text-light">Sorteios</b></b-nav-item>
+            <b-nav-item to="/draw"><b class="text-light">Sorteios</b></b-nav-item>
             <b-nav-item to="/payment"><b class="text-light">Como Pagar</b></b-nav-item>
             <b-nav-item to="/contact"><b class="text-light">Fale conosco</b></b-nav-item>
         </b-navbar-nav>

@@ -75,11 +75,11 @@
             </vue-glide>
         </div>
       </b-col>
-      <div class="mt-2 mb-2">
+      <div class="mt-4 mb-2">
         <h4>PROXIMOS SORTEIOS</h4>
       </div>
       <b-row>
-        <b-col md="4" v-for="(number, index) in 10" :key="`id-${index}`">
+        <b-col md="4" v-for="(number, index) in 6" :key="`id-${index}`">
             <b-card
               :img-src="`https://picsum.photos/600/300/?image=2${number}`"
               title="Carro 0 km"
@@ -95,7 +95,7 @@
                 <b-card-text>
                   Sorteio dia 07/05/2020
                 </b-card-text>
-                <router-link to="#" class="btn btn-success rounded-pill">
+                <router-link :to="`/draw/show/${index}`" class="btn btn-success btn-block rounded-pill">
                     <b>COMPRA RIFA</b>
                     <font-awesome-icon :icon="['fas', 'check']"/>
                 </router-link>
@@ -103,46 +103,19 @@
         </b-col>
       </b-row>
     </div>
-    <div class="bg-secondary pt-5 pb-3">
-        <div class="container">
-            <b-row>
-              <b-col md="3">
-                <h5 class="text-white mb-2">1º  ESCOLHA O SORTEIO</h5>
-                <div class="text-white-50">
-                    <p>Escolha o prêmio que gostaria de concorrer, verifique a descrição, regulamento do sorteio e fotos em caso de dúvidas entre em contato com o administrado</p>
-                </div>
-              </b-col>
-              <b-col md="3">
-                <h5 class="text-white mb-2">2º  SELECIONE SEUS NÚMEROS</h5>
-                <div class="text-white-50">
-                  <p>Você pode escolher quantos números desejar! Mais números, mais chances de ganhar</p>
-                </div>
-              </b-col>
-              <b-col md="3">
-                <h5 class="text-white mb-2">3º  FAÇA O PAGAMENTO</h5>
-                <div class="text-white-50">
-                  <p>Faça o pagamento em umas das contas exibidas. Envie o comprovante ao administrador via whatsapp.</p>
-                </div>
-              </b-col>
-              <b-col md="3">
-                <h5 class="text-white mb-2">4º  AGUARDE O SORTEIO</h5>
-                <div class="text-white-50">
-                  <p>Aguarde o sorteio pela Loteria Federal Cruze os dedos Você pode ser o próximo sorteado</p>
-                </div>
-              </b-col>
-            </b-row>
-          </div>
-        </div>
-    </div>
+    <instruction />
+  </div>
 </template>
 
 <script>
 import { Glide, GlideSlide } from "vue-glide-js";
+import Instruction from '../containers/Introduction'
 
 export default {
   components: {
     "vue-glide": Glide,
-    "vue-glide-slide": GlideSlide
+    "vue-glide-slide": GlideSlide,
+    "instruction": Instruction
   },
   data() {
     return {
