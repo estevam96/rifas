@@ -57,7 +57,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_glide_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-glide-js */ "./node_modules/vue-glide-js/dist/vue-glide.common.js");
 /* harmony import */ var vue_glide_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_glide_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _containers_Introduction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../containers/Introduction */ "./resources/js/src/containers/Introduction.vue");
+/* harmony import */ var hooper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! hooper */ "./node_modules/hooper/dist/hooper.esm.js");
+/* harmony import */ var hooper_dist_hooper_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! hooper/dist/hooper.css */ "./node_modules/hooper/dist/hooper.css");
+/* harmony import */ var hooper_dist_hooper_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(hooper_dist_hooper_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _containers_Introduction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../containers/Introduction */ "./resources/js/src/containers/Introduction.vue");
 //
 //
 //
@@ -152,28 +155,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     "vue-glide": vue_glide_js__WEBPACK_IMPORTED_MODULE_0__["Glide"],
     "vue-glide-slide": vue_glide_js__WEBPACK_IMPORTED_MODULE_0__["GlideSlide"],
-    "instruction": _containers_Introduction__WEBPACK_IMPORTED_MODULE_1__["default"]
+    "instruction": _containers_Introduction__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Hooper: hooper__WEBPACK_IMPORTED_MODULE_1__["Hooper"],
+    Slide: hooper__WEBPACK_IMPORTED_MODULE_1__["Slide"],
+    HooperPagination: hooper__WEBPACK_IMPORTED_MODULE_1__["Pagination"],
+    HooperNavigation: hooper__WEBPACK_IMPORTED_MODULE_1__["Navigation"]
   },
   data: function data() {
     return {
@@ -219,7 +213,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.banner {\n  background-repeat: round;\n  height: 480px;\n  width: 100%;\n}\n.num{\n    color: white;\n    font-size: x-large;\n    font-weight: bold;\n}\n.number{\n    width: 50px;\n    height: 50px;\n    border-radius: 50%;\n}\n.instruction{\n    height: 100px;\n    display: flex;\n    align-items: center;\n}\n.instruction p {\n    text-align: justify;\n    font-size: 15px;\n}\nh4 {\n  color: #ffffff;\n}\n", ""]);
+exports.push([module.i, "\n.customCarousel{\n  height: auto;\n}\n.bannerBackground {\n    background-repeat: no-repeat;\n    background-size: cover;\n    background-position: center center;\n}\n.banner{\n  height: 50vh;\n}\n@media only screen and (max-width: 600px) {\n.banner{\n  height: 20vh;\n}\n}\n.num{\n    color: white;\n    font-size: x-large;\n    font-weight: bold;\n}\n.number{\n    width: 50px;\n    height: 50px;\n    border-radius: 50%;\n}\n.instruction{\n    height: 100px;\n    display: flex;\n    align-items: center;\n}\n.instruction p {\n    text-align: justify;\n    font-size: 15px;\n}\nh4 {\n  color: #ffffff;\n}\n", ""]);
 
 // exports
 
@@ -371,77 +365,94 @@ var render = function() {
         "div",
         [
           _c(
-            "b-carousel",
-            {
-              attrs: {
-                id: "carousel",
-                fade: "",
-                indicators: "",
-                interval: 3000,
-                background: "#ababab",
-                "img-width": "1024",
-                "img-height": "480"
-              },
-              on: {
-                "sliding-start": _vm.onSlideStart,
-                "sliding-end": _vm.onSlideEnd
-              },
-              model: {
-                value: _vm.slide,
-                callback: function($$v) {
-                  _vm.slide = $$v
-                },
-                expression: "slide"
-              }
-            },
+            "hooper",
+            { staticClass: "customCarousel", attrs: { infiniteScroll: true } },
             [
-              _c("b-carousel-slide", {
-                scopedSlots: _vm._u([
-                  {
-                    key: "img",
-                    fn: function() {
-                      return [
-                        _c("img", {
-                          staticClass: "d-block img-fluid w-100",
-                          attrs: {
-                            width: "1024",
-                            height: "480",
-                            src:
-                              "https://www.rifasdovale.com.br/images/slider/rifasdovale_1588472510.jpg",
-                            alt: "image slot"
-                          }
-                        })
+              _vm._l(5, function(slide, indx) {
+                return _c(
+                  "slide",
+                  { key: "id-" + indx, attrs: { index: indx } },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "bannerBackground",
+                        style:
+                          "background-image: url(https://picsum.photos/900/250/?image=" +
+                          (indx + 5) +
+                          ")"
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "banner container " },
+                          [
+                            _c(
+                              "b-row",
+                              {
+                                staticClass: "h-100 d-flex align-items-center"
+                              },
+                              [
+                                _c(
+                                  "b-col",
+                                  { attrs: { cols: "6" } },
+                                  [
+                                    _c(
+                                      "h3",
+                                      {
+                                        staticClass:
+                                          "text-white text-uppercase",
+                                        staticStyle: { "font-size": "5vw" }
+                                      },
+                                      [_vm._v("Rifa Gol GTI 2020 ")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "b-button",
+                                      {
+                                        attrs: {
+                                          variant: "outline-light",
+                                          to: "/draw/show/" + _vm.index
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "b",
+                                          { staticClass: "text-uppercase" },
+                                          [
+                                            _vm._v(
+                                              "\n                    compra rifa\n                    "
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
                       ]
-                    },
-                    proxy: true
-                  }
-                ])
+                    )
+                  ]
+                )
               }),
               _vm._v(" "),
-              _c("b-carousel-slide", {
-                scopedSlots: _vm._u([
-                  {
-                    key: "img",
-                    fn: function() {
-                      return [
-                        _c("img", {
-                          staticClass: "d-block img-fluid w-100",
-                          attrs: {
-                            width: "1024",
-                            height: "480",
-                            src:
-                              "https://www.rifasdovale.com.br/images/slider/rifasdovale_1588641071.jpg",
-                            alt: "image slot"
-                          }
-                        })
-                      ]
-                    },
-                    proxy: true
-                  }
-                ])
+              _c("hooper-pagination", {
+                attrs: { slot: "hooper-addons" },
+                slot: "hooper-addons"
+              }),
+              _vm._v(" "),
+              _c("hooper-navigation", {
+                attrs: { slot: "hooper-addons" },
+                slot: "hooper-addons"
               })
             ],
-            1
+            2
           )
         ],
         1

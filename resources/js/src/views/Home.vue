@@ -1,41 +1,26 @@
 <template>
   <div>
     <div>
-      <b-carousel
-        id="carousel"
-        v-model="slide"
-        fade
-        indicators
-        :interval="3000"
-        background="#ababab"
-        img-width="1024"
-        img-height="480"
-        @sliding-start="onSlideStart"
-        @sliding-end="onSlideEnd"
-      >
-        <b-carousel-slide>
-          <template v-slot:img>
-            <img
-              class="d-block img-fluid w-100"
-              width="1024"
-              height="480"
-              src="https://www.rifasdovale.com.br/images/slider/rifasdovale_1588472510.jpg"
-              alt="image slot"
-            />
-          </template>
-        </b-carousel-slide>
-        <b-carousel-slide>
-          <template v-slot:img>
-            <img
-              class="d-block img-fluid w-100"
-              width="1024"
-              height="480"
-              src="https://www.rifasdovale.com.br/images/slider/rifasdovale_1588641071.jpg"
-              alt="image slot"
-            />
-          </template>
-        </b-carousel-slide>
-      </b-carousel>
+      <hooper :infiniteScroll="true" class="customCarousel">
+        <slide v-for="(slide, indx) in 5" :key="`id-${indx}`" :index="indx">
+          <div class="bannerBackground" :style="`background-image: url(https://picsum.photos/900/250/?image=${indx + 5})`">
+            <div class="banner container " >
+              <b-row class="h-100 d-flex align-items-center">
+                <b-col cols="6">
+                  <h3 class="text-white text-uppercase" style="font-size: 5vw">Rifa Gol GTI 2020 </h3>
+                  <b-button variant="outline-light" :to="`/draw/show/${index}`">
+                    <b class="text-uppercase">
+                      compra rifa
+                      </b>
+                    </b-button>
+                </b-col>
+              </b-row>
+            </div>
+          </div>
+        </slide>
+        <hooper-pagination slot="hooper-addons"></hooper-pagination>
+        <hooper-navigation slot="hooper-addons"></hooper-navigation>
+      </hooper>
     </div>
     <div class="container mt-1">
         <b-row>
@@ -109,13 +94,26 @@
 
 <script>
 import { Glide, GlideSlide } from "vue-glide-js";
+
+import {
+  Hooper,
+  Slide,
+  Pagination as HooperPagination,
+  Navigation as HooperNavigation
+} from 'hooper';
+import 'hooper/dist/hooper.css';
+
 import Instruction from '../containers/Introduction'
 
 export default {
   components: {
     "vue-glide": Glide,
     "vue-glide-slide": GlideSlide,
-    "instruction": Instruction
+    "instruction": Instruction,
+    Hooper,
+    Slide,
+    HooperPagination,
+    HooperNavigation
   },
   data() {
     return {
@@ -149,10 +147,21 @@ export default {
 </script>
 
 <style>
-.banner {
-  background-repeat: round;
-  height: 480px;
-  width: 100%;
+.customCarousel{
+  height: auto;
+}
+.bannerBackground {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.banner{
+  height: 50vh;
+}
+@media only screen and (max-width: 600px) {
+  .banner{
+  height: 20vh;
+}
 }
 .num{
     color: white;

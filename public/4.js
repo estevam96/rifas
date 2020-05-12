@@ -99,7 +99,7 @@ var render = function() {
                         "router-link",
                         {
                           staticClass: "btn btn-success btn-block rounded-pill",
-                          attrs: { to: "/draw" }
+                          attrs: { to: "/draw/show/" + index }
                         },
                         [
                           _c("b", { staticClass: "text-uppercase" }, [
@@ -116,7 +116,7 @@ var render = function() {
                         "router-link",
                         {
                           staticClass: "btn btn-danger btn-block rounded-pill",
-                          attrs: { to: "/draw" }
+                          attrs: { to: "/draw/show/" + index }
                         },
                         [
                           _c("b", { staticClass: "text-uppercase" }, [
