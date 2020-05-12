@@ -3,12 +3,12 @@
     <div>
       <hooper :infiniteScroll="true" class="customCarousel">
         <slide v-for="(slide, indx) in 5" :key="`id-${indx}`" :index="indx">
-          <div class="bannerBackground" :style="`background-image: url(https://picsum.photos/900/250/?image=${indx + 5})`">
+          <div class="bannerBackground" :style="`background-image: url(https://picsum.photos/900/250/?image=${indx + 4})`">
             <div class="banner container " >
               <b-row class="h-100 d-flex align-items-center">
                 <b-col cols="6">
                   <h3 class="text-white text-uppercase" style="font-size: 5vw">Rifa Gol GTI 2020 </h3>
-                  <b-button variant="outline-light" :to="`/draw/show/${index}`">
+                  <b-button variant="outline-light" :to="`/draw/show/${indx}`">
                     <b class="text-uppercase">
                       compra rifa
                       </b>

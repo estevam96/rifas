@@ -36,6 +36,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -290,31 +296,54 @@ var render = function() {
                 _c(
                   "b-row",
                   [
-                    _c("b-col", { staticClass: "d-flex justify-content-end" }, [
-                      _c(
-                        "p",
-                        { staticClass: "m-1 text-light" },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fa", "envelope"] }
-                          }),
-                          _vm._v(" administrador@gmail.com")
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        { staticClass: "m-1 text-light" },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fab", "whatsapp"] }
-                          }),
-                          _vm._v(" +55 88 0000-0000")
-                        ],
-                        1
-                      )
-                    ])
+                    _c(
+                      "b-col",
+                      { staticClass: "d-flex justify-content-end" },
+                      [
+                        _c(
+                          "b-col",
+                          {
+                            staticClass: "d-flex justify-content-end",
+                            attrs: { lg: "6" }
+                          },
+                          [
+                            _c(
+                              "p",
+                              { staticClass: "m-1 text-light" },
+                              [
+                                _c("font-awesome-icon", {
+                                  attrs: { icon: ["fa", "envelope"] }
+                                }),
+                                _vm._v(" administrador@gmail.com")
+                              ],
+                              1
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "b-col",
+                          {
+                            staticClass: "d-flex justify-content-end",
+                            attrs: { lg: "6" }
+                          },
+                          [
+                            _c(
+                              "p",
+                              { staticClass: "m-1 text-light" },
+                              [
+                                _c("font-awesome-icon", {
+                                  attrs: { icon: ["fab", "whatsapp"] }
+                                }),
+                                _vm._v(" +55 88 0000-0000")
+                              ],
+                              1
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    )
                   ],
                   1
                 )

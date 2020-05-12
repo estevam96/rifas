@@ -15,8 +15,14 @@
               </b-row>
               <b-row>
                 <b-col class="d-flex justify-content-end">
-                    <p class="m-1 text-light"><font-awesome-icon :icon="['fa', 'envelope']" /> administrador@gmail.com</p>
-                    <p class="m-1 text-light"><font-awesome-icon :icon="['fab', 'whatsapp']" /> +55 88 0000-0000</p>
+
+                    <b-col lg="6" class="d-flex justify-content-end">
+                      <p class="m-1 text-light"><font-awesome-icon :icon="['fa', 'envelope']" /> administrador@gmail.com</p>
+                    </b-col>
+                    <b-col lg="6" class="d-flex justify-content-end">
+                      <p class="m-1 text-light"><font-awesome-icon :icon="['fab', 'whatsapp']" /> +55 88 0000-0000</p>
+                    </b-col>
+                  
                 </b-col>
               </b-row>
           </b-col>

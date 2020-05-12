@@ -379,7 +379,7 @@ var render = function() {
                         staticClass: "bannerBackground",
                         style:
                           "background-image: url(https://picsum.photos/900/250/?image=" +
-                          (indx + 5) +
+                          (indx + 4) +
                           ")"
                       },
                       [
@@ -412,7 +412,7 @@ var render = function() {
                                       {
                                         attrs: {
                                           variant: "outline-light",
-                                          to: "/draw/show/" + _vm.index
+                                          to: "/draw/show/" + indx
                                         }
                                       },
                                       [
