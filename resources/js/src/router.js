@@ -16,7 +16,7 @@ const routes = [
             {
               path: 'draw',
               redirect: 'draw/list',
-              component: () => import(/* webpackChunkName: "app" */'./views/Draw'),
+              component: () => import(/* webpackChunkName: "draw" */'./views/Draw'),
               children: [
                 { path: 'list', component: () => import('./views/Draw/Draw.vue') },
                 { path: 'show/:id', component: () => import('./views/Draw/Draw-show.vue'), }
@@ -30,8 +30,12 @@ const routes = [
               path: 'contact',
               component: () => import('./views/Contact.vue')
             }
-        ]
-    }
+        ],
+      },
+      {
+        path: '/login',
+        component: () => import(/* webpackChunkName: "login" */'./views/Login')
+      },
 ];
 
 const router = new VueRouter({

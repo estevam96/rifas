@@ -10,7 +10,7 @@
 
     <title>Rifas</title>
     <!-- Styles -->
-
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('images/logo/favicon.png') }}">
 </head>
@@ -23,7 +23,7 @@
     </div>
 
     <!-- <script src="js/app.js"></script> -->
-    <script src="{{ secure_asset(mix('js/app.js')) }}"></script>
+    <script src="{{ asset(mix('js/app.js')) }}"></script>
 
 </body>
 
