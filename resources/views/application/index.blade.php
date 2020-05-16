@@ -12,7 +12,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('images/logo/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ secure_asset('images/logo/favicon.png') }}">
 </head>
 
 <body>
