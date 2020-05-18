@@ -3,14 +3,14 @@
   <b-col xs="4" md="6" class="mx-auto my-auto">
     <b-card no-body>
       <div class="form-side">
-      <b-form title="Login">
+      <b-form @submit.prevent="formSubmit" title="Login">
         <b-form-group label="E-mail">
           <b-form-input type="email" v-model="form.email"/>
         </b-form-group>
         <b-form-group label="Senha">
           <b-form-input type="password" v-model="form.password"/>
         </b-form-group>
-        <b-button >
+        <b-button  type="submit" >
           <b>Entra</b>
         </b-button>
       </b-form>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 export default {
 data() {
   return {
@@ -30,6 +31,15 @@ data() {
     }
   }
 },
+methods:{
+  ...mapActions(['login']),
+  formSubmit(){
+    this.login({
+      email: this.form.email,
+      password: this.form.password,
+    });
+  }
+}
 }
 </script>
 
