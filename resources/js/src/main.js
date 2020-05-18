@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import router from './router';
+import store from './store';
 
 import VueGlide from 'vue-glide-js'
 import 'vue-glide-js/dist/vue-glide.css'
@@ -28,5 +29,6 @@ Vue.use(BootstrapVueIcons)
 
 export default new Vue({
     router,
+    store,
     render: h => h(App)
 }).$mount('#app')
