@@ -1,47 +1,57 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import AuthRequire from './util/AuthRequire';
 
 Vue.use(VueRouter);
 
 const routes = [
-    {
-        path: '/',
-        component: () => import(/* webpackChunkName: "app" */ './views'),
-        redirect: '/home',
-        children: [
-            {
-              path: 'home',
-              component: () => import('./views/Home.vue')
-            },
-            {
-              path: 'draw',
-              redirect: 'draw/list',
-              component: () => import(/* webpackChunkName: "draw" */'./views/Draw'),
-              children: [
-                { path: 'list', component: () => import('./views/Draw/Draw.vue') },
-                { path: 'show/:id', component: () => import('./views/Draw/Draw-show.vue'), }
-              ]
-            },
-            {
-              path: 'payment',
-              component: () => import('./views/Payment.vue')
-            },
-            {
-              path: 'contact',
-              component: () => import('./views/Contact.vue')
-            }
-        ],
+  {
+    path: '/painel',
+    component: () => import(/* webpackChunkName: "painel" */ './views/Painel'),
+    redirect: '/painel/home',
+    beforeEnter: AuthRequire,
+    children: [
+      { path: 'home', component: () => import(/* webpackChunkName: "painel-home" */ './views/Painel/Home.vue'), }
+    ]
+  },
+  {
+    path: '/',
+    component: () => import(/* webpackChunkName: "app" */ './views'),
+    redirect: '/home',
+    children: [
+      {
+        path: 'home',
+        component: () => import('./views/Home.vue')
       },
       {
-        path: '/login',
-        component: () => import(/* webpackChunkName: "login" */'./views/Login')
+        path: 'draw',
+        redirect: 'draw/list',
+        component: () => import(/* webpackChunkName: "draw" */'./views/Draw'),
+        children: [
+          { path: 'list', component: () => import('./views/Draw/Draw.vue') },
+          { path: 'show/:id', component: () => import('./views/Draw/Draw-show.vue'), }
+        ]
       },
+      {
+        path: 'payment',
+        component: () => import('./views/Payment.vue')
+      },
+      {
+        path: 'contact',
+        component: () => import('./views/Contact.vue')
+      }
+    ],
+  },
+  {
+    path: '/login',
+    component: () => import(/* webpackChunkName: "login" */'./views/Login')
+  },
 ];
 
 const router = new VueRouter({
-    linkActiveClass: "active",
-    routes,
-    mode: "history"
+  linkActiveClass: "active",
+  routes,
+  mode: "history"
 });
 
 export default router;

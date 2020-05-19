@@ -3,5 +3,7 @@
     "/css/app.css": "/css/app.css",
     "/app.js": "/app.js",
     "/draw.js": "/draw.js",
-    "/login.js": "/login.js"
+    "/login.js": "/login.js",
+    "/painel.js": "/painel.js",
+    "/painel-home.js": "/painel-home.js"
 }
