@@ -1,8 +1,8 @@
-import { Auth } from '../../api'
+import { Auth, User, applyAuthHeader } from '../../api'
 
 export default {
   state: {
-    currentUser:  localStorage.getItem('user') != null ? JSON.parse(localStorage.getItem('user')) : null,
+    currentUser: localStorage.getItem('user') != null ? JSON.parse(localStorage.getItem('user')) : null,
     processing: false,
   },
   getters: {
@@ -22,15 +22,26 @@ export default {
     },
   },
   actions: {
-    async login({commit}, payload){
+    async login({ commit }, payload) {
       await Auth.login(
         payload.email,
         payload.password
-      ).then(({data}) => {
+      ).then(async ({ data }) => {
         localStorage.setItem('app_token', data.access_token);
         localStorage.setItem('reflesh_token', data.refresh_token);
-      }).catch(erro =>{
-        console.log(erro);
+        applyAuthHeader();
+        await User.me().then(response => {
+          const user = {
+            id: response.data.id,
+            name: response.data.name,
+            role: response.data.role,
+          }
+          localStorage.setItem('user', JSON.stringify(user));
+          commit('setUser', user);
+        })
+      }).catch(erro => {
+        localStorage.removeItem('app_token');
+        localStorage.removeItem('reflesh_token');
       })
     }
   }

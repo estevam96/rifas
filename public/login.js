@@ -43,19 +43,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       form: {
-        email: '',
-        password: ''
+        email: "",
+        password: ""
       }
     };
   },
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['login'])), {}, {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["currentUser"])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["login"])), {}, {
     formSubmit: function formSubmit() {
       this.login({
         email: this.form.email,
         password: this.form.password
       });
     }
-  })
+  }),
+  watch: {
+    currentUser: function currentUser(val) {
+      var _this = this;
+
+      if (val && val.id) {
+        setTimeout(function () {
+          _this.$router.push("/painel");
+        }, 200);
+      }
+    }
+  }
 });
 
 /***/ }),

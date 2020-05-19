@@ -15,13 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+  return $request->user();
 });
 
 Route::apiResources([
-    'raffle' => 'api\RaffleController',
-    'orders' => 'api\OrderController'
+  'raffle' => 'api\RaffleController',
+  'orders' => 'api\OrderController'
 ]);
+Route::prefix('users')->middleware(['auth:api'])->group(function () {
+  Route::apiResource('/', 'api\UserController');
+  Route::get('/me', 'api\UserController@me');
+});
 
 Route::apiResource('tickets', 'api\TicketController')->except(['index']);
 
