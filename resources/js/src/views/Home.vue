@@ -182,7 +182,4 @@ export default {
     text-align: justify;
     font-size: 15px;
 }
-h4 {
-  color: #ffffff;
-}
 </style>
