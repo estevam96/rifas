@@ -18,6 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
   return $request->user();
 });
 
+Route::middleware(['auth:api'])->group(function () {
+  Route::get('raffle/avaliable', 'api\RaffleController@valiables');
+});
+
 Route::apiResources([
   'raffle' => 'api\RaffleController',
   'orders' => 'api\OrderController'
@@ -32,3 +36,4 @@ Route::apiResource('tickets', 'api\TicketController')->except(['index']);
 Route::get('tickets/raffle/{raffleId}', 'api\TicketController@index')->name('tickets.raffle.index');
 
 Route::apiResource('payment', 'api\PaymentController')->except(['show']);
+
