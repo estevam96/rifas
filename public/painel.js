@@ -344,7 +344,7 @@ var render = function() {
       _c("side-bar"),
       _vm._v(" "),
       _c("main", [
-        _c("div", { staticClass: "container" }, [_c("router-view")], 1)
+        _c("div", { staticClass: "container mt-5" }, [_c("router-view")], 1)
       ])
     ],
     1

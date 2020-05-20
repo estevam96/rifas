@@ -17,6 +17,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab, } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import moment from 'moment';
+require('moment/locale/pt-br')
 
 library.add(fab, fas);
 
@@ -25,6 +27,9 @@ Vue.component('vue-perfect-scrollbar', vuePerfectScrollbar);
 Vue.use(VueGlide)
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
+Vue.use(require('vue-moment'), {
+  moment
+})
 
 
 export default new Vue({

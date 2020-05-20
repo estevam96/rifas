@@ -213,7 +213,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.customCarousel{\n  height: auto;\n}\n.bannerBackground {\n    background-repeat: no-repeat;\n    background-size: cover;\n    background-position: center center;\n}\n.banner{\n  height: 50vh;\n}\n@media only screen and (max-width: 600px) {\n.banner{\n  height: 20vh;\n}\n}\n.num{\n    color: white;\n    font-size: x-large;\n    font-weight: bold;\n}\n.number{\n    width: 50px;\n    height: 50px;\n    border-radius: 50%;\n}\n.instruction{\n    height: 100px;\n    display: flex;\n    align-items: center;\n}\n.instruction p {\n    text-align: justify;\n    font-size: 15px;\n}\nh4 {\n  color: #ffffff;\n}\n", ""]);
+exports.push([module.i, "\n.customCarousel{\n  height: auto;\n}\n.bannerBackground {\n    background-repeat: no-repeat;\n    background-size: cover;\n    background-position: center center;\n}\n.banner{\n  height: 50vh;\n}\n@media only screen and (max-width: 600px) {\n.banner{\n  height: 20vh;\n}\n}\n.num{\n    color: white;\n    font-size: x-large;\n    font-weight: bold;\n}\n.number{\n    width: 50px;\n    height: 50px;\n    border-radius: 50%;\n}\n.instruction{\n    height: 100px;\n    display: flex;\n    align-items: center;\n}\n.instruction p {\n    text-align: justify;\n    font-size: 15px;\n}\n", ""]);
 
 // exports
 
