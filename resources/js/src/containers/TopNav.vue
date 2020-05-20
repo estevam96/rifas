@@ -6,10 +6,22 @@
       <b-collapse id="nav-collapse" is-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-            <b-nav-item to="/home"><b class="text-light">Inicio</b></b-nav-item>
-            <b-nav-item to="/draw"><b class="text-light">Sorteios</b></b-nav-item>
-            <b-nav-item to="/payment"><b class="text-light">Como Pagar</b></b-nav-item>
-            <b-nav-item to="/contact"><b class="text-light">Fale conosco</b></b-nav-item>
+          <b-nav-item to="/home"><b class="text-light">Inicio</b></b-nav-item>
+          <b-nav-item to="/draw"><b class="text-light">Sorteios</b></b-nav-item>
+          <b-nav-item to="/payment"
+            ><b class="text-light">Como Pagar</b></b-nav-item
+          >
+          <b-nav-item to="/contact"
+            ><b class="text-light">Fale conosco</b></b-nav-item
+          >
+          <b-nav-item-dropdown right v-if="currentUser">
+            <!-- Using 'button-content' slot -->
+            <template v-slot:button-content>
+              {{ currentUser.name }}
+            </template>
+            <b-dropdown-item to="/painel">Painel</b-dropdown-item>
+            <b-dropdown-item @click="logout">Sair</b-dropdown-item>
+          </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -17,14 +29,27 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters, mapActions } from "vuex";
+export default {
+  computed: {
+    ...mapGetters(["currentUser"])
+  },
+  methods: {
+    ...mapActions(['signOut']),
+    logout(){
+      this.signOut().then(() => {
+        this.$router.push("/login");
+      })
+    }
+  }
+};
 </script>
 
 <style>
 .navbar {
-    min-height: 80px;
+  min-height: 80px;
 }
-.custom-bg{
-    background-color: black !important;
+.custom-bg {
+  background-color: black !important;
 }
 </style>

@@ -20,6 +20,11 @@ export default {
       state.processing = false
       state.loginError = null
     },
+    setLogout(state) {
+      state.currentUser = null
+      state.processing = false
+      state.loginError = null
+    },
   },
   actions: {
     async login({ commit }, payload) {
@@ -43,6 +48,14 @@ export default {
         localStorage.removeItem('app_token');
         localStorage.removeItem('reflesh_token');
       })
+    },
+
+    signOut({ commit }) {
+      localStorage.removeItem('user');
+      localStorage.removeItem('app_token');
+      localStorage.removeItem('reflesh_token');
+      applyAuthHeader()
+      commit('setLogout')
     }
   }
 }

@@ -55,6 +55,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -73,7 +80,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["currentUser"])),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['signOut'])), {}, {
+    logout: function logout() {
+      var _this = this;
+
+      this.signOut().then(function () {
+        _this.$router.push("/login");
+      });
+    }
+  })
+});
 
 /***/ }),
 
@@ -141,7 +172,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.navbar {\n    min-height: 80px;\n}\n.custom-bg{\n    background-color: black !important;\n}\n", ""]);
+exports.push([module.i, "\n.navbar {\n  min-height: 80px;\n}\n.custom-bg {\n  background-color: black !important;\n}\n", ""]);
 
 // exports
 
@@ -420,7 +451,47 @@ var render = function() {
                     _c("b", { staticClass: "text-light" }, [
                       _vm._v("Fale conosco")
                     ])
-                  ])
+                  ]),
+                  _vm._v(" "),
+                  _vm.currentUser
+                    ? _c(
+                        "b-nav-item-dropdown",
+                        {
+                          attrs: { right: "" },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "button-content",
+                                fn: function() {
+                                  return [
+                                    _vm._v(
+                                      "\n            " +
+                                        _vm._s(_vm.currentUser.name) +
+                                        "\n          "
+                                    )
+                                  ]
+                                },
+                                proxy: true
+                              }
+                            ],
+                            null,
+                            false,
+                            2394284307
+                          )
+                        },
+                        [
+                          _vm._v(" "),
+                          _c("b-dropdown-item", { attrs: { to: "/painel" } }, [
+                            _vm._v("Painel")
+                          ]),
+                          _vm._v(" "),
+                          _c("b-dropdown-item", { on: { click: _vm.logout } }, [
+                            _vm._v("Sair")
+                          ])
+                        ],
+                        1
+                      )
+                    : _vm._e()
                 ],
                 1
               )

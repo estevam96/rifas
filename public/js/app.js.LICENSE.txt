@@ -24,6 +24,12 @@
  * @license MIT
  */
 
+/*!
+ * vuex v3.4.0
+ * (c) 2020 Evan You
+ * @license MIT
+ */
+
 /*! 
   * portal-vue © Thorsten Lünborg, 2019 
   * 
