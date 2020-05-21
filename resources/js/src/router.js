@@ -12,7 +12,7 @@ const routes = [
     beforeEnter: AuthRequire,
     children: [
       { path: 'home', component: () => import(/* webpackChunkName: "painel-home" */ './views/Painel/Home.vue'), },
-      { path: 'draw', component: () => import(/* webpackChunkName: "painel-draw" */ './views/Painel/Raffle/list.vue'), },
+      { path: 'raffle', component: () => import(/* webpackChunkName: "painel-draw" */ './views/Painel/Raffle/list.vue'), },
     ]
   },
   {

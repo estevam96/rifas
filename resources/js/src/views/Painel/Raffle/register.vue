@@ -2,6 +2,7 @@
   <b-modal
     ref="registemodal"
     :size="modal.size"
+    scrollable
     :title-html="`<h1><b>${modal.title}</b></h1>`"
     hide-footer
     class="p-2"
@@ -87,7 +88,7 @@
 
 <script>
 import { Raffle } from "../../../api";
-import moment from 'moment';
+import moment from "moment";
 export default {
   data() {
     return {
@@ -105,7 +106,6 @@ export default {
         modules: {
           toolbar: [
             ["bold", "italic", "underline", "strike"],
-            ["blockquote"],
             [{ header: 1 }, { header: 2 }],
             [{ list: "ordered" }, { list: "bullet" }],
             [{ indent: "-1" }, { indent: "+1" }],
@@ -128,7 +128,10 @@ export default {
       data.append("tickets", this.raffle.tickets);
       data.append("ticket-price", this.raffle.ticket_price);
       data.append("description", this.raffle.description);
-      data.append("draw-day", moment(this.raffle.draw_day).format('YYYY-MM-DD'));
+      data.append(
+        "draw-day",
+        moment(this.raffle.draw_day).format("YYYY-MM-DD")
+      );
       data.append("banner", this.file);
 
       await Raffle.store(data).then(() => {

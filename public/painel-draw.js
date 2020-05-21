@@ -254,6 +254,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -271,7 +272,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       },
       editorOption: {
         modules: {
-          toolbar: [["bold", "italic", "underline", "strike"], ["blockquote"], [{
+          toolbar: [["bold", "italic", "underline", "strike"], [{
             header: 1
           }, {
             header: 2
@@ -313,7 +314,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 data.append("tickets", _this.raffle.tickets);
                 data.append("ticket-price", _this.raffle.ticket_price);
                 data.append("description", _this.raffle.description);
-                data.append("draw-day", moment__WEBPACK_IMPORTED_MODULE_2___default()(_this.raffle.draw_day).format('YYYY-MM-DD'));
+                data.append("draw-day", moment__WEBPACK_IMPORTED_MODULE_2___default()(_this.raffle.draw_day).format("YYYY-MM-DD"));
                 data.append("banner", _this.file);
                 _context.next = 9;
                 return _api__WEBPACK_IMPORTED_MODULE_1__["Raffle"].store(data).then(function () {
@@ -378,13 +379,13 @@ var render = function() {
     [
       _c("registe-modal", { ref: "registe", on: { update: _vm.updateTable } }),
       _vm._v(" "),
-      _c("b-col", { attrs: { xl: "6" } }, [
+      _c("b-col", { attrs: { sm: "6" } }, [
         _c("h4", { staticClass: "text-uppercase" }, [_vm._v("Rifas")])
       ]),
       _vm._v(" "),
       _c(
         "b-col",
-        { attrs: { xl: "6" } },
+        { staticClass: "d-flex justify-content-end mb-2", attrs: { sm: "6" } },
         [
           _c(
             "b-button",
@@ -552,6 +553,7 @@ var render = function() {
       staticClass: "p-2",
       attrs: {
         size: _vm.modal.size,
+        scrollable: "",
         "title-html": "<h1><b>" + _vm.modal.title + "</b></h1>",
         "hide-footer": ""
       }

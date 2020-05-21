@@ -1,10 +1,10 @@
 <template>
   <b-row>
     <registe-modal ref="registe" @update="updateTable" />
-    <b-col xl="6">
+    <b-col sm="6">
       <h4 class="text-uppercase">Rifas</h4>
     </b-col>
-    <b-col xl="6">
+    <b-col sm="6" class="d-flex justify-content-end mb-2">
       <b-button variant="info" @click="$refs.registe.show()"
         ><b>CADASTRA</b>
       </b-button>
