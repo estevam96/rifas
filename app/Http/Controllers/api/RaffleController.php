@@ -16,10 +16,12 @@ class RaffleController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function index()
+  public function index(Request $request)
   {
     try {
-      $raffle = Raffle::all();
+      $perPage = $request->query('perPage', 10);
+      $raffle = Raffle::orderBy('created_at', 'asc')
+        ->paginate(intval($perPage));
       return Response()->json($raffle, 200);
     } catch (BadRequestHttpException $ex) {
       return Response()->json($ex, 400);

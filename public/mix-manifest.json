@@ -5,5 +5,6 @@
     "/draw.js": "/draw.js",
     "/login.js": "/login.js",
     "/painel.js": "/painel.js",
+    "/painel-draw.js": "/painel-draw.js",
     "/painel-home.js": "/painel-home.js"
 }

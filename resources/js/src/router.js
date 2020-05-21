@@ -11,7 +11,8 @@ const routes = [
     redirect: '/painel/home',
     beforeEnter: AuthRequire,
     children: [
-      { path: 'home', component: () => import(/* webpackChunkName: "painel-home" */ './views/Painel/Home.vue'), }
+      { path: 'home', component: () => import(/* webpackChunkName: "painel-home" */ './views/Painel/Home.vue'), },
+      { path: 'draw', component: () => import(/* webpackChunkName: "painel-draw" */ './views/Painel/Raffle/list.vue'), },
     ]
   },
   {
