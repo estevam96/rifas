@@ -57,9 +57,9 @@ class RaffleController extends Controller
       $rules = [
         'banner' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         'title' => 'required',
-        'draw-day' => 'required|date|after:today',
+        'draw_day' => 'required|date|after:today',
         'tickets' => 'required|numeric',
-        'ticket-price' => 'required',
+        'price' => 'required',
         'description' => '',
       ];
 
@@ -70,9 +70,9 @@ class RaffleController extends Controller
 
       $data = $request->only([
         'title',
-        'draw-day',
+        'draw_day',
         'tickets',
-        'ticket-price',
+        'price',
         'description',
         'banner'
       ]);
@@ -118,8 +118,8 @@ class RaffleController extends Controller
       $rules = [
         'banner' => 'image|mimes:jpeg,png,jpg|max:2048',
         'title' => '',
-        'draw-day' => 'date|after:today',
-        'ticket-price' => '',
+        'draw_day' => 'date|after:today',
+        'price' => '',
         'description' => '',
       ];
 
@@ -135,8 +135,8 @@ class RaffleController extends Controller
 
       $data = $request->only([
         'title',
-        'draw-day',
-        'ticket-price',
+        'draw_day',
+        'price',
         'description',
       ]);
 

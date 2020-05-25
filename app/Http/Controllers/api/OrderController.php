@@ -41,9 +41,7 @@ class OrderController extends Controller
         try {
             $rules = [
                 'name' => 'required|string',
-                'cpf' => 'required',
                 'phone' => 'required',
-                'birth' => 'required|date',
                 'tickets' => 'required|array',
                 'raffle_id' => 'required|uuid'
             ];
@@ -56,9 +54,7 @@ class OrderController extends Controller
 
             $data = $request->only([
                 'name',
-                'cpf',
                 'phone',
-                'birth',
                 'tickets',
                 'raffle_id'
             ]);
@@ -70,10 +66,8 @@ class OrderController extends Controller
 
             $order = Order::create([
                 'name' => $data['name'],
-                'cpf' => $data['cpf'],
                 'phone' => $data['phone'],
-                'birth' => $data['birth'],
-                'value-total' => count($data['tickets']) * $raffle['ticket-price'],
+                'value_total' => count($data['tickets']) * $raffle['ticket-price'],
                 'raffle_id' => $data['raffle_id']
             ]);
 
@@ -107,7 +101,7 @@ class OrderController extends Controller
                 'phone',
                 'birth',
                 'status',
-                'value-total'
+                'value_total'
             )->with('tickets:id,ticket,status,order_id')->find($id);
             if ($order == NULL) {
                 return Response()->json(['message' => 'Order not found'], 401);

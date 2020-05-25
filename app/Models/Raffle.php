@@ -18,9 +18,9 @@ class Raffle extends Model
     public $fillable = [
         'banner',
         'title',
-        'draw-day',
+        'draw_day',
         'tickets',
-        'ticket-price',
+        'price',
         'description',
     ];
 
