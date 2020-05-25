@@ -11,8 +11,8 @@ class AuthServe extends Service {
       url: '/',
       data: {
         grant_type: "password",
-        client_id: 2,
-        client_secret: "PC8Hx05NaVCpDy3O7SUwE38JtyJYXVVjfOExZH7E",
+        client_id: process.env.MIX_CLIENT_ID,
+        client_secret: process.env.MIX_CLIENT_SECRET,
         username: email,
         password: password
       }
