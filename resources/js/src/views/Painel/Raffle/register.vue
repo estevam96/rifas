@@ -31,7 +31,7 @@
         </b-col>
         <b-col md="12">
           <b-form-group label="Preço do ticket">
-            <b-input type="number" v-model="raffle.ticket_price" />
+            <b-input type="number" v-model="raffle.price" />
           </b-form-group>
         </b-col>
         <b-col md="12">
@@ -126,10 +126,10 @@ export default {
 
       data.append("title", this.raffle.title);
       data.append("tickets", this.raffle.tickets);
-      data.append("ticket-price", this.raffle.ticket_price);
+      data.append("price", this.raffle.price);
       data.append("description", this.raffle.description);
       data.append(
-        "draw-day",
+        "draw_day",
         moment(this.raffle.draw_day).format("YYYY-MM-DD")
       );
       data.append("banner", this.file);

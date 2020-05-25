@@ -81,7 +81,7 @@ export default {
           sortable: true
         },
         {
-          key: "draw-day",
+          key: "draw_day",
           label: "Dia Sorteio",
           sortable: true
         },

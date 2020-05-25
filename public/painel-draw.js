@@ -97,7 +97,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         label: "Data de Cadastro",
         sortable: true
       }, {
-        key: "draw-day",
+        key: "draw_day",
         label: "Dia Sorteio",
         sortable: true
       }, {
@@ -312,9 +312,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 data = new FormData();
                 data.append("title", _this.raffle.title);
                 data.append("tickets", _this.raffle.tickets);
-                data.append("ticket-price", _this.raffle.ticket_price);
+                data.append("price", _this.raffle.price);
                 data.append("description", _this.raffle.description);
-                data.append("draw-day", moment__WEBPACK_IMPORTED_MODULE_2___default()(_this.raffle.draw_day).format("YYYY-MM-DD"));
+                data.append("draw_day", moment__WEBPACK_IMPORTED_MODULE_2___default()(_this.raffle.draw_day).format("YYYY-MM-DD"));
                 data.append("banner", _this.file);
                 _context.next = 9;
                 return _api__WEBPACK_IMPORTED_MODULE_1__["Raffle"].store(data).then(function () {
@@ -647,11 +647,11 @@ var render = function() {
                       _c("b-input", {
                         attrs: { type: "number" },
                         model: {
-                          value: _vm.raffle.ticket_price,
+                          value: _vm.raffle.price,
                           callback: function($$v) {
-                            _vm.$set(_vm.raffle, "ticket_price", $$v)
+                            _vm.$set(_vm.raffle, "price", $$v)
                           },
-                          expression: "raffle.ticket_price"
+                          expression: "raffle.price"
                         }
                       })
                     ],

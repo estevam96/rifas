@@ -28,6 +28,12 @@ class RaffleService extends Service {
       data
     })
   }
+  async show(raffle_id) {
+    return await this.request({
+      method: "GET",
+      url: `/${raffle_id}`
+    })
+  }
 
 }
 
