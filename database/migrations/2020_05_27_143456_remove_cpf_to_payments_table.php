@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTypeToPaymentsTable extends Migration
+class RemoveCpfToPaymentsTable extends Migration
 {
   /**
    * Run the migrations.
@@ -14,7 +14,7 @@ class AddTypeToPaymentsTable extends Migration
   public function up()
   {
     Schema::table('payments', function (Blueprint $table) {
-      $table->enum('type', ['Conta-corrente', 'Conta poupança', 'Conta de pagamento'])->nullable();
+      $table->dropColumn('cpf');
     });
   }
 
@@ -26,7 +26,7 @@ class AddTypeToPaymentsTable extends Migration
   public function down()
   {
     Schema::table('payments', function (Blueprint $table) {
-      $table->dropColumn('type');
+      $table->string('cpf', 11);
     });
   }
 }
