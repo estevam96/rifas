@@ -13,6 +13,7 @@ const routes = [
     children: [
       { path: 'home', component: () => import(/* webpackChunkName: "painel-home" */ './views/Painel/Home.vue'), },
       { path: 'raffle', component: () => import(/* webpackChunkName: "painel-draw" */ './views/Painel/Raffle/list.vue'), },
+      { path: 'payment', component: () => import(/* webpackChunkName: "painel-payment" */ './views/Painel/Payment/list.vue'), },
     ]
   },
   {

@@ -19,6 +19,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab, } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import vSelect from 'vue-select'
+import 'vue-select/dist/vue-select.css';
 
 import moment from 'moment';
 require('moment/locale/pt-br')
@@ -49,6 +51,7 @@ Vue.use(VCalendar, {
   popoverDirection: 'bottom'
 });
 
+Vue.component('v-select', vSelect);
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('vue-perfect-scrollbar', vuePerfectScrollbar);
 Vue.use(VueGlide)
