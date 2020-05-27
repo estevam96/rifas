@@ -35,5 +35,4 @@ Route::apiResource('tickets', 'api\TicketController')->except(['index']);
 
 Route::get('tickets/raffle/{raffleId}', 'api\TicketController@index')->name('tickets.raffle.index');
 
-Route::apiResource('payment', 'api\PaymentController')->except(['show']);
-
+Route::apiResource('payment', 'api\PaymentController');

@@ -2,6 +2,7 @@
   <b-row>
     <register-modal ref="registe" @update="fetchBanks" />
     <delete-modal ref="delete" @update="fetchBanks" />
+    <edit-modal ref="edit" @update="fetchBanks" />
     <b-col md="6">
       <h4 class="text-uppercase">Contas para pagamento</h4>
     </b-col>
@@ -18,7 +19,7 @@
       v-for="(item, idx) in payment"
       :key="`idx-${idx}`"
     >
-      <payment-card :data="item" @delete="remove" />
+      <payment-card :data="item" @delete="remove" @edit="edit" />
     </b-col>
   </b-row>
 </template>
@@ -28,11 +29,14 @@ import { Payment } from "../../../api";
 import PaymentCard from "./listPaymentCard";
 import RegisteModal from "./register";
 import DeleteModal from "./delete";
+import EditModal from "./edit";
+
 export default {
   components: {
     "payment-card": PaymentCard,
     "register-modal": RegisteModal,
-    "delete-modal": DeleteModal
+    "delete-modal": DeleteModal,
+    "edit-modal": EditModal
   },
   data() {
     return {
@@ -47,6 +51,9 @@ export default {
     },
     remove(id) {
       this.$refs.delete.show(id);
+    },
+    edit(id) {
+      this.$refs.edit.show(id);
     }
   },
   mounted() {

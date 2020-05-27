@@ -12,6 +12,13 @@ class PaymentService extends Service {
     })
   }
 
+  async show(id) {
+    return await this.request({
+      method: "GET",
+      url: `/${id}`,
+    })
+  }
+
   async store(data = new FormData()) {
     return await this.request({
       method: "POST",
@@ -20,10 +27,18 @@ class PaymentService extends Service {
     })
   }
 
-  async delete(id){
+  async delete(id) {
     return await this.request({
       method: "DELETE",
       url: `/${id}`,
+    })
+  }
+
+  async edit(id, data = new FormData()) {
+    return await this.request({
+      method: "POST",
+      url: `/${id}`,
+      data
     })
   }
 }

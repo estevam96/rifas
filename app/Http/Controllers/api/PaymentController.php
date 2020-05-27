@@ -26,6 +26,17 @@ class PaymentController extends Controller
     }
   }
 
+  public function show($id)
+  {
+    try {
+      $payment = Payment::find($id);
+      return Response()->json($payment, 200);
+    } catch (BadRequestHttpException $ex) {
+      return Response()->json($ex, 400);
+    }
+  }
+
+
   /**
    * Store a newly created resource in storage.
    *

@@ -21,8 +21,11 @@
     </div>
     <template v-slot:footer>
       <div class="d-flex justify-content-around">
-        <b-button variant="info">Editar</b-button
-        ><b-button variant="danger" @click="$emit('delete',data.id)">Excluir</b-button>
+        <b-button variant="info" @click="$emit('edit', data.id)"
+          >Editar</b-button
+        ><b-button variant="danger" @click="$emit('delete', data.id)"
+          >Excluir</b-button
+        >
       </div>
     </template>
   </b-card>
