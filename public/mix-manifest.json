@@ -8,5 +8,6 @@
     "/painel-draw.js": "/painel-draw.js",
     "/painel-home.js": "/painel-home.js",
     "/painel-payment.js": "/painel-payment.js",
-    "/app~painel.js": "/app~painel.js"
+    "/app~painel.js": "/app~painel.js",
+    "/vendors~app~login~painel.js": "/vendors~app~login~painel.js"
 }

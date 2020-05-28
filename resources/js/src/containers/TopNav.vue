@@ -1,6 +1,9 @@
 <template>
   <div>
     <b-navbar class="custom-bg" toggleable="lg" type="dark" variant="dark">
+      <b-navbar-brand v-b-toggle.sidebar v-if="currentUser"
+        ><font-awesome-icon :icon="['fa', 'bars']"
+      /></b-navbar-brand>
       <b-navbar-brand to="/home">Rifas</b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
@@ -25,6 +28,13 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
+    <b-sidebar id="sidebar" backdrop width="250px">
+      <b-nav pills vertical class="pr-2 pl-2">
+        <b-nav-item to="/painel/home">Home</b-nav-item>
+        <b-nav-item to="/painel/raffle">Rifas</b-nav-item>
+        <b-nav-item to="/painel/payment">Formas de pagamento</b-nav-item>
+      </b-nav>
+    </b-sidebar>
   </div>
 </template>
 
@@ -35,11 +45,11 @@ export default {
     ...mapGetters(["currentUser"])
   },
   methods: {
-    ...mapActions(['signOut']),
-    logout(){
+    ...mapActions(["signOut"]),
+    logout() {
       this.signOut().then(() => {
         this.$router.push("/login");
-      })
+      });
     }
   }
 };

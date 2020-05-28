@@ -1,1 +1,335 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{186:function(t,s,a){"use strict";var i=a(20);a.n(i).a},187:function(t,s,a){(t.exports=a(6)(!1)).push([t.i,"\n.customCarousel{\n  height: auto;\n}\n.bannerBackground {\n    background-repeat: no-repeat;\n    background-size: cover;\n    background-position: center center;\n}\n.banner{\n  height: 50vh;\n}\n@media only screen and (max-width: 600px) {\n.banner{\n  height: 20vh;\n}\n}\n.num{\n    color: white;\n    font-size: x-large;\n    font-weight: bold;\n}\n.number{\n    width: 50px;\n    height: 50px;\n    border-radius: 50%;\n}\n.instruction{\n    height: 100px;\n    display: flex;\n    align-items: center;\n}\n.instruction p {\n    text-align: justify;\n    font-size: 15px;\n}\n",""])},20:function(t,s,a){var i=a(187);"string"==typeof i&&(i=[[t.i,i,""]]);var e={hmr:!0,transform:void 0,insertInto:void 0};a(7)(i,e);i.locals&&(t.exports=i.locals)},244:function(t,s,a){"use strict";a.r(s);var i=a(12),e=a(14),o=(a(184),a(26)),n={components:{"vue-glide":i.Glide,"vue-glide-slide":i.GlideSlide,instruction:o.a,Hooper:e.a,Slide:e.d,HooperPagination:e.c,HooperNavigation:e.b},data:function(){return{slide:0,sliding:null,options:{gap:5,perView:3,type:"carousel",autoplay:3e3,breakpoints:{600:{perView:1},1400:{perView:3}}}}},methods:{onSlideStart:function(t){this.sliding=!0},onSlideEnd:function(t){this.sliding=!1}}},r=(a(186),a(3)),l=Object(r.a)(n,(function(){var t=this,s=t.$createElement,a=t._self._c||s;return a("div",[a("div",[a("hooper",{staticClass:"customCarousel",attrs:{infiniteScroll:!0}},[t._l(5,(function(s,i){return a("slide",{key:"id-"+i,attrs:{index:i}},[a("div",{staticClass:"bannerBackground",style:"background-image: url(https://picsum.photos/900/250/?image="+(i+4)+")"},[a("div",{staticClass:"banner container "},[a("b-row",{staticClass:"h-100 d-flex align-items-center"},[a("b-col",{attrs:{cols:"6"}},[a("h3",{staticClass:"text-white text-uppercase",staticStyle:{"font-size":"5vw"}},[t._v("Rifa Gol GTI 2020 ")]),t._v(" "),a("b-button",{attrs:{variant:"outline-light",to:"/draw/show/"+i}},[a("b",{staticClass:"text-uppercase"},[t._v("\n                    compra rifa\n                    ")])])],1)],1)],1)])])})),t._v(" "),a("hooper-pagination",{attrs:{slot:"hooper-addons"},slot:"hooper-addons"}),t._v(" "),a("hooper-navigation",{attrs:{slot:"hooper-addons"},slot:"hooper-addons"})],2)],1),t._v(" "),a("div",{staticClass:"container mt-1"},[a("b-row",[a("b-col",{attrs:{md:"6"}},[a("router-link",{staticClass:"btn btn-block",attrs:{to:"#"}},[a("font-awesome-icon",{style:{color:"#ffc107"},attrs:{icon:["fab","whatsapp"],size:"2x"}}),t._v(" "),a("p",{staticStyle:{color:"#ffc107"}},[t._v("\n                  Envio de Comprovantes\n              ")])],1)],1),t._v(" "),a("b-col",{attrs:{md:"6"}},[a("router-link",{staticClass:"btn btn-block",attrs:{to:"#"}},[a("font-awesome-icon",{style:{color:"#28a745"},attrs:{icon:["fab","whatsapp"],size:"2x"}}),t._v(" "),a("p",{staticStyle:{color:"#28a745"}},[t._v("Duvidas: Entre para o grupo")])],1)],1)],1)],1),t._v(" "),a("div",{staticClass:"container mt-3"},[a("h4",[t._v("GANHADORES DOS ÚLTIMOS SORTEIOS REALIZADOS")]),t._v(" "),a("b-col",{attrs:{lg:"12"}},[a("div",{staticClass:"ganhadores"},[a("vue-glide",{attrs:{options:t.options}},[a("vue-glide-slide",[a("b-img",{attrs:{src:"https://picsum.photos/536/354/?image=41",fluid:"",alt:"Fluid image"}})],1),t._v(" "),a("vue-glide-slide",[a("b-img",{attrs:{src:"https://picsum.photos/536/354/?image=42",fluid:"",alt:"Fluid image"}})],1),t._v(" "),a("vue-glide-slide",[a("b-img",{attrs:{src:"https://picsum.photos/536/354/?image=43",fluid:"",alt:"Fluid image"}})],1),t._v(" "),a("vue-glide-slide",[a("b-img",{attrs:{src:"https://picsum.photos/536/354/?image=44",fluid:"",alt:"Fluid image"}})],1)],1)],1)]),t._v(" "),t._m(0),t._v(" "),a("b-row",t._l(6,(function(s,i){return a("b-col",{key:"id-"+i,attrs:{md:"4"}},[a("b-card",{staticClass:"mb-2",staticStyle:{"max-width":"20rem"},attrs:{"img-src":"https://picsum.photos/600/300/?image=2"+s,title:"Carro 0 km","img-alt":"carro 0km","img-top":"","border-variant":"dark","text-variant":"white","bg-variant":"dark","title-tag":"h4"}},[a("b-card-text",[t._v("\n                Sorteio dia 07/05/2020\n              ")]),t._v(" "),a("router-link",{staticClass:"btn btn-success btn-block rounded-pill",attrs:{to:"/draw/show/"+i}},[a("b",[t._v("COMPRA RIFA")]),t._v(" "),a("font-awesome-icon",{attrs:{icon:["fas","check"]}})],1)],1)],1)})),1)],1),t._v(" "),a("instruction")],1)}),[function(){var t=this.$createElement,s=this._self._c||t;return s("div",{staticClass:"mt-4 mb-2"},[s("h4",[this._v("PROXIMOS SORTEIOS")])])}],!1,null,null,null);s.default=l.exports},26:function(t,s,a){"use strict";var i={},e=a(3),o=Object(e.a)(i,(function(){var t=this,s=t.$createElement,a=t._self._c||s;return a("div",{staticClass:"bg-secondary pt-5 pb-3"},[a("div",{staticClass:"container"},[a("b-row",[a("b-col",{attrs:{md:"3"}},[a("h5",{staticClass:"text-white mb-2"},[t._v("1º  ESCOLHA O SORTEIO")]),t._v(" "),a("div",{staticClass:"text-white-50"},[a("p",[t._v("Escolha o prêmio que gostaria de concorrer, verifique a descrição, regulamento do sorteio e fotos em caso de dúvidas entre em contato com o administrado")])])]),t._v(" "),a("b-col",{attrs:{md:"3"}},[a("h5",{staticClass:"text-white mb-2"},[t._v("2º  SELECIONE SEUS NÚMEROS")]),t._v(" "),a("div",{staticClass:"text-white-50"},[a("p",[t._v("Você pode escolher quantos números desejar! Mais números, mais chances de ganhar")])])]),t._v(" "),a("b-col",{attrs:{md:"3"}},[a("h5",{staticClass:"text-white mb-2"},[t._v("3º  FAÇA O PAGAMENTO")]),t._v(" "),a("div",{staticClass:"text-white-50"},[a("p",[t._v("Faça o pagamento em umas das contas exibidas. Envie o comprovante ao administrador via whatsapp.")])])]),t._v(" "),a("b-col",{attrs:{md:"3"}},[a("h5",{staticClass:"text-white mb-2"},[t._v("4º  AGUARDE O SORTEIO")]),t._v(" "),a("div",{staticClass:"text-white-50"},[a("p",[t._v("Aguarde o sorteio pela Loteria Federal Cruze os dedos Você pode ser o próximo sorteado")])])])],1)],1)])}),[],!1,null,null,null);s.a=o.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[10],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api */ "./resources/js/src/api/index.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      raffles: [],
+      page: 1,
+      perPage: 10,
+      lastPage: 1,
+      total: 0
+    };
+  },
+  methods: {
+    fetchRaffle: function fetchRaffle() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _api__WEBPACK_IMPORTED_MODULE_1__["Raffle"].list(_this.page, _this.perPage).then(function (res) {
+                  _this.raffles = res.data.data;
+                  _this.page = res.data.current_page;
+                  _this.perPage = res.data.per_page;
+                  _this.lastPage = res.data.last_page;
+                  _this.total = res.data.total;
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  },
+  mounted: function mounted() {
+    this.fetchRaffle();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container mt-5" },
+    [
+      _c(
+        "b-row",
+        [
+          _vm._l(_vm.raffles, function(raffle, index) {
+            return _c(
+              "b-col",
+              {
+                key: "id-" + index,
+                staticClass: "d-flex justify-content-center",
+                attrs: { md: "4" }
+              },
+              [
+                _c(
+                  "b-card",
+                  {
+                    staticClass: "mb-2",
+                    staticStyle: { "max-width": "20rem" },
+                    attrs: {
+                      "img-src": raffle.url_banner,
+                      title: "Carro 0 km",
+                      "img-alt": "carro 0km",
+                      "img-top": "",
+                      "border-variant": "dark",
+                      "text-variant": "white",
+                      "bg-variant": "dark",
+                      "title-tag": "h4"
+                    }
+                  },
+                  [
+                    _c("b-card-text", [
+                      _vm._v(
+                        "\n          Sorteio " +
+                          _vm._s(
+                            _vm._f("moment")(
+                              raffle.draw_day,
+                              "dddd, D MMMM  YYYY"
+                            )
+                          ) +
+                          "\n        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    raffle.status === null
+                      ? _c(
+                          "router-link",
+                          {
+                            staticClass:
+                              "btn btn-success btn-block rounded-pill",
+                            attrs: { to: "/draw/show/" + raffle.id }
+                          },
+                          [
+                            _c("b", { staticClass: "text-uppercase" }, [
+                              _vm._v("COMPRA RIFA")
+                            ]),
+                            _vm._v(" "),
+                            _c("font-awesome-icon", {
+                              attrs: { icon: ["fas", "check"] }
+                            })
+                          ],
+                          1
+                        )
+                      : _c(
+                          "router-link",
+                          {
+                            staticClass:
+                              "btn btn-danger btn-block rounded-pill",
+                            attrs: { to: "/draw/show/" + raffle.id }
+                          },
+                          [
+                            _c("b", { staticClass: "text-uppercase" }, [
+                              _vm._v("ver resultado")
+                            ]),
+                            _vm._v(" "),
+                            _c("font-awesome-icon", {
+                              attrs: { icon: ["fas", "check"] }
+                            })
+                          ],
+                          1
+                        )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          }),
+          _vm._v(" "),
+          _c(
+            "b-col",
+            {
+              staticClass: "d-flex justify-content-center align-items-center",
+              attrs: { xl: "12" }
+            },
+            [
+              _c("b-pagination", {
+                attrs: {
+                  "total-rows": _vm.total,
+                  "per-page": _vm.perPage,
+                  align: "center"
+                },
+                model: {
+                  value: _vm.page,
+                  callback: function($$v) {
+                    _vm.page = $$v
+                  },
+                  expression: "page"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        2
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/src/views/Draw/Draw.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/src/views/Draw/Draw.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Draw.vue?vue&type=template&id=58f0c415& */ "./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415&");
+/* harmony import */ var _Draw_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Draw.vue?vue&type=script&lang=js& */ "./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Draw_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/views/Draw/Draw.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Draw_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Draw.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Draw_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Draw.vue?vue&type=template&id=58f0c415& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

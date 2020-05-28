@@ -92,10 +92,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["currentUser"])),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['signOut'])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["signOut"])), {}, {
     logout: function logout() {
       var _this = this;
 
@@ -388,6 +398,23 @@ var render = function() {
           attrs: { toggleable: "lg", type: "dark", variant: "dark" }
         },
         [
+          _vm.currentUser
+            ? _c(
+                "b-navbar-brand",
+                {
+                  directives: [
+                    {
+                      name: "b-toggle",
+                      rawName: "v-b-toggle.sidebar",
+                      modifiers: { sidebar: true }
+                    }
+                  ]
+                },
+                [_c("font-awesome-icon", { attrs: { icon: ["fa", "bars"] } })],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
           _c("b-navbar-brand", { attrs: { to: "/home" } }, [_vm._v("Rifas")]),
           _vm._v(" "),
           _c("b-navbar-toggle", { attrs: { target: "nav-collapse" } }),
@@ -462,6 +489,32 @@ var render = function() {
                 ],
                 1
               )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "b-sidebar",
+        { attrs: { id: "sidebar", backdrop: "", width: "250px" } },
+        [
+          _c(
+            "b-nav",
+            { staticClass: "pr-2 pl-2", attrs: { pills: "", vertical: "" } },
+            [
+              _c("b-nav-item", { attrs: { to: "/painel/home" } }, [
+                _vm._v("Home")
+              ]),
+              _vm._v(" "),
+              _c("b-nav-item", { attrs: { to: "/painel/raffle" } }, [
+                _vm._v("Rifas")
+              ]),
+              _vm._v(" "),
+              _c("b-nav-item", { attrs: { to: "/painel/payment" } }, [
+                _vm._v("Formas de pagamento")
+              ])
             ],
             1
           )

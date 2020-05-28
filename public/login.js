@@ -38,6 +38,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -84,7 +86,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.form-side {\n  width: 100%;\n  padding: 40px;\n}\n", ""]);
+exports.push([module.i, "\n.app {\n  min-height: 100vh;\n}\n.form-side {\n  width: 100%;\n  padding: 40px;\n}\n", ""]);
 
 // exports
 
@@ -140,7 +142,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "container h-100  d-flex justify-content-center align-item-center"
+        "app container h-100  d-flex justify-content-center align-item-center"
     },
     [
       _c(

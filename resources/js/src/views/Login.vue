@@ -1,5 +1,7 @@
 <template>
-  <div class="container h-100  d-flex justify-content-center align-item-center">
+  <div
+    class="app container h-100  d-flex justify-content-center align-item-center"
+  >
     <b-col xs="4" md="6" class="mx-auto my-auto">
       <b-card no-body>
         <div class="form-side">
@@ -56,6 +58,9 @@ export default {
 </script>
 
 <style>
+.app {
+  min-height: 100vh;
+}
 .form-side {
   width: 100%;
   padding: 40px;
