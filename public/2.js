@@ -205,6 +205,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 
 
@@ -517,7 +520,7 @@ var render = function() {
                                       {
                                         attrs: {
                                           variant: "outline-light",
-                                          to: "/draw/show/" + indx
+                                          to: "/draw/show/" + slide.id
                                         }
                                       },
                                       [

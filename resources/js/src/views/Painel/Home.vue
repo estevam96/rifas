@@ -1,5 +1,8 @@
 <template>
   <b-row>
+    <order-edit ref="editorder" @update="updateTable" />
+    <order-show ref="showorder" />
+    <order-delete ref="deleteorder" @update="updateTable" />
     <h4 class="text-uppercase">Ultimas Rifas</h4>
     <b-col xl="12">
       <b-table
@@ -31,23 +34,95 @@
       </b-table>
     </b-col>
 
-   
-      <b-col xl="12" class="d-flex justify-content-center align-items-center">
-        <b-pagination
-          v-model="page"
-          :total-rows="total"
-          :per-page="perPage"
-          align="center"
-        >
-        </b-pagination>
-      </b-col>
+    <b-col xl="12" class="d-flex justify-content-center align-items-center">
+      <b-pagination
+        v-model="page"
+        :total-rows="total"
+        :per-page="perPage"
+        align="center"
+      >
+      </b-pagination>
+    </b-col>
 
+    <h4 class="text-uppercase mt-4">Ultimas Compras</h4>
+    <b-col xl="12">
+      <b-table
+        ref="orderTable"
+        :items="fetchOrders"
+        :fields="orderTable.fields"
+        hover
+        :per-page="orderTable.perPage"
+        :current-page="orderTable.page"
+        no-provider-sorting
+        small
+        fixed
+        striped
+      >
+        <template v-slot:cell(raffle)="row">
+          <router-link :to="`/draw/show/${row.item.raffle.id}`">
+            {{ row.item.raffle.title }}
+          </router-link>
+        </template>
+        <template v-slot:cell(tickets)="row">
+          <b-row class="d-flex justify-content-start">
+            <div
+              v-for="(item, index) in row.item.tickets"
+              :key="`idx-${index}`"
+            >
+              <b-badge class="p-2 m-1" variant="success">{{
+                ("0000" + item.ticket).slice(-4)
+              }}</b-badge>
+            </div>
+          </b-row>
+        </template>
+        <template v-slot:cell(created_at)="row">
+          {{ row.item.created_at | moment("DD/MM/YYYY") }}
+        </template>
+        <template v-slot:cell(action)="row">
+          <b-button pill size="sm" @click="$refs.showorder.show(row.item.id)"
+            ><font-awesome-icon :icon="['fa', 'eye']"
+          /></b-button>
+          <b-button
+            pill
+            variant="info"
+            size="sm"
+            @click="$refs.editorder.show(row.item.id)"
+            ><font-awesome-icon :icon="['fa', 'edit']"
+          /></b-button>
+          <b-button
+            pill
+            variant="danger"
+            size="sm"
+            @click="$refs.deleteorder.show(row.item.id)"
+            ><font-awesome-icon :icon="['fa', 'trash']"
+          /></b-button>
+        </template>
+      </b-table>
+    </b-col>
+
+    <b-col xl="12" class="d-flex justify-content-center align-items-center">
+      <b-pagination
+        v-model="page"
+        :total-rows="total"
+        :per-page="perPage"
+        align="center"
+      >
+      </b-pagination>
+    </b-col>
   </b-row>
 </template>
 
 <script>
-import { Raffle } from "../../api";
+import { Raffle, Order } from "../../api";
+import OrderEdit from "./Order/edit";
+import Ordershow from "./Order/show";
+import OrderDelete from "./Order/delete";
 export default {
+  components: {
+    "order-edit": OrderEdit,
+    "order-show": Ordershow,
+    "order-delete": OrderDelete
+  },
   data() {
     return {
       page: 1,
@@ -79,7 +154,63 @@ export default {
           label: "Opções",
           sortable: true
         }
-      ]
+      ],
+      orderTable: {
+        page: 1,
+        perPage: 10,
+        total: 0,
+        fields: [
+          {
+            key: "name",
+            label: "Cliente",
+            sortable: true
+          },
+          {
+            key: "tickets",
+            label: "Tickets",
+            sortable: true
+          },
+          {
+            key: "raffle",
+            label: "Rifa",
+            sortable: true
+          },
+          {
+            key: "created_at",
+            label: "Compra",
+            class: "row-action",
+            sortable: true
+          },
+          {
+            key: "status",
+            class: "row-status",
+            label: "Status",
+            sortable: true,
+            formatter: value => {
+              return value === "waiting"
+                ? "Aguardando"
+                : value === "paid out"
+                ? "Pago"
+                : "Cancelado";
+            }
+          },
+          {
+            key: "value_total",
+            label: "Valor",
+            class: "row-value",
+            sortable: true,
+            formatter: value => {
+              return Number(value).toFixed(2);
+            }
+          },
+          {
+            key: "action",
+            label: "Opções",
+            class: "row-action",
+            sortable: true
+          }
+        ]
+      }
     };
   },
   methods: {
@@ -97,10 +228,37 @@ export default {
         });
 
       return item;
+    },
+    async fetchOrders(ctx) {
+      let item = [];
+      await Order.list(ctx.currentPage, ctx.perPage)
+        .then(response => {
+          this.orderTable.total = response.data.total;
+          item = response.data.data;
+          this.orderTable.perPage = ctx.perPage;
+          this.orderTable.page = ctx.currentPage;
+        })
+        .catch(() => {
+          item = [];
+        });
+
+      return item;
+    },
+    updateTable() {
+      this.$refs.orderTable.refresh();
     }
   }
 };
 </script>
 
 <style>
+.row-value {
+  width: 100px;
+}
+.row-status {
+  width: 150px;
+}
+.row-action {
+  width: 155px;
+}
 </style>

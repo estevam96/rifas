@@ -17,7 +17,10 @@
                   <h3 class="text-white text-uppercase" style="font-size: 5vw">
                     {{ slide.title }}
                   </h3>
-                  <b-button variant="outline-light" :to="`/draw/show/${indx}`">
+                  <b-button
+                    variant="outline-light"
+                    :to="`/draw/show/${slide.id}`"
+                  >
                     <b class="text-uppercase">
                       compra rifa
                     </b>

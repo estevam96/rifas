@@ -255,6 +255,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -695,7 +698,13 @@ var render = function() {
                 [
                   _c(
                     "b-form-group",
-                    { attrs: { label: "Banner" } },
+                    {
+                      attrs: {
+                        label: "Banner",
+                        description:
+                          "utilize imagem com 1365x404, para evitar distorção  "
+                      }
+                    },
                     [
                       _c("b-form-file", {
                         ref: "banner",

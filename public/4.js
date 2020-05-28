@@ -9,7 +9,30 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-!(function webpackMissingModule() { var e = new Error("Cannot find module ''"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api */ "./resources/js/src/api/index.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -55,10 +78,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      raffles: []
+      raffles: [],
+      page: 1,
+      perPage: 10,
+      lastPage: 1,
+      total: 0
     };
   },
-  methods: {}
+  methods: {
+    fetchRaffle: function fetchRaffle() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _api__WEBPACK_IMPORTED_MODULE_1__["Raffle"].list(_this.page, _this.perPage).then(function (res) {
+                  _this.raffles = res.data.data;
+                  _this.page = res.data.current_page;
+                  _this.perPage = res.data.per_page;
+                  _this.lastPage = res.data.last_page;
+                  _this.total = res.data.total;
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  },
+  mounted: function mounted() {
+    this.fetchRaffle();
+  }
 });
 
 /***/ }),
@@ -84,76 +140,117 @@ var render = function() {
     [
       _c(
         "b-row",
-        _vm._l(15, function(number, index) {
-          return _c(
+        [
+          _vm._l(_vm.raffles, function(raffle, index) {
+            return _c(
+              "b-col",
+              {
+                key: "id-" + index,
+                staticClass: "d-flex justify-content-center",
+                attrs: { md: "4" }
+              },
+              [
+                _c(
+                  "b-card",
+                  {
+                    staticClass: "mb-2",
+                    staticStyle: { "max-width": "20rem" },
+                    attrs: {
+                      "img-src": raffle.url_banner,
+                      title: "Carro 0 km",
+                      "img-alt": "carro 0km",
+                      "img-top": "",
+                      "border-variant": "dark",
+                      "text-variant": "white",
+                      "bg-variant": "dark",
+                      "title-tag": "h4"
+                    }
+                  },
+                  [
+                    _c("b-card-text", [
+                      _vm._v(
+                        "\n          Sorteio " +
+                          _vm._s(
+                            _vm._f("moment")(
+                              raffle.draw_day,
+                              "dddd, D MMMM  YYYY"
+                            )
+                          ) +
+                          "\n        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    raffle.status === null
+                      ? _c(
+                          "router-link",
+                          {
+                            staticClass:
+                              "btn btn-success btn-block rounded-pill",
+                            attrs: { to: "/draw/show/" + raffle.id }
+                          },
+                          [
+                            _c("b", { staticClass: "text-uppercase" }, [
+                              _vm._v("COMPRA RIFA")
+                            ]),
+                            _vm._v(" "),
+                            _c("font-awesome-icon", {
+                              attrs: { icon: ["fas", "check"] }
+                            })
+                          ],
+                          1
+                        )
+                      : _c(
+                          "router-link",
+                          {
+                            staticClass:
+                              "btn btn-danger btn-block rounded-pill",
+                            attrs: { to: "/draw/show/" + raffle.id }
+                          },
+                          [
+                            _c("b", { staticClass: "text-uppercase" }, [
+                              _vm._v("ver resultado")
+                            ]),
+                            _vm._v(" "),
+                            _c("font-awesome-icon", {
+                              attrs: { icon: ["fas", "check"] }
+                            })
+                          ],
+                          1
+                        )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          }),
+          _vm._v(" "),
+          _c(
             "b-col",
-            { key: "id-" + index, attrs: { md: "4" } },
+            {
+              staticClass: "d-flex justify-content-center align-items-center",
+              attrs: { xl: "12" }
+            },
             [
-              _c(
-                "b-card",
-                {
-                  staticClass: "mb-2",
-                  staticStyle: { "max-width": "20rem" },
-                  attrs: {
-                    "img-src":
-                      "https://picsum.photos/600/300/?image=2" + number,
-                    title: "Carro 0 km",
-                    "img-alt": "carro 0km",
-                    "img-top": "",
-                    "border-variant": "dark",
-                    "text-variant": "white",
-                    "bg-variant": "dark",
-                    "title-tag": "h4"
-                  }
+              _c("b-pagination", {
+                attrs: {
+                  "total-rows": _vm.total,
+                  "per-page": _vm.perPage,
+                  align: "center"
                 },
-                [
-                  _c("b-card-text", [
-                    _vm._v("\n          Sorteio dia 07/05/2020\n        ")
-                  ]),
-                  _vm._v(" "),
-                  index < 5
-                    ? _c(
-                        "router-link",
-                        {
-                          staticClass: "btn btn-success btn-block rounded-pill",
-                          attrs: { to: "/draw/show/" + index }
-                        },
-                        [
-                          _c("b", { staticClass: "text-uppercase" }, [
-                            _vm._v("COMPRA RIFA")
-                          ]),
-                          _vm._v(" "),
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "check"] }
-                          })
-                        ],
-                        1
-                      )
-                    : _c(
-                        "router-link",
-                        {
-                          staticClass: "btn btn-danger btn-block rounded-pill",
-                          attrs: { to: "/draw/show/" + index }
-                        },
-                        [
-                          _c("b", { staticClass: "text-uppercase" }, [
-                            _vm._v("ver resultado")
-                          ]),
-                          _vm._v(" "),
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "check"] }
-                          })
-                        ],
-                        1
-                      )
-                ],
-                1
-              )
+                model: {
+                  value: _vm.page,
+                  callback: function($$v) {
+                    _vm.page = $$v
+                  },
+                  expression: "page"
+                }
+              })
             ],
             1
           )
-        }),
-        1
+        ],
+        2
       )
     ],
     1

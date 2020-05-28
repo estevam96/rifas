@@ -12,6 +12,38 @@ class OrderService extends Service {
       data
     })
   }
+
+  async list(page = 1, perPage = 10, search = '') {
+    return await this.request({
+      method: "GET",
+      url: '/',
+      params: { page, perPage, search }
+    })
+  }
+
+  async show(id) {
+    return await this.request({
+      method: "GET",
+      url: `/${id}`,
+    })
+  }
+
+  async update(id, data = {}) {
+    return await this.request({
+      method: "PUT",
+      url: `/${id}`,
+      data
+    })
+  }
+
+  async delete(id) {
+    return await this.request({
+      method: "DELETE",
+      url: `/${id}`,
+    })
+  }
+
+
 }
 
 export const Order = new OrderService();

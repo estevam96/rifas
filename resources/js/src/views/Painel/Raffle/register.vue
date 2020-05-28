@@ -47,7 +47,10 @@
           </b-form-group>
         </b-col>
         <b-col md="12">
-          <b-form-group label="Banner">
+          <b-form-group
+            label="Banner"
+            description="utilize imagem com 1365x404, para evitar distorção  "
+          >
             <b-form-file
               ref="banner"
               v-model="file"
