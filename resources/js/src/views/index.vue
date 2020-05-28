@@ -3,7 +3,7 @@
     <top-nav />
     <!--<sidebar />-->
     <main>
-        <router-view />
+      <router-view />
     </main>
     <footer-component />
   </div>
@@ -15,7 +15,7 @@ import Footer from "../containers/Footer";
 export default {
   components: {
     "top-nav": TopNav,
-    "footer-component": Footer,
+    "footer-component": Footer
   }
 };
 </script>

@@ -4,8 +4,12 @@
 // Variables
 @import 'variables';
 
-body{
-  height: 100vh;
+body {
+  min-height: 100vh;
+}
+
+main {
+  min-height: 80vh;
 }
 
 // Bootstrap

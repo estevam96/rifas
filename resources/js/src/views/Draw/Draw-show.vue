@@ -114,13 +114,9 @@
           >
         </b-col>
       </b-row>
-      <h4 class="text-uppercase text-white mt-5">Forma de pagamento</h4>
+      <h4 class="text-uppercase mt-5">Forma de pagamento</h4>
       <div class="separator mb-5 "></div>
-      <b-row class="mb-5">
-        <b-col md="3" v-for="(item, index) in item" :key="`id -${index}`">
-          <bank-card :data="item" />
-        </b-col>
-      </b-row>
+      <bank-card />
     </div>
     <instruction />
   </div>
@@ -132,7 +128,7 @@ import BankCard from "../../components/bank-card";
 import OrderModal from "./order-modal";
 import Instruction from "../../containers/Introduction";
 
-import { Ticket, Order, Raffle } from "../../api";
+import { Ticket, Order, Raffle, Payment } from "../../api";
 export default {
   components: {
     "vue-glide": Glide,
@@ -191,7 +187,7 @@ export default {
         }
       ],
       ticketsButtons: [],
-      tickets: []
+      tickets: [],
     };
   },
   methods: {
@@ -200,6 +196,7 @@ export default {
         this.raffle = response.data;
       });
     },
+
     async generateButtons() {
       this.ticketsButtons = [];
       await Ticket.ReserveTickets(this.$route.params.id).then(response => {

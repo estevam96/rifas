@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer pt-4 pb-4">
+  <footer class="footer pt-4 pb-4 mt-auto">
       <div class="container">
       <b-row>
           <b-col md="6 d-flex align-items-end">
@@ -22,7 +22,7 @@
                     <b-col lg="6" class="d-flex justify-content-end">
                       <p class="m-1 text-light"><font-awesome-icon :icon="['fab', 'whatsapp']" /> +55 88 0000-0000</p>
                     </b-col>
-                  
+
                 </b-col>
               </b-row>
           </b-col>
@@ -40,5 +40,6 @@ export default {
 <style>
 .footer{
     background-color: black;
+
 }
 </style>

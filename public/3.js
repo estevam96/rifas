@@ -34,6 +34,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -50,7 +54,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.app-container{\n  height: 80vh;\n}\n.separator{\n  border-bottom: 1px solid rgba(255,255,255,0.1);\n}\n.btn-custom-color{\nbackground-color: #B618A8;\n}\n.btn-custom-color:hover {\n  background-color: #7a297a;\n}\n", ""]);
+exports.push([module.i, "\n.separator {\n  border-bottom: 1px solid rgba(255, 255, 255, 0.1);\n}\n.btn-custom-color {\n  background-color: #b618a8;\n}\n.btn-custom-color:hover {\n  background-color: #7a297a;\n}\n", ""]);
 
 // exports
 
@@ -104,15 +108,15 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container mt-4 app-container" },
+    { staticClass: "container mt-4" },
     [
       _c("h4", { staticClass: "text-white text-center mb-4" }, [
-        _vm._v("Veja como é fácil entra em contato contato conosco..")
+        _vm._v("\n    Veja como é fácil entra em contato contato conosco..\n  ")
       ]),
       _vm._v(" "),
       _c("h6", { staticClass: "text-white text-center mb-5" }, [
         _vm._v(
-          "Logo a baixo iremos disponibilizar alguns botões com links para os nossos contatos referente a cada sorteio é só clicar no botão."
+          "\n    Logo a baixo iremos disponibilizar alguns botões com links para os nossos\n    contatos referente a cada sorteio é só clicar no botão.\n  "
         )
       ]),
       _vm._v(" "),
@@ -131,7 +135,7 @@ var render = function() {
                   _c("font-awesome-icon", {
                     attrs: { icon: ["fab", "whatsapp"] }
                   }),
-                  _vm._v("\n          Grupo no whatsapp\n        ")
+                  _vm._v("\n        Grupo no whatsapp\n      ")
                 ],
                 1
               )
@@ -158,7 +162,7 @@ var render = function() {
                   _c("font-awesome-icon", {
                     attrs: { icon: ["fab", "instagram"] }
                   }),
-                  _vm._v("\n          Nosso Instagram\n        ")
+                  _vm._v("\n        Nosso Instagram\n      ")
                 ],
                 1
               )

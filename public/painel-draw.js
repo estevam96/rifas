@@ -446,10 +446,7 @@ var render = function() {
                     _vm._v(
                       "\n        " +
                         _vm._s(
-                          _vm._f("moment")(
-                            row.item.created_at,
-                            "dddd, D MMMM  YYYY"
-                          )
+                          _vm._f("moment")(row.item.draw_day, "DD/MM/YYYY")
                         ) +
                         "\n      "
                     )

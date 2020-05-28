@@ -9,6 +9,15 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api */ "./resources/js/src/api/index.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -21,8 +30,60 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['data']
+  data: function data() {
+    return {
+      payment: []
+    };
+  },
+  methods: {
+    fetchBanks: function fetchBanks() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _api__WEBPACK_IMPORTED_MODULE_1__["Payment"].list().then(function (response) {
+                  _this.payment = response.data;
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  },
+  mounted: function mounted() {
+    this.fetchBanks();
+  }
 });
 
 /***/ }),
@@ -50,43 +111,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     "bank-card": _components_bank_card__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
-    return {
-      item: [{
-        image: 'https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg',
-        bank: "Nubank",
-        holder: "Nome Do titular",
-        agency: "123",
-        account: "123459-9",
-        type: " Conta Corrente"
-      }, {
-        image: 'https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg',
-        bank: "Nubank",
-        holder: "Nome Do titular",
-        agency: "123",
-        account: "123459-9",
-        type: " Conta Corrente"
-      }, {
-        image: 'https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg',
-        bank: "Nubank",
-        holder: "Nome Do titular",
-        agency: "123",
-        account: "123459-9",
-        type: " Conta Corrente"
-      }, {
-        image: 'https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg',
-        bank: "Nubank",
-        holder: "Nome Do titular",
-        agency: "123",
-        account: "123459-9",
-        type: " Conta Corrente"
-      }]
-    };
+    return {};
   }
 });
 
@@ -104,7 +136,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.bank-description p {\n  font-size: 14px ;\n  line-height: 1;\n}\n", ""]);
+exports.push([module.i, "\n.bank-description p {\n  font-size: 14px;\n  line-height: 1;\n}\n", ""]);
 
 // exports
 
@@ -123,7 +155,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.separator{\n  border-bottom: 1px solid #fff;\n}\n", ""]);
+exports.push([module.i, "\n.separator {\n  border-bottom: 1px solid #696479;\n}\n", ""]);
 
 // exports
 
@@ -206,39 +238,76 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "b-card",
-    {
-      staticClass: "mb-1",
-      attrs: {
-        "bg-variant": "dark",
-        "img-src": _vm.data.image,
-        "img-alt": _vm.data.id,
-        "img-top": ""
-      }
-    },
-    [
-      _c("div", { staticClass: "bank-description" }, [
-        _c("h6", { staticClass: "text-white" }, [
-          _vm._v(_vm._s(_vm.data.bank))
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-white" }, [
-          _vm._v("Titular: " + _vm._s(_vm.data.holder))
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-white" }, [
-          _vm._v("Agência: " + _vm._s(_vm.data.agency))
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-white" }, [
-          _vm._v("Conta: " + _vm._s(_vm.data.account))
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-white" }, [
-          _vm._v("Tipo: " + _vm._s(_vm.data.type))
-        ])
-      ])
-    ]
+    "b-row",
+    { staticClass: "mb-5" },
+    _vm._l(_vm.payment, function(data, index) {
+      return _c(
+        "b-col",
+        {
+          key: "id -" + index,
+          staticClass: "d-flex justify-content-center",
+          attrs: { md: "3" }
+        },
+        [
+          _c(
+            "b-card",
+            {
+              attrs: {
+                "img-src": data.url_image,
+                "img-alt": data.bank,
+                "img-top": "",
+                "img-height": "150px",
+                "img-width": "300"
+              }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "pl-2 d-flex flex-grow-1 min-width-zero" },
+                [
+                  _c(
+                    "b-card-body",
+                    [
+                      _c(
+                        "b-row",
+                        [
+                          _c("b-col", { attrs: { md: "12" } }, [
+                            _c("h6", {}, [_vm._v(_vm._s(data.bank))]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "txt-bank" }, [
+                              _vm._v("Titular: " + _vm._s(data.holder))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "txt-bank" }, [
+                              _vm._v("Agência: " + _vm._s(data.agency))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "txt-bank" }, [
+                              _vm._v("Conta: " + _vm._s(data.account))
+                            ]),
+                            _vm._v(" "),
+                            data.type
+                              ? _c("p", { staticClass: "txt-bank" }, [
+                                  _vm._v("Tipo: " + _vm._s(data.type))
+                                ])
+                              : _vm._e()
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ]
+          )
+        ],
+        1
+      )
+    }),
+    1
   )
 }
 var staticRenderFns = []
@@ -267,31 +336,19 @@ var render = function() {
     "div",
     { staticClass: "container mt-4" },
     [
-      _c("h3", { staticClass: "text-uppercase text-white mb-4" }, [
-        _vm._v("Dados para pagamento via transferência")
+      _c("h3", { staticClass: "text-uppercase mb-4" }, [
+        _vm._v("\n    Dados para pagamento via transferência\n  ")
       ]),
       _vm._v(" "),
-      _c("h5", { staticClass: "text-white text-center" }, [
+      _c("h5", { staticClass: "text-center" }, [
         _vm._v(
-          "* Para realizar seu pagamento você deve efetivar transferência para uma de nossas contas."
+          "\n    * Para realizar seu pagamento você deve efetivar transferência para uma de\n    nossas contas.\n  "
         )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "separator mb-5" }),
       _vm._v(" "),
-      _c(
-        "b-row",
-        { staticClass: "mb-5" },
-        _vm._l(_vm.item, function(item, index) {
-          return _c(
-            "b-col",
-            { key: "id -" + index, attrs: { md: "3" } },
-            [_c("bank-card", { attrs: { data: item } })],
-            1
-          )
-        }),
-        1
-      )
+      _c("bank-card")
     ],
     1
   )

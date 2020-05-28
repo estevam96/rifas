@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["app"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[4],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/containers/Footer.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************!*\
@@ -254,7 +254,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("footer", { staticClass: "footer pt-4 pb-4" }, [
+  return _c("footer", { staticClass: "footer pt-4 pb-4 mt-auto" }, [
     _c(
       "div",
       { staticClass: "container" },

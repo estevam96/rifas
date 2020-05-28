@@ -27,7 +27,7 @@
           {{ row.item.created_at | moment("DD/MM/YYYY HH:mm") }}
         </template>
         <template v-slot:cell(draw-day)="row">
-          {{ row.item.created_at | moment("dddd, D MMMM  YYYY") }}
+          {{ row.item.draw_day | moment("DD/MM/YYYY") }}
         </template>
         <template v-slot:cell(action)="row">
           <b-button pill :to="`/draw/show/${row.item.id}`" size="sm"

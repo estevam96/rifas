@@ -1,1 +1,335 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{17:function(t,a,s){var e=s(177);"string"==typeof e&&(e=[[t.i,e,""]]);var i={hmr:!0,transform:void 0,insertInto:void 0};s(6)(e,i);e.locals&&(t.exports=e.locals)},176:function(t,a,s){"use strict";var e=s(17);s.n(e).a},177:function(t,a,s){(t.exports=s(5)(!1)).push([t.i,"\n.bank-description p {\n  font-size: 14px ;\n  line-height: 1;\n}\n",""])},184:function(t,a,s){"use strict";var e=s(20);s.n(e).a},185:function(t,a,s){(t.exports=s(5)(!1)).push([t.i,"\n.separator{\n  border-bottom: 1px solid #fff;\n}\n.scroll {\n  height: 500px;\n}\n",""])},20:function(t,a,s){var e=s(185);"string"==typeof e&&(e=[[t.i,e,""]]);var i={hmr:!0,transform:void 0,insertInto:void 0};s(6)(e,i);e.locals&&(t.exports=e.locals)},240:function(t,a,s){"use strict";s.r(a);var e=s(12),i=s(26),o=s(25),r={components:{"vue-glide":e.Glide,"vue-glide-slide":e.GlideSlide,"bank-card":i.a,instruction:o.a},data:function(){return{options:{gap:5,perView:1,type:"carousel",autoplay:3e3,breakpoints:{600:{perView:1}}},item:[{image:"https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg",bank:"Nubank",holder:"Nome Do titular",agency:"123",account:"123459-9",type:" Conta Corrente"},{image:"https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg",bank:"Nubank",holder:"Nome Do titular",agency:"123",account:"123459-9",type:" Conta Corrente"},{image:"https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg",bank:"Nubank",holder:"Nome Do titular",agency:"123",account:"123459-9",type:" Conta Corrente"},{image:"https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg",bank:"Nubank",holder:"Nome Do titular",agency:"123",account:"123459-9",type:" Conta Corrente"}]}}},n=(s(184),s(2)),c=Object(n.a)(r,(function(){var t=this,a=t.$createElement,s=t._self._c||a;return s("div",[s("div",{staticClass:"container mt-4"},[s("b-row",[s("b-col",{attrs:{md:"6"}},[s("vue-glide",{attrs:{options:t.options}},[s("vue-glide-slide",[s("b-img",{attrs:{src:"https://picsum.photos/536/354/?image=41",fluid:"",alt:"Fluid image"}})],1),t._v(" "),s("vue-glide-slide",[s("b-img",{attrs:{src:"https://picsum.photos/536/354/?image=42",fluid:"",alt:"Fluid image"}})],1),t._v(" "),s("vue-glide-slide",[s("b-img",{attrs:{src:"https://picsum.photos/536/354/?image=43",fluid:"",alt:"Fluid image"}})],1),t._v(" "),s("vue-glide-slide",[s("b-img",{attrs:{src:"https://picsum.photos/536/354/?image=44",fluid:"",alt:"Fluid image"}})],1)],1)],1),t._v(" "),s("b-col",{attrs:{md:"6"}},[s("h4",{staticClass:"text-white"},[t._v("Titulo do sorteio")]),t._v(" "),s("div",{staticClass:"separator"}),t._v(" "),s("div",{staticClass:"description text-white mt-2"},[s("b",[t._v("Descriptiom")]),t._v(" "),s("br"),t._v(" "),s("br"),t._v(" "),s("span",[t._v("iopefjoepjfoerjijp")])]),t._v(" "),s("div",{staticClass:"mt-2"},[s("span",{staticClass:"text-white-50"},[s("font-awesome-icon",{attrs:{icon:["fa","calendar-alt"]}}),t._v("\n                Sorteio:\n               ")],1),t._v(" "),s("span",{staticClass:"text-secondary"},[t._v("Data e horario não informado")])])])],1),t._v(" "),s("div",{staticClass:"separator mb-5"}),t._v(" "),s("b-row",[s("b-col",{attrs:{md:"12"}},[s("vue-perfect-scrollbar",{staticClass:"scroll m-4",attrs:{settings:{suppressScrollX:!0,wheelPropagation:!1}}},t._l(999,(function(a,e){return s("div",{key:"id-"+e,staticClass:"float-left"},[s("b-button",{attrs:{pill:"",variant:"success"}},[t._v(t._s(("0000"+a).slice(-4)))])],1)})),0)],1),t._v(" "),s("b-col",{attrs:{md:"12"}},[s("b-button",{attrs:{block:"",variant:"info"}},[t._v("Reserva")])],1)],1),t._v(" "),s("h4",{staticClass:"text-uppercase text-white mt-5"},[t._v("Forma de pagamento")]),t._v(" "),s("div",{staticClass:"separator mb-5 "}),t._v(" "),s("b-row",{staticClass:"mb-5"},t._l(t.item,(function(t,a){return s("b-col",{key:"id -"+a,attrs:{md:"3"}},[s("bank-card",{attrs:{data:t}})],1)})),1)],1),t._v(" "),s("instruction")],1)}),[],!1,null,null,null);a.default=c.exports},25:function(t,a,s){"use strict";var e={},i=s(2),o=Object(i.a)(e,(function(){var t=this,a=t.$createElement,s=t._self._c||a;return s("div",{staticClass:"bg-secondary pt-5 pb-3"},[s("div",{staticClass:"container"},[s("b-row",[s("b-col",{attrs:{md:"3"}},[s("h5",{staticClass:"text-white mb-2"},[t._v("1º  ESCOLHA O SORTEIO")]),t._v(" "),s("div",{staticClass:"text-white-50"},[s("p",[t._v("Escolha o prêmio que gostaria de concorrer, verifique a descrição, regulamento do sorteio e fotos em caso de dúvidas entre em contato com o administrado")])])]),t._v(" "),s("b-col",{attrs:{md:"3"}},[s("h5",{staticClass:"text-white mb-2"},[t._v("2º  SELECIONE SEUS NÚMEROS")]),t._v(" "),s("div",{staticClass:"text-white-50"},[s("p",[t._v("Você pode escolher quantos números desejar! Mais números, mais chances de ganhar")])])]),t._v(" "),s("b-col",{attrs:{md:"3"}},[s("h5",{staticClass:"text-white mb-2"},[t._v("3º  FAÇA O PAGAMENTO")]),t._v(" "),s("div",{staticClass:"text-white-50"},[s("p",[t._v("Faça o pagamento em umas das contas exibidas. Envie o comprovante ao administrador via whatsapp.")])])]),t._v(" "),s("b-col",{attrs:{md:"3"}},[s("h5",{staticClass:"text-white mb-2"},[t._v("4º  AGUARDE O SORTEIO")]),t._v(" "),s("div",{staticClass:"text-white-50"},[s("p",[t._v("Aguarde o sorteio pela Loteria Federal Cruze os dedos Você pode ser o próximo sorteado")])])])],1)],1)])}),[],!1,null,null,null);a.a=o.exports},26:function(t,a,s){"use strict";var e={props:["data"]},i=(s(176),s(2)),o=Object(i.a)(e,(function(){var t=this,a=t.$createElement,s=t._self._c||a;return s("b-card",{staticClass:"mb-1",attrs:{"bg-variant":"dark","img-src":t.data.image,"img-alt":t.data.id,"img-top":""}},[s("div",{staticClass:"bank-description"},[s("h6",{staticClass:"text-white"},[t._v(t._s(t.data.bank))]),t._v(" "),s("p",{staticClass:"text-white"},[t._v("Titular: "+t._s(t.data.holder))]),t._v(" "),s("p",{staticClass:"text-white"},[t._v("Agência: "+t._s(t.data.agency))]),t._v(" "),s("p",{staticClass:"text-white"},[t._v("Conta: "+t._s(t.data.account))]),t._v(" "),s("p",{staticClass:"text-white"},[t._v("Tipo: "+t._s(t.data.type))])])])}),[],!1,null,null,null);a.a=o.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[7],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api */ "./resources/js/src/api/index.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      raffles: [],
+      page: 1,
+      perPage: 10,
+      lastPage: 1,
+      total: 0
+    };
+  },
+  methods: {
+    fetchRaffle: function fetchRaffle() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _api__WEBPACK_IMPORTED_MODULE_1__["Raffle"].list(_this.page, _this.perPage).then(function (res) {
+                  _this.raffles = res.data.data;
+                  _this.page = res.data.current_page;
+                  _this.perPage = res.data.per_page;
+                  _this.lastPage = res.data.last_page;
+                  _this.total = res.data.total;
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  },
+  mounted: function mounted() {
+    this.fetchRaffle();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container mt-5" },
+    [
+      _c(
+        "b-row",
+        [
+          _vm._l(_vm.raffles, function(raffle, index) {
+            return _c(
+              "b-col",
+              {
+                key: "id-" + index,
+                staticClass: "d-flex justify-content-center",
+                attrs: { md: "4" }
+              },
+              [
+                _c(
+                  "b-card",
+                  {
+                    staticClass: "mb-2",
+                    staticStyle: { "max-width": "20rem" },
+                    attrs: {
+                      "img-src": raffle.url_banner,
+                      title: "Carro 0 km",
+                      "img-alt": "carro 0km",
+                      "img-top": "",
+                      "border-variant": "dark",
+                      "text-variant": "white",
+                      "bg-variant": "dark",
+                      "title-tag": "h4"
+                    }
+                  },
+                  [
+                    _c("b-card-text", [
+                      _vm._v(
+                        "\n          Sorteio " +
+                          _vm._s(
+                            _vm._f("moment")(
+                              raffle.draw_day,
+                              "dddd, D MMMM  YYYY"
+                            )
+                          ) +
+                          "\n        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    raffle.status === null
+                      ? _c(
+                          "router-link",
+                          {
+                            staticClass:
+                              "btn btn-success btn-block rounded-pill",
+                            attrs: { to: "/draw/show/" + raffle.id }
+                          },
+                          [
+                            _c("b", { staticClass: "text-uppercase" }, [
+                              _vm._v("COMPRA RIFA")
+                            ]),
+                            _vm._v(" "),
+                            _c("font-awesome-icon", {
+                              attrs: { icon: ["fas", "check"] }
+                            })
+                          ],
+                          1
+                        )
+                      : _c(
+                          "router-link",
+                          {
+                            staticClass:
+                              "btn btn-danger btn-block rounded-pill",
+                            attrs: { to: "/draw/show/" + raffle.id }
+                          },
+                          [
+                            _c("b", { staticClass: "text-uppercase" }, [
+                              _vm._v("ver resultado")
+                            ]),
+                            _vm._v(" "),
+                            _c("font-awesome-icon", {
+                              attrs: { icon: ["fas", "check"] }
+                            })
+                          ],
+                          1
+                        )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          }),
+          _vm._v(" "),
+          _c(
+            "b-col",
+            {
+              staticClass: "d-flex justify-content-center align-items-center",
+              attrs: { xl: "12" }
+            },
+            [
+              _c("b-pagination", {
+                attrs: {
+                  "total-rows": _vm.total,
+                  "per-page": _vm.perPage,
+                  align: "center"
+                },
+                model: {
+                  value: _vm.page,
+                  callback: function($$v) {
+                    _vm.page = $$v
+                  },
+                  expression: "page"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        2
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/src/views/Draw/Draw.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/src/views/Draw/Draw.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Draw.vue?vue&type=template&id=58f0c415& */ "./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415&");
+/* harmony import */ var _Draw_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Draw.vue?vue&type=script&lang=js& */ "./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Draw_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/views/Draw/Draw.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Draw_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Draw.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Draw_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Draw.vue?vue&type=template&id=58f0c415& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);
