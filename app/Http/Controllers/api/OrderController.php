@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Raffle;
 use App\Models\Ticket;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -21,10 +22,12 @@ class OrderController extends Controller
   {
     try {
       $perPage = $request->query('perPage', 10);
+      $search = $request->query('search', '');
       $order = Order::with([
         'raffle:id,title',
         'tickets:id,ticket,status,order_id'
-      ])->paginate($perPage);
+      ])->where('name', 'like', "%$search%")
+      ->paginate($perPage);
       return Response()->json($order, 200);
     } catch (BadRequestHttpException $ex) {
       return Response()->json($ex, 400);
@@ -64,10 +67,11 @@ class OrderController extends Controller
       if ($raffle == NULL) {
         return Response()->json(['message' => 'Raffle not found'], 401);
       }
-
+      $expired = new DateTime('+4 day');
       $order = Order::create([
         'name' => $data['name'],
         'phone' => $data['phone'],
+        'expired_day' => $expired->format('Y-m-d H:i:s'),
         'value_total' => count($data['tickets']) * $raffle['price'],
         'raffle_id' => $data['raffle_id']
       ]);

@@ -10,6 +10,7 @@ class Order extends Model
     'name',
     'phone',
     'status',
+    'expired_day',
     'value_total',
     'raffle_id'
   ];

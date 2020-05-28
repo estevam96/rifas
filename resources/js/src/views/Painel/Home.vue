@@ -44,9 +44,20 @@
       </b-pagination>
     </b-col>
 
-    <h4 class="text-uppercase mt-4">Ultimas Compras</h4>
-    <b-col xl="12">
+    <b-col xl="6" class="mt-4">
+      <h4 class="text-uppercase">Ultimas Compras</h4>
+    </b-col>
+    <b-col xl="6" class="mt-4">
+      <b-form-input
+        type="text"
+        debounce="500"
+        v-model="orderTable.filter"
+        placeholder="Buscar comprador"
+      />
+    </b-col>
+    <b-col xl="12" class="mt-2">
       <b-table
+        responsive
         ref="orderTable"
         :items="fetchOrders"
         :fields="orderTable.fields"
@@ -57,6 +68,7 @@
         small
         fixed
         striped
+        :filter="orderTable.filter"
       >
         <template v-slot:cell(raffle)="row">
           <router-link :to="`/draw/show/${row.item.raffle.id}`">
@@ -64,7 +76,7 @@
           </router-link>
         </template>
         <template v-slot:cell(tickets)="row">
-          <b-row class="d-flex justify-content-start">
+          <b-row>
             <div
               v-for="(item, index) in row.item.tickets"
               :key="`idx-${index}`"
@@ -74,6 +86,9 @@
               }}</b-badge>
             </div>
           </b-row>
+        </template>
+        <template v-slot:cell(expired_day)="row">
+          {{ row.item.expired_day | moment("DD/MM/YYYY") }}
         </template>
         <template v-slot:cell(created_at)="row">
           {{ row.item.created_at | moment("DD/MM/YYYY") }}
@@ -159,6 +174,8 @@ export default {
         page: 1,
         perPage: 10,
         total: 0,
+        filter: null,
+        filterOn: [],
         fields: [
           {
             key: "name",
@@ -182,6 +199,12 @@ export default {
             sortable: true
           },
           {
+            key: "expired_day",
+            label: "Expiração",
+            class: "row-action",
+            sortable: true
+          },
+          {
             key: "status",
             class: "row-status",
             label: "Status",
@@ -200,7 +223,7 @@ export default {
             class: "row-value",
             sortable: true,
             formatter: value => {
-              return Number(value).toFixed(2);
+              return `R$ ${Number(value).toFixed(2)}`;
             }
           },
           {
@@ -231,7 +254,7 @@ export default {
     },
     async fetchOrders(ctx) {
       let item = [];
-      await Order.list(ctx.currentPage, ctx.perPage)
+      await Order.list(ctx.currentPage, ctx.perPage, ctx.filter)
         .then(response => {
           this.orderTable.total = response.data.total;
           item = response.data.data;
@@ -252,13 +275,13 @@ export default {
 </script>
 
 <style>
-.row-value {
+/* .row-value {
   width: 100px;
 }
 .row-status {
   width: 150px;
 }
 .row-action {
-  width: 155px;
-}
+  width: 120px;
+} */
 </style>

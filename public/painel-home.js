@@ -135,6 +135,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -175,6 +190,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         page: 1,
         perPage: 10,
         total: 0,
+        filter: null,
+        filterOn: [],
         fields: [{
           key: "name",
           label: "Cliente",
@@ -193,6 +210,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           "class": "row-action",
           sortable: true
         }, {
+          key: "expired_day",
+          label: "Expiração",
+          "class": "row-action",
+          sortable: true
+        }, {
           key: "status",
           "class": "row-status",
           label: "Status",
@@ -206,7 +228,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           "class": "row-value",
           sortable: true,
           formatter: function formatter(value) {
-            return Number(value).toFixed(2);
+            return "R$ ".concat(Number(value).toFixed(2));
           }
         }, {
           key: "action",
@@ -260,7 +282,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 item = [];
                 _context2.next = 3;
-                return _api__WEBPACK_IMPORTED_MODULE_1__["Order"].list(ctx.currentPage, ctx.perPage).then(function (response) {
+                return _api__WEBPACK_IMPORTED_MODULE_1__["Order"].list(ctx.currentPage, ctx.perPage, ctx.filter).then(function (response) {
                   _this2.orderTable.total = response.data.total;
                   item = response.data.data;
                   _this2.orderTable.perPage = ctx.perPage;
@@ -701,7 +723,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row-value {\n  width: 100px;\n}\n.row-status {\n  width: 150px;\n}\n.row-action {\n  width: 155px;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .row-value {\n  width: 100px;\n}\n.row-status {\n  width: 150px;\n}\n.row-action {\n  width: 120px;\n} */\n", ""]);
 
 // exports
 
@@ -884,17 +906,40 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("h4", { staticClass: "text-uppercase mt-4" }, [
-        _vm._v("Ultimas Compras")
+      _c("b-col", { staticClass: "mt-4", attrs: { xl: "6" } }, [
+        _c("h4", { staticClass: "text-uppercase" }, [_vm._v("Ultimas Compras")])
       ]),
       _vm._v(" "),
       _c(
         "b-col",
-        { attrs: { xl: "12" } },
+        { staticClass: "mt-4", attrs: { xl: "6" } },
+        [
+          _c("b-form-input", {
+            attrs: {
+              type: "text",
+              debounce: "500",
+              placeholder: "Buscar comprador"
+            },
+            model: {
+              value: _vm.orderTable.filter,
+              callback: function($$v) {
+                _vm.$set(_vm.orderTable, "filter", $$v)
+              },
+              expression: "orderTable.filter"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "b-col",
+        { staticClass: "mt-2", attrs: { xl: "12" } },
         [
           _c("b-table", {
             ref: "orderTable",
             attrs: {
+              responsive: "",
               items: _vm.fetchOrders,
               fields: _vm.orderTable.fields,
               hover: "",
@@ -903,7 +948,8 @@ var render = function() {
               "no-provider-sorting": "",
               small: "",
               fixed: "",
-              striped: ""
+              striped: "",
+              filter: _vm.orderTable.filter
             },
             scopedSlots: _vm._u([
               {
@@ -930,7 +976,6 @@ var render = function() {
                   return [
                     _c(
                       "b-row",
-                      { staticClass: "d-flex justify-content-start" },
                       _vm._l(row.item.tickets, function(item, index) {
                         return _c(
                           "div",
@@ -949,6 +994,20 @@ var render = function() {
                         )
                       }),
                       0
+                    )
+                  ]
+                }
+              },
+              {
+                key: "cell(expired_day)",
+                fn: function(row) {
+                  return [
+                    _vm._v(
+                      "\n        " +
+                        _vm._s(
+                          _vm._f("moment")(row.item.expired_day, "DD/MM/YYYY")
+                        ) +
+                        "\n      "
                     )
                   ]
                 }
