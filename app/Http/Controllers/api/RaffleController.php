@@ -181,7 +181,22 @@ class RaffleController extends Controller
   public function lastRaffle()
   {
     try {
-      $raffle = Raffle::where('status', null)->orderBy('created_at', 'desc')->limit(6)->get();
+      $raffle = Raffle::where('status', null)->orderBy('draw_day', 'asc')->limit(6)->get();
+      return Response()->json($raffle);
+    } catch (BadRequestHttpException $ex) {
+      return Response()->json($ex, 400);
+    }
+  }
+
+  /**
+   * Display a listing of 6 recent raffle .
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function recentRaffle()
+  {
+    try {
+      $raffle = Raffle::select(['id', 'title', 'banner'])->where('status', null)->orderBy('created_at', 'desc')->limit(6)->get();
       return Response()->json($raffle);
     } catch (BadRequestHttpException $ex) {
       return Response()->json($ex, 400);

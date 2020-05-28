@@ -55,12 +55,21 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_glide_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-glide-js */ "./node_modules/vue-glide-js/dist/vue-glide.common.js");
-/* harmony import */ var vue_glide_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_glide_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var hooper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! hooper */ "./node_modules/hooper/dist/hooper.esm.js");
-/* harmony import */ var hooper_dist_hooper_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! hooper/dist/hooper.css */ "./node_modules/hooper/dist/hooper.css");
-/* harmony import */ var hooper_dist_hooper_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(hooper_dist_hooper_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _containers_Introduction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../containers/Introduction */ "./resources/js/src/containers/Introduction.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_glide_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-glide-js */ "./node_modules/vue-glide-js/dist/vue-glide.common.js");
+/* harmony import */ var vue_glide_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_glide_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var hooper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! hooper */ "./node_modules/hooper/dist/hooper.esm.js");
+/* harmony import */ var hooper_dist_hooper_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! hooper/dist/hooper.css */ "./node_modules/hooper/dist/hooper.css");
+/* harmony import */ var hooper_dist_hooper_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(hooper_dist_hooper_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _containers_Introduction__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../containers/Introduction */ "./resources/js/src/containers/Introduction.vue");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../api */ "./resources/js/src/api/index.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -155,19 +164,61 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    "vue-glide": vue_glide_js__WEBPACK_IMPORTED_MODULE_0__["Glide"],
-    "vue-glide-slide": vue_glide_js__WEBPACK_IMPORTED_MODULE_0__["GlideSlide"],
-    "instruction": _containers_Introduction__WEBPACK_IMPORTED_MODULE_3__["default"],
-    Hooper: hooper__WEBPACK_IMPORTED_MODULE_1__["Hooper"],
-    Slide: hooper__WEBPACK_IMPORTED_MODULE_1__["Slide"],
-    HooperPagination: hooper__WEBPACK_IMPORTED_MODULE_1__["Pagination"],
-    HooperNavigation: hooper__WEBPACK_IMPORTED_MODULE_1__["Navigation"]
+    "vue-glide": vue_glide_js__WEBPACK_IMPORTED_MODULE_1__["Glide"],
+    "vue-glide-slide": vue_glide_js__WEBPACK_IMPORTED_MODULE_1__["GlideSlide"],
+    instruction: _containers_Introduction__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Hooper: hooper__WEBPACK_IMPORTED_MODULE_2__["Hooper"],
+    Slide: hooper__WEBPACK_IMPORTED_MODULE_2__["Slide"],
+    HooperPagination: hooper__WEBPACK_IMPORTED_MODULE_2__["Pagination"],
+    HooperNavigation: hooper__WEBPACK_IMPORTED_MODULE_2__["Navigation"]
   },
   data: function data() {
     return {
@@ -186,7 +237,9 @@ __webpack_require__.r(__webpack_exports__);
             perView: 3
           }
         }
-      }
+      },
+      lastRaffles: [],
+      recentRaffles: []
     };
   },
   methods: {
@@ -195,7 +248,53 @@ __webpack_require__.r(__webpack_exports__);
     },
     onSlideEnd: function onSlideEnd(slide) {
       this.sliding = false;
+    },
+    fetchLastRaffle: function fetchLastRaffle() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _api__WEBPACK_IMPORTED_MODULE_5__["Raffle"].last().then(function (res) {
+                  _this.lastRaffles = res.data;
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    fetchRecentRaffle: function fetchRecentRaffle() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return _api__WEBPACK_IMPORTED_MODULE_5__["Raffle"].recent().then(function (res) {
+                  _this2.recentRaffles = res.data;
+                });
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     }
+  },
+  mounted: function mounted() {
+    this.fetchRecentRaffle();
+    this.fetchLastRaffle();
   }
 });
 
@@ -213,7 +312,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.customCarousel{\n  height: auto;\n}\n.bannerBackground {\n    background-repeat: no-repeat;\n    background-size: cover;\n    background-position: center center;\n}\n.banner{\n  height: 50vh;\n}\n@media only screen and (max-width: 600px) {\n.banner{\n  height: 20vh;\n}\n}\n.num{\n    color: white;\n    font-size: x-large;\n    font-weight: bold;\n}\n.number{\n    width: 50px;\n    height: 50px;\n    border-radius: 50%;\n}\n.instruction{\n    height: 100px;\n    display: flex;\n    align-items: center;\n}\n.instruction p {\n    text-align: justify;\n    font-size: 15px;\n}\n", ""]);
+exports.push([module.i, "\n.customCarousel {\n  height: auto;\n}\n.bannerBackground {\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: center center;\n}\n.banner {\n  height: 60vh;\n}\n@media only screen and (max-width: 600px) {\n.banner {\n    height: 23vh;\n}\n}\n.num {\n  color: white;\n  font-size: x-large;\n  font-weight: bold;\n}\n.number {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.instruction {\n  height: 100px;\n  display: flex;\n  align-items: center;\n}\n.instruction p {\n  text-align: justify;\n  font-size: 15px;\n}\n", ""]);
 
 // exports
 
@@ -366,9 +465,12 @@ var render = function() {
         [
           _c(
             "hooper",
-            { staticClass: "customCarousel", attrs: { infiniteScroll: true } },
+            {
+              staticClass: "customCarousel",
+              attrs: { infiniteScroll: true, mouseDrag: false }
+            },
             [
-              _vm._l(5, function(slide, indx) {
+              _vm._l(_vm.recentRaffles, function(slide, indx) {
                 return _c(
                   "slide",
                   { key: "id-" + indx, attrs: { index: indx } },
@@ -377,10 +479,7 @@ var render = function() {
                       "div",
                       {
                         staticClass: "bannerBackground",
-                        style:
-                          "background-image: url(https://picsum.photos/900/250/?image=" +
-                          (indx + 4) +
-                          ")"
+                        style: "background-image: url(" + slide.url_banner + ")"
                       },
                       [
                         _c(
@@ -404,7 +503,13 @@ var render = function() {
                                           "text-white text-uppercase",
                                         staticStyle: { "font-size": "5vw" }
                                       },
-                                      [_vm._v("Rifa Gol GTI 2020 ")]
+                                      [
+                                        _vm._v(
+                                          "\n                  " +
+                                            _vm._s(slide.title) +
+                                            "\n                "
+                                        )
+                                      ]
                                     ),
                                     _vm._v(" "),
                                     _c(
@@ -421,7 +526,7 @@ var render = function() {
                                           { staticClass: "text-uppercase" },
                                           [
                                             _vm._v(
-                                              "\n                    compra rifa\n                    "
+                                              "\n                    compra rifa\n                  "
                                             )
                                           ]
                                         )
@@ -480,7 +585,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("p", { staticStyle: { color: "#ffc107" } }, [
                         _vm._v(
-                          "\n                  Envio de Comprovantes\n              "
+                          "\n            Envio de Comprovantes\n          "
                         )
                       ])
                     ],
@@ -601,10 +706,14 @@ var render = function() {
           _vm._v(" "),
           _c(
             "b-row",
-            _vm._l(6, function(number, index) {
+            _vm._l(_vm.lastRaffles, function(raffle, index) {
               return _c(
                 "b-col",
-                { key: "id-" + index, attrs: { md: "4" } },
+                {
+                  key: "id-" + index,
+                  staticClass: "d-flex justify-content-center",
+                  attrs: { md: "4" }
+                },
                 [
                   _c(
                     "b-card",
@@ -612,10 +721,9 @@ var render = function() {
                       staticClass: "mb-2",
                       staticStyle: { "max-width": "20rem" },
                       attrs: {
-                        "img-src":
-                          "https://picsum.photos/600/300/?image=2" + number,
-                        title: "Carro 0 km",
-                        "img-alt": "carro 0km",
+                        "img-src": raffle.url_banner,
+                        title: raffle.title,
+                        "img-alt": raffle.title,
                         "img-top": "",
                         "border-variant": "dark",
                         "text-variant": "white",
@@ -626,7 +734,14 @@ var render = function() {
                     [
                       _c("b-card-text", [
                         _vm._v(
-                          "\n                Sorteio dia 07/05/2020\n              "
+                          "\n            Sorteio " +
+                            _vm._s(
+                              _vm._f("moment")(
+                                raffle.draw_day,
+                                "dddd, D MMMM  YYYY"
+                              )
+                            ) +
+                            "\n          "
                         )
                       ]),
                       _vm._v(" "),
@@ -634,7 +749,7 @@ var render = function() {
                         "router-link",
                         {
                           staticClass: "btn btn-success btn-block rounded-pill",
-                          attrs: { to: "/draw/show/" + index }
+                          attrs: { to: "/draw/show/" + raffle.id }
                         },
                         [
                           _c("b", [_vm._v("COMPRA RIFA")]),

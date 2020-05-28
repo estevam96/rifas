@@ -35,6 +35,18 @@ class RaffleService extends Service {
     })
   }
 
+  async last() {
+    return await this.request({
+      method: "GET",
+      url: '/last'
+    })
+  }
+  async recent() {
+    return await this.request({
+      method: "GET",
+      url: '/recent'
+    })
+  }
 }
 
 export const Raffle = new RaffleService();

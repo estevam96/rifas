@@ -1,18 +1,27 @@
 <template>
   <div>
     <div>
-      <hooper :infiniteScroll="true" class="customCarousel">
-        <slide v-for="(slide, indx) in 5" :key="`id-${indx}`" :index="indx">
-          <div class="bannerBackground" :style="`background-image: url(https://picsum.photos/900/250/?image=${indx + 4})`">
-            <div class="banner container " >
+      <hooper :infiniteScroll="true" class="customCarousel" :mouseDrag="false">
+        <slide
+          v-for="(slide, indx) in recentRaffles"
+          :key="`id-${indx}`"
+          :index="indx"
+        >
+          <div
+            class="bannerBackground"
+            :style="`background-image: url(${slide.url_banner})`"
+          >
+            <div class="banner container ">
               <b-row class="h-100 d-flex align-items-center">
                 <b-col cols="6">
-                  <h3 class="text-white text-uppercase" style="font-size: 5vw">Rifa Gol GTI 2020 </h3>
+                  <h3 class="text-white text-uppercase" style="font-size: 5vw">
+                    {{ slide.title }}
+                  </h3>
                   <b-button variant="outline-light" :to="`/draw/show/${indx}`">
                     <b class="text-uppercase">
                       compra rifa
-                      </b>
-                    </b-button>
+                    </b>
+                  </b-button>
                 </b-col>
               </b-row>
             </div>
@@ -23,68 +32,100 @@
       </hooper>
     </div>
     <div class="container mt-1">
-        <b-row>
-          <b-col md="6">
-            <router-link to="#" class="btn btn-block">
-                <font-awesome-icon :icon="['fab', 'whatsapp']" size="2x" :style="{color: '#ffc107'}"/>
-                <p style="color:#ffc107">
-                    Envio de Comprovantes
-                </p>
-            </router-link>
-          </b-col>
-          <b-col md="6">
-            <router-link to="#" class="btn btn-block" >
-                <font-awesome-icon :icon="['fab', 'whatsapp']" size="2x" :style="{color: '#28a745'}"/>
-                <p style="color: #28a745">Duvidas: Entre para o grupo</p>
-            </router-link>
-          </b-col>
-        </b-row>
+      <b-row>
+        <b-col md="6">
+          <router-link to="#" class="btn btn-block">
+            <font-awesome-icon
+              :icon="['fab', 'whatsapp']"
+              size="2x"
+              :style="{ color: '#ffc107' }"
+            />
+            <p style="color:#ffc107">
+              Envio de Comprovantes
+            </p>
+          </router-link>
+        </b-col>
+        <b-col md="6">
+          <router-link to="#" class="btn btn-block">
+            <font-awesome-icon
+              :icon="['fab', 'whatsapp']"
+              size="2x"
+              :style="{ color: '#28a745' }"
+            />
+            <p style="color: #28a745">Duvidas: Entre para o grupo</p>
+          </router-link>
+        </b-col>
+      </b-row>
     </div>
     <div class="container mt-3">
       <h4>GANHADORES DOS ÚLTIMOS SORTEIOS REALIZADOS</h4>
-        <b-col lg="12">
+      <b-col lg="12">
         <div class="ganhadores">
-            <vue-glide :options="options">
+          <vue-glide :options="options">
             <vue-glide-slide>
-                <b-img src="https://picsum.photos/536/354/?image=41" fluid alt="Fluid image"></b-img>
+              <b-img
+                src="https://picsum.photos/536/354/?image=41"
+                fluid
+                alt="Fluid image"
+              ></b-img>
             </vue-glide-slide>
             <vue-glide-slide>
-                <b-img src="https://picsum.photos/536/354/?image=42" fluid alt="Fluid image"></b-img>
+              <b-img
+                src="https://picsum.photos/536/354/?image=42"
+                fluid
+                alt="Fluid image"
+              ></b-img>
             </vue-glide-slide>
             <vue-glide-slide>
-                <b-img src="https://picsum.photos/536/354/?image=43" fluid alt="Fluid image"></b-img>
+              <b-img
+                src="https://picsum.photos/536/354/?image=43"
+                fluid
+                alt="Fluid image"
+              ></b-img>
             </vue-glide-slide>
             <vue-glide-slide>
-                <b-img src="https://picsum.photos/536/354/?image=44" fluid alt="Fluid image"></b-img>
+              <b-img
+                src="https://picsum.photos/536/354/?image=44"
+                fluid
+                alt="Fluid image"
+              ></b-img>
             </vue-glide-slide>
-            </vue-glide>
+          </vue-glide>
         </div>
       </b-col>
       <div class="mt-4 mb-2">
         <h4>PROXIMOS SORTEIOS</h4>
       </div>
       <b-row>
-        <b-col md="4" v-for="(number, index) in 6" :key="`id-${index}`">
-            <b-card
-              :img-src="`https://picsum.photos/600/300/?image=2${number}`"
-              title="Carro 0 km"
-              img-alt="carro 0km"
-              img-top
-              border-variant="dark"
-              text-variant="white"
-              bg-variant="dark"
-              title-tag="h4"
-              style="max-width: 20rem;"
-              class="mb-2"
+        <b-col
+          md="4"
+          v-for="(raffle, index) in lastRaffles"
+          :key="`id-${index}`"
+          class="d-flex justify-content-center"
+        >
+          <b-card
+            :img-src="raffle.url_banner"
+            :title="raffle.title"
+            :img-alt="raffle.title"
+            img-top
+            border-variant="dark"
+            text-variant="white"
+            bg-variant="dark"
+            title-tag="h4"
+            style="max-width: 20rem;"
+            class="mb-2"
+          >
+            <b-card-text>
+              Sorteio {{ raffle.draw_day | moment("dddd, D MMMM  YYYY") }}
+            </b-card-text>
+            <router-link
+              :to="`/draw/show/${raffle.id}`"
+              class="btn btn-success btn-block rounded-pill"
             >
-                <b-card-text>
-                  Sorteio dia 07/05/2020
-                </b-card-text>
-                <router-link :to="`/draw/show/${index}`" class="btn btn-success btn-block rounded-pill">
-                    <b>COMPRA RIFA</b>
-                    <font-awesome-icon :icon="['fas', 'check']"/>
-                </router-link>
-            </b-card>
+              <b>COMPRA RIFA</b>
+              <font-awesome-icon :icon="['fas', 'check']" />
+            </router-link>
+          </b-card>
         </b-col>
       </b-row>
     </div>
@@ -100,16 +141,17 @@ import {
   Slide,
   Pagination as HooperPagination,
   Navigation as HooperNavigation
-} from 'hooper';
-import 'hooper/dist/hooper.css';
+} from "hooper";
+import "hooper/dist/hooper.css";
 
-import Instruction from '../containers/Introduction'
+import Instruction from "../containers/Introduction";
+import { Raffle } from "../api";
 
 export default {
   components: {
     "vue-glide": Glide,
     "vue-glide-slide": GlideSlide,
-    "instruction": Instruction,
+    instruction: Instruction,
     Hooper,
     Slide,
     HooperPagination,
@@ -132,7 +174,9 @@ export default {
             perView: 3
           }
         }
-      }
+      },
+      lastRaffles: [],
+      recentRaffles: []
     };
   },
   methods: {
@@ -141,45 +185,59 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
+    },
+    async fetchLastRaffle() {
+      await Raffle.last().then(res => {
+        this.lastRaffles = res.data;
+      });
+    },
+    async fetchRecentRaffle() {
+      await Raffle.recent().then(res => {
+        this.recentRaffles = res.data;
+      });
     }
+  },
+  mounted() {
+    this.fetchRecentRaffle();
+    this.fetchLastRaffle();
   }
 };
 </script>
 
 <style>
-.customCarousel{
+.customCarousel {
   height: auto;
 }
 .bannerBackground {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
-.banner{
-  height: 50vh;
+.banner {
+  height: 60vh;
 }
 @media only screen and (max-width: 600px) {
-  .banner{
-  height: 20vh;
+  .banner {
+    height: 23vh;
+  }
 }
+.num {
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
 }
-.num{
-    color: white;
-    font-size: x-large;
-    font-weight: bold;
+.number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
-.number{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-.instruction{
-    height: 100px;
-    display: flex;
-    align-items: center;
+.instruction {
+  height: 100px;
+  display: flex;
+  align-items: center;
 }
 .instruction p {
-    text-align: justify;
-    font-size: 15px;
+  text-align: justify;
+  font-size: 15px;
 }
 </style>
