@@ -20,7 +20,7 @@ class RaffleController extends Controller
   {
     try {
       $perPage = $request->query('perPage', 10);
-      $raffle = Raffle::orderBy('created_at', 'asc')
+      $raffle = Raffle::orderBy('created_at', 'desc')
         ->paginate(intval($perPage));
       return Response()->json($raffle, 200);
     } catch (BadRequestHttpException $ex) {
@@ -168,6 +168,21 @@ class RaffleController extends Controller
         return Response()->json(['message' => 'Raffle not found'], 401);
       }
       $raffle->delete();
+    } catch (BadRequestHttpException $ex) {
+      return Response()->json($ex, 400);
+    }
+  }
+
+  /**
+   * Display a listing of 6 last raffle .
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function lastRaffle()
+  {
+    try {
+      $raffle = Raffle::where('status', null)->orderBy('created_at', 'desc')->limit(6)->get();
+      return Response()->json($raffle);
     } catch (BadRequestHttpException $ex) {
       return Response()->json($ex, 400);
     }

@@ -22,6 +22,7 @@ Route::middleware(['auth:api'])->group(function () {
   Route::get('raffle/avaliable', 'api\RaffleController@valiables');
 });
 
+Route::get('raffle/last', 'api\RaffleController@lastRaffle');
 Route::apiResources([
   'raffle' => 'api\RaffleController',
   'orders' => 'api\OrderController'
