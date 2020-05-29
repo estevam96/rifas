@@ -1,5 +1,6 @@
 <template>
   <b-row>
+    <edit-modal ref="edit" @update="updateTable"/>
     <registe-modal ref="registe" @update="updateTable" />
     <b-col sm="6">
       <h4 class="text-uppercase">Rifas</h4>
@@ -34,6 +35,7 @@
             ><font-awesome-icon :icon="['fa', 'eye']"
           /></b-button>
           <b-button pill variant="info" size="sm"
+          @click="$refs.edit.show(row.item.id)"
             ><font-awesome-icon :icon="['fa', 'edit']"
           /></b-button>
         </template>
@@ -55,9 +57,11 @@
 <script>
 import { Raffle } from "../../../api";
 import RegisteModal from "./register";
+import EditModal from "./edit";
 export default {
   components: {
-    "registe-modal": RegisteModal
+    "registe-modal": RegisteModal,
+    "edit-modal": EditModal,
   },
   data() {
     return {

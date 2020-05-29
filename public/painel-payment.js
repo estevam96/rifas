@@ -249,7 +249,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     type: payment.type
                   });
                   _this.modal.loading = false;
-                  console.log("mute");
                 });
 
               case 2:

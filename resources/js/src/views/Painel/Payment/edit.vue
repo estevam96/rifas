@@ -121,7 +121,6 @@ export default {
           type: payment.type
         });
         this.modal.loading = false;
-        console.log("mute");
       });
     },
     async savePayment() {

@@ -47,6 +47,14 @@ class RaffleService extends Service {
       url: '/recent'
     })
   }
+
+  async update(id, data = new FormData()) {
+    return await this.request({
+      method: "POST",
+      url: `/${id}`,
+      data
+    })
+  }
 }
 
 export const Raffle = new RaffleService();

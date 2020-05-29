@@ -2,12 +2,11 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/app.js": "/app.js",
+    "/app~painel.js": "/app~painel.js",
     "/draw.js": "/draw.js",
     "/login.js": "/login.js",
     "/painel.js": "/painel.js",
     "/painel-draw.js": "/painel-draw.js",
     "/painel-home.js": "/painel-home.js",
-    "/painel-payment.js": "/painel-payment.js",
-    "/app~painel.js": "/app~painel.js",
-    "/vendors~app~login~painel.js": "/vendors~app~login~painel.js"
+    "/painel-payment.js": "/painel-payment.js"
 }
