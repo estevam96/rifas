@@ -55,6 +55,13 @@ class RaffleService extends Service {
       data
     })
   }
+
+  async delete(id) {
+    return await this.request({
+      method: "DELETE",
+      url: `/${id}`,
+    })
+  }
 }
 
 export const Raffle = new RaffleService();

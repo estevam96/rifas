@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Image;
 
 class RaffleController extends Controller
 {
@@ -79,6 +80,7 @@ class RaffleController extends Controller
 
       $image = $request->file('banner')->store('raffles', 'public');
       $data['banner'] = $request->banner->hashName();
+
       $raffle = Raffle::create($data);
       return Response()->json($raffle, 200);
     } catch (BadRequestHttpException $ex) {
