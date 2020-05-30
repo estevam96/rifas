@@ -9,40 +9,34 @@
       />
       <b-row>
         <b-col md="6">
-          <vue-glide :options="options">
-            <vue-glide-slide>
-              <b-img
-                src="https://picsum.photos/536/354/?image=41"
-                fluid
-                alt="Fluid image"
-              ></b-img>
-            </vue-glide-slide>
-            <vue-glide-slide>
-              <b-img
-                src="https://picsum.photos/536/354/?image=42"
-                fluid
-                alt="Fluid image"
-              ></b-img>
-            </vue-glide-slide>
-            <vue-glide-slide>
-              <b-img
-                src="https://picsum.photos/536/354/?image=43"
-                fluid
-                alt="Fluid image"
-              ></b-img>
-            </vue-glide-slide>
-            <vue-glide-slide>
-              <b-img
-                src="https://picsum.photos/536/354/?image=44"
-                fluid
-                alt="Fluid image"
-              ></b-img>
+          <vue-glide
+            v-if="raffle.images.length"
+            :options="options"
+            v-model="active"
+          >
+            <vue-glide-slide
+              v-for="(img, index) in raffle.images"
+              :key="`idx-${index}`"
+            >
+              <b-img :src="img.url_image" class="imgs" alt="imagens" />
             </vue-glide-slide>
           </vue-glide>
         </b-col>
         <b-col md="6">
           <h4 class="">{{ raffle.title }}</h4>
           <div class="separator"></div>
+          <div class="winner-t" v-if="raffle.winning_ticket">
+            <span
+              class="text-white btn text-uppercase btn rounded-pill btn-success"
+              >Centena prêmiada
+              {{ ("0000" + raffle.winning_ticket).slice(-4) }}</span
+            >
+          </div>
+          <div class="winner mt-2" v-if="raffle.winner">
+            <span class="text-white text-uppercase btn rounded-pill btn-danger">
+              {{ raffle.winner }}</span
+            >
+          </div>
           <div class="description  mt-2">
             <p v-html="raffle.description"></p>
           </div>
@@ -51,9 +45,10 @@
               <font-awesome-icon :icon="['fa', 'calendar-alt']" />
               Sorteio:
             </span>
-            <span class="text-secondary">{{
+            <span class="text-secondary" v-if="raffle.draw_day">{{
               raffle["draw_day"] | moment("DD/MM/YYYY")
             }}</span>
+            <span class="text-secondary" v-else>Data não informada</span>
           </div>
         </b-col>
       </b-row>
@@ -82,7 +77,7 @@
                 <span :id="`tooltip-${index}`">
                   <b-button
                     pill
-                    :disabled="item.order !== null"
+                    :disabled="item.order !== null || raffle.winner !== null"
                     :variant="
                       item.type === 'reserved'
                         ? 'warning'
@@ -127,6 +122,8 @@ import { Glide, GlideSlide } from "vue-glide-js";
 import BankCard from "../../components/bank-card";
 import OrderModal from "./order-modal";
 import Instruction from "../../containers/Introduction";
+/* import { Hooper, Slide } from "hooper";
+import "hooper/dist/hooper.css"; */
 
 import { Ticket, Order, Raffle, Payment } from "../../api";
 export default {
@@ -139,7 +136,18 @@ export default {
   },
   data() {
     return {
-      raffle: {},
+      active: 1,
+      raffle: {
+        title: "",
+        tickets: "",
+        price: "",
+        description: "",
+        draw_day: "",
+        banner: "",
+        winner: null,
+        winning_ticket: null,
+        images: []
+      },
       options: {
         gap: 5,
         perView: 1,
@@ -152,42 +160,8 @@ export default {
         }
       },
       keytickets: 0,
-      item: [
-        {
-          image: "https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg",
-          bank: "Nubank",
-          holder: "Nome Do titular",
-          agency: "123",
-          account: "123459-9",
-          type: " Conta Corrente"
-        },
-        {
-          image: "https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg",
-          bank: "Nubank",
-          holder: "Nome Do titular",
-          agency: "123",
-          account: "123459-9",
-          type: " Conta Corrente"
-        },
-        {
-          image: "https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg",
-          bank: "Nubank",
-          holder: "Nome Do titular",
-          agency: "123",
-          account: "123459-9",
-          type: " Conta Corrente"
-        },
-        {
-          image: "https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg",
-          bank: "Nubank",
-          holder: "Nome Do titular",
-          agency: "123",
-          account: "123459-9",
-          type: " Conta Corrente"
-        }
-      ],
       ticketsButtons: [],
-      tickets: [],
+      tickets: []
     };
   },
   methods: {
@@ -248,8 +222,15 @@ export default {
 <style>
 .separator {
   border-bottom: 1px solid #808080;
+  margin-bottom: 10px;
 }
 .scroll {
   height: 500px;
+}
+.imgs {
+  max-width: 100%;
+  max-height: 400px;
+  width: auto;
+  height: auto;
 }
 </style>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Models\ImagensRaffle;
 use App\Models\Raffle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -22,6 +23,7 @@ class RaffleController extends Controller
     try {
       $perPage = $request->query('perPage', 10);
       $raffle = Raffle::orderBy('created_at', 'desc')
+        ->with('images')
         ->paginate(intval($perPage));
       return Response()->json($raffle, 200);
     } catch (BadRequestHttpException $ex) {
@@ -40,6 +42,7 @@ class RaffleController extends Controller
     try {
       $perPage = $request->query('perPage', 10);
       $raffle = Raffle::where('status', null)
+        ->with('images')
         ->paginate(intval($perPage));
       return Response()->json($raffle, 200);
     } catch (BadRequestHttpException $ex) {
@@ -61,6 +64,8 @@ class RaffleController extends Controller
         'draw_day' => 'required|date|after:today',
         'tickets' => 'required|numeric',
         'price' => 'required',
+        'imagens' => 'required',
+        'imagens.*' => 'image|mimes:jpeg,png,jpg|max:2048',
         'description' => '',
       ];
 
@@ -82,6 +87,16 @@ class RaffleController extends Controller
       $data['banner'] = $request->banner->hashName();
 
       $raffle = Raffle::create($data);
+
+      if ($request->hasFile('imagens')) {
+        foreach ($request->file('imagens') as $image) {
+          $name = time() . '.' . $image->extension();
+          $Save = $image->storeAs('raffles/' . $raffle->id . '/' . $name, null, 'public');
+
+          $imageRaffle = ImagensRaffle::create(['image' => $name, 'raffle_id' => $raffle->id]);
+        }
+      }
+
       return Response()->json($raffle, 200);
     } catch (BadRequestHttpException $ex) {
       return Response()->json($ex, 400);
@@ -97,7 +112,7 @@ class RaffleController extends Controller
   public function show($id)
   {
     try {
-      $raffle = Raffle::find($id);
+      $raffle = Raffle::with('images')->find($id);
       if ($raffle == NULL) {
         return Response()->json(['message' => 'Raffle not found'], 401);
       }
@@ -140,6 +155,8 @@ class RaffleController extends Controller
         'draw_day',
         'price',
         'description',
+        'winning_ticket',
+        'winner',
       ]);
 
       if ($request->hasFile('banner')) {

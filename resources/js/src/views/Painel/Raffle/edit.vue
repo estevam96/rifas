@@ -12,9 +12,10 @@
         <b-col sm="12">
           <div v-if="raffle.banner != null">
             <span>Previsão do Banner:</span>
-            <img
-              style="width: 100%; height: 20%;"
+            <b-img
+              style="width: 100%; height: 337px;"
               :src="imgPreview || raffle.banner"
+              fluid
               alt="Previsão"
             />
           </div>
@@ -26,6 +27,7 @@
           >
             <b-form-file
               ref="banner"
+              name="banner"
               v-model="file"
               placeholder="Escolha um arquivo ou solte-o aqui ..."
               drop-placeholder="olte-o aqui..."
@@ -35,17 +37,48 @@
         </b-col>
         <b-col md="12">
           <b-form-group label="Titulo">
-            <b-form-input type="text" v-model="raffle.title" />
+            <b-form-input name="title" type="text" v-model="raffle.title" />
           </b-form-group>
         </b-col>
         <b-col md="12">
           <b-form-group label="Numero de tickets">
-            <b-form-input type="number" v-model="raffle.tickets" />
+            <b-form-input
+              name="ticket"
+              type="number"
+              min="100"
+              max="1000"
+              step="1"
+              v-model="raffle.tickets"
+            />
           </b-form-group>
         </b-col>
         <b-col md="12">
           <b-form-group label="Preço do ticket">
-            <b-form-input type="number" v-model="raffle.price" />
+            <b-form-input
+              name="price"
+              type="number"
+              min="0"
+              max="9999.99"
+              step="0.01"
+              v-model="raffle.price"
+            />
+          </b-form-group>
+        </b-col>
+        <b-col md="12">
+          <b-form-group label="Ticket vencendor">
+            <b-form-input
+              name="winnerTicket"
+              type="number"
+              min="0"
+              max="1000"
+              step="1"
+              v-model="raffle.winning_ticket"
+            />
+          </b-form-group>
+        </b-col>
+        <b-col md="12">
+          <b-form-group label="Nome do ganhador">
+            <b-form-input name="winner" type="text" v-model="raffle.winner" />
           </b-form-group>
         </b-col>
         <b-col md="12">
@@ -103,7 +136,9 @@ export default {
         price: "",
         description: "",
         draw_day: "",
-        banner: ""
+        banner: "",
+        winner: "",
+        winning_ticket: ""
       },
       ondlRiffle: {},
       file: null,
@@ -148,6 +183,7 @@ export default {
         this.ondlRiffle.draw_day = moment(this.raffle.draw_day).format(
           "YYYY-MM-DD"
         );
+        this.ondlRiffle.winner = raffle.winner;
         this.modal.loading = false;
       });
     },
@@ -158,6 +194,8 @@ export default {
       data.append("tickets", this.raffle.tickets);
       data.append("price", this.raffle.price);
       data.append("description", this.raffle.description);
+      data.append("winner", this.raffle.winner);
+      data.append("winning_ticket", this.raffle.winning_ticket);
       if (
         this.ondlRiffle.draw_day !==
         moment(this.raffle.draw_day).format("YYYY-MM-DD")
@@ -170,6 +208,10 @@ export default {
       if (typeof this.raffle.banner != "string")
         data.append("banner", this.file);
       data.append("_method", "PUT");
+
+      if (this.ondlRiffle.winner !== this.raffle.winner)
+        data.append("status", "concluded");
+
       await Raffle.update(this.id, data).then(() => {
         this.isSuccess = true;
       });

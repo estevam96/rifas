@@ -3,7 +3,7 @@
     ref="registemodal"
     :size="modal.size"
     scrollable
-    :title-html="`<h1><b>${modal.title}</b></h1>`"
+    :title-html="`<h4><b>${modal.title}</b></h4>`"
     hide-footer
     class="p-2"
   >
@@ -20,22 +20,43 @@
           </div>
         </b-col>
         <b-col md="12">
-          <b-form-group label="Titulo">
-            <b-input type="text" v-model="raffle.title" />
+          <b-form-group label="Titulo" label-size="sm">
+            <b-input
+              type="text"
+              name="title"
+              v-model="raffle.title"
+              size="sm"
+            />
           </b-form-group>
         </b-col>
         <b-col md="12">
-          <b-form-group label="Numero de tickets">
-            <b-input type="number" v-model="raffle.tickets" />
+          <b-form-group label="Numero de tickets" label-size="sm">
+            <b-input
+              type="number"
+              name="tickets"
+              v-model="raffle.tickets"
+              min="200"
+              max="1000"
+              step="1"
+              size="sm"
+            />
           </b-form-group>
         </b-col>
         <b-col md="12">
-          <b-form-group label="Preço do ticket">
-            <b-input type="number" v-model="raffle.price" />
+          <b-form-group label="Preço do ticket" label-size="sm">
+            <b-input
+              type="number"
+              name="price"
+              v-model="raffle.price"
+              min="0"
+              max="9999.99"
+              step="0.01"
+              size="sm"
+            />
           </b-form-group>
         </b-col>
         <b-col md="12">
-          <b-form-group label="Data do Sorteio">
+          <b-form-group label="Data do Sorteio" label-size="sm">
             <vc-date-picker
               mode="single"
               :min-date="new Date()"
@@ -50,18 +71,56 @@
           <b-form-group
             label="Banner"
             description="utilize imagem com 1365x404, para evitar distorção  "
+            label-size="sm"
           >
             <b-form-file
               ref="banner"
               v-model="file"
               placeholder="Escolha um arquivo ou solte-o aqui ..."
-              drop-placeholder="olte-o aqui..."
+              drop-placeholder="solte-o aqui..."
               type="file"
+              size="sm"
+              name="banner"
+              accept="image/png, image/jpeg"
             />
           </b-form-group>
         </b-col>
         <b-col md="12">
-          <b-form-group label="Descrição">
+          <b-form-group label="Imagens" label-size="sm">
+            <b-form-file
+              ref="imagens"
+              v-model="raffle.imagens"
+              placeholder="Escolha um arquivo ou solte-o aqui ..."
+              drop-placeholder="solte-o aqui..."
+              type="file"
+              name="imagens"
+              multiple
+              size="sm"
+              accept="image/png, image/jpeg"
+              plain
+            />
+          </b-form-group>
+        </b-col>
+        <b-col md="12" class="mb-2">
+          <div
+            class=""
+            v-for="(img, index) in raffle.imagens"
+            :key="`idx-${index}`"
+          >
+            <b-row>
+              <b-col md="10"
+                ><p>{{ img.name }}</p>
+              </b-col>
+              <b-col md="2"
+                ><b-button size="sm" @click="removeFile(index)"
+                  >remover</b-button
+                >
+              </b-col>
+            </b-row>
+          </div>
+        </b-col>
+        <b-col md="12">
+          <b-form-group label="Descrição" label-size="sm">
             <quill-editor
               v-model="raffle.description"
               :options="editorOption"
@@ -95,7 +154,9 @@ import moment from "moment";
 export default {
   data() {
     return {
-      raffle: {},
+      raffle: {
+        imagens: []
+      },
       file: null,
       modal: {
         title: "Cadastro de Rifa",
@@ -125,6 +186,7 @@ export default {
   },
   methods: {
     async saveRaflle() {
+      this.modal.operating = true;
       let data = new FormData();
 
       data.append("title", this.raffle.title);
@@ -137,14 +199,27 @@ export default {
       );
       data.append("banner", this.file);
 
+      for (var i = 0; i < this.raffle.imagens.length; i++) {
+        let file = this.raffle.imagens[i];
+        data.append("imagens[" + i + "]", file);
+      }
+
       await Raffle.store(data).then(() => {
         this.isSuccess = true;
+        this.modal.operating = false;
       });
       this.$emit("update");
       this.close();
     },
-    handleFileUpload() {
-      this.file = this.$refs.banner.files[0];
+    handleFilesUpload() {
+      let file = this.$refs.imagens.files;
+
+      for (var i = 0; i < file.length; i++) {
+        this.raffle.imagens.push(file[i]);
+      }
+    },
+    removeFile(key) {
+      this.raffle.imagens.splice(key, 1);
     },
     show() {
       this.$refs.registemodal.show();
@@ -161,6 +236,10 @@ export default {
         return URL.createObjectURL(this.file);
       }
       return null;
+    },
+    imgsPreview() {
+      if (this.raffle.imagens) {
+      }
     }
   }
 };
