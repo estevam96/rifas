@@ -276,14 +276,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
+
+/* import { Hooper, Slide } from "hooper";
+import "hooper/dist/hooper.css"; */
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -296,7 +294,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
-      raffle: {},
+      active: 1,
+      raffle: {
+        title: "",
+        tickets: "",
+        price: "",
+        description: "",
+        draw_day: "",
+        banner: "",
+        winner: null,
+        winning_ticket: null,
+        images: []
+      },
       options: {
         gap: 5,
         perView: 1,
@@ -309,35 +318,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       },
       keytickets: 0,
-      item: [{
-        image: "https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg",
-        bank: "Nubank",
-        holder: "Nome Do titular",
-        agency: "123",
-        account: "123459-9",
-        type: " Conta Corrente"
-      }, {
-        image: "https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg",
-        bank: "Nubank",
-        holder: "Nome Do titular",
-        agency: "123",
-        account: "123459-9",
-        type: " Conta Corrente"
-      }, {
-        image: "https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg",
-        bank: "Nubank",
-        holder: "Nome Do titular",
-        agency: "123",
-        account: "123459-9",
-        type: " Conta Corrente"
-      }, {
-        image: "https://www.oficinadanet.com.br/imagens/post/22453/bb01.jpg",
-        bank: "Nubank",
-        holder: "Nome Do titular",
-        agency: "123",
-        account: "123459-9",
-        type: " Conta Corrente"
-      }],
       ticketsButtons: [],
       tickets: []
     };
@@ -630,7 +610,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.separator {\n  border-bottom: 1px solid #808080;\n}\n.scroll {\n  height: 500px;\n}\n", ""]);
+exports.push([module.i, "\n.separator {\n  border-bottom: 1px solid #808080;\n  margin-bottom: 10px;\n}\n.scroll {\n  height: 500px;\n}\n.imgs {\n  max-width: 100%;\n  max-height: 400px;\n  width: auto;\n  height: auto;\n}\n", ""]);
 
 // exports
 
@@ -920,68 +900,35 @@ var render = function() {
                 "b-col",
                 { attrs: { md: "6" } },
                 [
-                  _c(
-                    "vue-glide",
-                    { attrs: { options: _vm.options } },
-                    [
-                      _c(
-                        "vue-glide-slide",
-                        [
-                          _c("b-img", {
-                            attrs: {
-                              src: "https://picsum.photos/536/354/?image=41",
-                              fluid: "",
-                              alt: "Fluid image"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "vue-glide-slide",
-                        [
-                          _c("b-img", {
-                            attrs: {
-                              src: "https://picsum.photos/536/354/?image=42",
-                              fluid: "",
-                              alt: "Fluid image"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "vue-glide-slide",
-                        [
-                          _c("b-img", {
-                            attrs: {
-                              src: "https://picsum.photos/536/354/?image=43",
-                              fluid: "",
-                              alt: "Fluid image"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "vue-glide-slide",
-                        [
-                          _c("b-img", {
-                            attrs: {
-                              src: "https://picsum.photos/536/354/?image=44",
-                              fluid: "",
-                              alt: "Fluid image"
-                            }
-                          })
-                        ],
+                  _vm.raffle.images.length
+                    ? _c(
+                        "vue-glide",
+                        {
+                          attrs: { options: _vm.options },
+                          model: {
+                            value: _vm.active,
+                            callback: function($$v) {
+                              _vm.active = $$v
+                            },
+                            expression: "active"
+                          }
+                        },
+                        _vm._l(_vm.raffle.images, function(img, index) {
+                          return _c(
+                            "vue-glide-slide",
+                            { key: "idx-" + index },
+                            [
+                              _c("b-img", {
+                                staticClass: "imgs",
+                                attrs: { src: img.url_image, alt: "imagens" }
+                              })
+                            ],
+                            1
+                          )
+                        }),
                         1
                       )
-                    ],
-                    1
-                  )
+                    : _vm._e()
                 ],
                 1
               ),
@@ -990,6 +937,39 @@ var render = function() {
                 _c("h4", {}, [_vm._v(_vm._s(_vm.raffle.title))]),
                 _vm._v(" "),
                 _c("div", { staticClass: "separator" }),
+                _vm._v(" "),
+                _vm.raffle.winning_ticket
+                  ? _c("div", { staticClass: "winner-t" }, [
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "text-white btn text-uppercase btn rounded-pill btn-success"
+                        },
+                        [
+                          _vm._v(
+                            "Centena prêmiada\n            " +
+                              _vm._s(
+                                ("0000" + _vm.raffle.winning_ticket).slice(-4)
+                              )
+                          )
+                        ]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.raffle.winner
+                  ? _c("div", { staticClass: "winner mt-2" }, [
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "text-white text-uppercase btn rounded-pill btn-danger"
+                        },
+                        [_vm._v("\n            " + _vm._s(_vm.raffle.winner))]
+                      )
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
                 _c("div", { staticClass: "description  mt-2" }, [
                   _c("p", {
@@ -1010,13 +990,20 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("span", { staticClass: "text-secondary" }, [
-                    _vm._v(
-                      _vm._s(
-                        _vm._f("moment")(_vm.raffle["draw_day"], "DD/MM/YYYY")
-                      )
-                    )
-                  ])
+                  _vm.raffle.draw_day
+                    ? _c("span", { staticClass: "text-secondary" }, [
+                        _vm._v(
+                          _vm._s(
+                            _vm._f("moment")(
+                              _vm.raffle["draw_day"],
+                              "DD/MM/YYYY"
+                            )
+                          )
+                        )
+                      ])
+                    : _c("span", { staticClass: "text-secondary" }, [
+                        _vm._v("Data não informada")
+                      ])
                 ])
               ])
             ],
@@ -1085,7 +1072,9 @@ var render = function() {
                                     {
                                       attrs: {
                                         pill: "",
-                                        disabled: item.order !== null,
+                                        disabled:
+                                          item.order !== null ||
+                                          _vm.raffle.winner !== null,
                                         variant:
                                           item.type === "reserved"
                                             ? "warning"

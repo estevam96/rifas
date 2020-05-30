@@ -3,9 +3,11 @@
     <order-edit ref="editorder" @update="updateTable" />
     <order-show ref="showorder" />
     <order-delete ref="deleteorder" @update="updateTable" />
+    <raffle-edit ref="editraffle" @update="updateTableRaffle" />
     <h4 class="text-uppercase">Ultimas Rifas</h4>
     <b-col xl="12">
       <b-table
+        ref="tableRaffle"
         responsive
         :items="fetchRaffle"
         :fields="fields"
@@ -27,7 +29,11 @@
           <b-button pill :to="`/draw/show/${row.item.id}`" size="sm"
             ><font-awesome-icon :icon="['fa', 'eye']"
           /></b-button>
-          <b-button pill variant="info" size="sm"
+          <b-button
+            pill
+            variant="info"
+            size="sm"
+            @click="$refs.editraffle.show(row.item.id)"
             ><font-awesome-icon :icon="['fa', 'edit']"
           /></b-button>
         </template>
@@ -69,14 +75,16 @@
         fixed
         striped
         :filter="orderTable.filter"
+        empty-text="Não há pagamentos para mostra"
+        show-empty
       >
-        <template v-slot:cell(raffle)="row">
+        <template v-slot:cell(raffle)="row" v-if="orderTable.total > 0">
           <router-link :to="`/draw/show/${row.item.raffle.id}`">
             {{ row.item.raffle.title }}
           </router-link>
         </template>
         <template v-slot:cell(tickets)="row">
-          <b-row>
+          <b-row v-if="orderTable.total > 0">
             <div
               v-for="(item, index) in row.item.tickets"
               :key="`idx-${index}`"
@@ -87,13 +95,13 @@
             </div>
           </b-row>
         </template>
-        <template v-slot:cell(expired_day)="row">
+        <template v-slot:cell(expired_day)="row" v-if="orderTable.total > 0">
           {{ row.item.expired_day | moment("DD/MM/YYYY") }}
         </template>
-        <template v-slot:cell(created_at)="row">
+        <template v-slot:cell(created_at)="row" v-if="orderTable.total > 0">
           {{ row.item.created_at | moment("DD/MM/YYYY") }}
         </template>
-        <template v-slot:cell(action)="row">
+        <template v-slot:cell(action)="row" v-if="orderTable.total > 0">
           <b-button pill size="sm" @click="$refs.showorder.show(row.item.id)"
             ><font-awesome-icon :icon="['fa', 'eye']"
           /></b-button>
@@ -115,11 +123,14 @@
       </b-table>
     </b-col>
 
-    <b-col xl="12" class="d-flex justify-content-center align-items-center">
+    <b-col
+      xl="12"
+      class="d-flex justify-content-center align-items-center mb-4"
+    >
       <b-pagination
-        v-model="page"
-        :total-rows="total"
-        :per-page="perPage"
+        v-model="orderTable.page"
+        :total-rows="orderTable.total"
+        :per-page="orderTable.perPage"
         align="center"
       >
       </b-pagination>
@@ -132,11 +143,13 @@ import { Raffle, Order } from "../../api";
 import OrderEdit from "./Order/edit";
 import Ordershow from "./Order/show";
 import OrderDelete from "./Order/delete";
+import EditRaffle from "./Raffle/edit";
 export default {
   components: {
     "order-edit": OrderEdit,
     "order-show": Ordershow,
-    "order-delete": OrderDelete
+    "order-delete": OrderDelete,
+    "raffle-edit": EditRaffle
   },
   data() {
     return {
@@ -266,6 +279,9 @@ export default {
         });
 
       return item;
+    },
+    updateTableRaffle() {
+      this.$refs.tableRaffle.refresh();
     },
     updateTable() {
       this.$refs.orderTable.refresh();

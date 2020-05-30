@@ -15,6 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Order_edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Order/edit */ "./resources/js/src/views/Painel/Order/edit.vue");
 /* harmony import */ var _Order_show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Order/show */ "./resources/js/src/views/Painel/Order/show.vue");
 /* harmony import */ var _Order_delete__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Order/delete */ "./resources/js/src/views/Painel/Order/delete.vue");
+/* harmony import */ var _Raffle_edit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Raffle/edit */ "./resources/js/src/views/Painel/Raffle/edit.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -150,6 +151,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -158,7 +171,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   components: {
     "order-edit": _Order_edit__WEBPACK_IMPORTED_MODULE_2__["default"],
     "order-show": _Order_show__WEBPACK_IMPORTED_MODULE_3__["default"],
-    "order-delete": _Order_delete__WEBPACK_IMPORTED_MODULE_4__["default"]
+    "order-delete": _Order_delete__WEBPACK_IMPORTED_MODULE_4__["default"],
+    "raffle-edit": _Raffle_edit__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   data: function data() {
     return {
@@ -301,6 +315,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee2);
       }))();
+    },
+    updateTableRaffle: function updateTableRaffle() {
+      this.$refs.tableRaffle.refresh();
     },
     updateTable: function updateTable() {
       this.$refs.orderTable.refresh();
@@ -723,7 +740,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .row-value {\n  width: 100px;\n}\n.row-status {\n  width: 150px;\n}\n.row-action {\n  width: 120px;\n} */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .row-value {\n  width: 100px;\n}\n.row-status {\n  width: 150px;\n}\n.row-action {\n  width: 120px;\n} */\n", ""]);
 
 // exports
 
@@ -787,6 +804,11 @@ var render = function() {
         on: { update: _vm.updateTable }
       }),
       _vm._v(" "),
+      _c("raffle-edit", {
+        ref: "editraffle",
+        on: { update: _vm.updateTableRaffle }
+      }),
+      _vm._v(" "),
       _c("h4", { staticClass: "text-uppercase" }, [_vm._v("Ultimas Rifas")]),
       _vm._v(" "),
       _c(
@@ -794,6 +816,7 @@ var render = function() {
         { attrs: { xl: "12" } },
         [
           _c("b-table", {
+            ref: "tableRaffle",
             attrs: {
               responsive: "",
               items: _vm.fetchRaffle,
@@ -864,7 +887,14 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "b-button",
-                      { attrs: { pill: "", variant: "info", size: "sm" } },
+                      {
+                        attrs: { pill: "", variant: "info", size: "sm" },
+                        on: {
+                          click: function($event) {
+                            return _vm.$refs.editraffle.show(row.item.id)
+                          }
+                        }
+                      },
                       [
                         _c("font-awesome-icon", {
                           attrs: { icon: ["fa", "edit"] }
@@ -949,144 +979,176 @@ var render = function() {
               small: "",
               fixed: "",
               striped: "",
-              filter: _vm.orderTable.filter
+              filter: _vm.orderTable.filter,
+              "empty-text": "Não há pagamentos para mostra",
+              "show-empty": ""
             },
-            scopedSlots: _vm._u([
-              {
-                key: "cell(raffle)",
-                fn: function(row) {
-                  return [
-                    _c(
-                      "router-link",
-                      { attrs: { to: "/draw/show/" + row.item.raffle.id } },
-                      [
-                        _vm._v(
-                          "\n          " +
-                            _vm._s(row.item.raffle.title) +
-                            "\n        "
-                        )
-                      ]
-                    )
-                  ]
-                }
-              },
-              {
-                key: "cell(tickets)",
-                fn: function(row) {
-                  return [
-                    _c(
-                      "b-row",
-                      _vm._l(row.item.tickets, function(item, index) {
-                        return _c(
-                          "div",
-                          { key: "idx-" + index },
-                          [
-                            _c(
-                              "b-badge",
-                              {
-                                staticClass: "p-2 m-1",
-                                attrs: { variant: "success" }
+            scopedSlots: _vm._u(
+              [
+                _vm.orderTable.total > 0
+                  ? {
+                      key: "cell(raffle)",
+                      fn: function(row) {
+                        return [
+                          _c(
+                            "router-link",
+                            {
+                              attrs: { to: "/draw/show/" + row.item.raffle.id }
+                            },
+                            [
+                              _vm._v(
+                                "\n          " +
+                                  _vm._s(row.item.raffle.title) +
+                                  "\n        "
+                              )
+                            ]
+                          )
+                        ]
+                      }
+                    }
+                  : null,
+                {
+                  key: "cell(tickets)",
+                  fn: function(row) {
+                    return [
+                      _vm.orderTable.total > 0
+                        ? _c(
+                            "b-row",
+                            _vm._l(row.item.tickets, function(item, index) {
+                              return _c(
+                                "div",
+                                { key: "idx-" + index },
+                                [
+                                  _c(
+                                    "b-badge",
+                                    {
+                                      staticClass: "p-2 m-1",
+                                      attrs: { variant: "success" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(("0000" + item.ticket).slice(-4))
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            }),
+                            0
+                          )
+                        : _vm._e()
+                    ]
+                  }
+                },
+                _vm.orderTable.total > 0
+                  ? {
+                      key: "cell(expired_day)",
+                      fn: function(row) {
+                        return [
+                          _vm._v(
+                            "\n        " +
+                              _vm._s(
+                                _vm._f("moment")(
+                                  row.item.expired_day,
+                                  "DD/MM/YYYY"
+                                )
+                              ) +
+                              "\n      "
+                          )
+                        ]
+                      }
+                    }
+                  : null,
+                _vm.orderTable.total > 0
+                  ? {
+                      key: "cell(created_at)",
+                      fn: function(row) {
+                        return [
+                          _vm._v(
+                            "\n        " +
+                              _vm._s(
+                                _vm._f("moment")(
+                                  row.item.created_at,
+                                  "DD/MM/YYYY"
+                                )
+                              ) +
+                              "\n      "
+                          )
+                        ]
+                      }
+                    }
+                  : null,
+                _vm.orderTable.total > 0
+                  ? {
+                      key: "cell(action)",
+                      fn: function(row) {
+                        return [
+                          _c(
+                            "b-button",
+                            {
+                              attrs: { pill: "", size: "sm" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.$refs.showorder.show(row.item.id)
+                                }
+                              }
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["fa", "eye"] }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-button",
+                            {
+                              attrs: { pill: "", variant: "info", size: "sm" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.$refs.editorder.show(row.item.id)
+                                }
+                              }
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["fa", "edit"] }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-button",
+                            {
+                              attrs: {
+                                pill: "",
+                                variant: "danger",
+                                size: "sm"
                               },
-                              [_vm._v(_vm._s(("0000" + item.ticket).slice(-4)))]
-                            )
-                          ],
-                          1
-                        )
-                      }),
-                      0
-                    )
-                  ]
-                }
-              },
-              {
-                key: "cell(expired_day)",
-                fn: function(row) {
-                  return [
-                    _vm._v(
-                      "\n        " +
-                        _vm._s(
-                          _vm._f("moment")(row.item.expired_day, "DD/MM/YYYY")
-                        ) +
-                        "\n      "
-                    )
-                  ]
-                }
-              },
-              {
-                key: "cell(created_at)",
-                fn: function(row) {
-                  return [
-                    _vm._v(
-                      "\n        " +
-                        _vm._s(
-                          _vm._f("moment")(row.item.created_at, "DD/MM/YYYY")
-                        ) +
-                        "\n      "
-                    )
-                  ]
-                }
-              },
-              {
-                key: "cell(action)",
-                fn: function(row) {
-                  return [
-                    _c(
-                      "b-button",
-                      {
-                        attrs: { pill: "", size: "sm" },
-                        on: {
-                          click: function($event) {
-                            return _vm.$refs.showorder.show(row.item.id)
-                          }
-                        }
-                      },
-                      [
-                        _c("font-awesome-icon", {
-                          attrs: { icon: ["fa", "eye"] }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-button",
-                      {
-                        attrs: { pill: "", variant: "info", size: "sm" },
-                        on: {
-                          click: function($event) {
-                            return _vm.$refs.editorder.show(row.item.id)
-                          }
-                        }
-                      },
-                      [
-                        _c("font-awesome-icon", {
-                          attrs: { icon: ["fa", "edit"] }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-button",
-                      {
-                        attrs: { pill: "", variant: "danger", size: "sm" },
-                        on: {
-                          click: function($event) {
-                            return _vm.$refs.deleteorder.show(row.item.id)
-                          }
-                        }
-                      },
-                      [
-                        _c("font-awesome-icon", {
-                          attrs: { icon: ["fa", "trash"] }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                }
-              }
-            ])
+                              on: {
+                                click: function($event) {
+                                  return _vm.$refs.deleteorder.show(row.item.id)
+                                }
+                              }
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["fa", "trash"] }
+                              })
+                            ],
+                            1
+                          )
+                        ]
+                      }
+                    }
+                  : null
+              ],
+              null,
+              true
+            )
           })
         ],
         1
@@ -1095,22 +1157,22 @@ var render = function() {
       _c(
         "b-col",
         {
-          staticClass: "d-flex justify-content-center align-items-center",
+          staticClass: "d-flex justify-content-center align-items-center mb-4",
           attrs: { xl: "12" }
         },
         [
           _c("b-pagination", {
             attrs: {
-              "total-rows": _vm.total,
-              "per-page": _vm.perPage,
+              "total-rows": _vm.orderTable.total,
+              "per-page": _vm.orderTable.perPage,
               align: "center"
             },
             model: {
-              value: _vm.page,
+              value: _vm.orderTable.page,
               callback: function($$v) {
-                _vm.page = $$v
+                _vm.$set(_vm.orderTable, "page", $$v)
               },
-              expression: "page"
+              expression: "orderTable.page"
             }
           })
         ],
