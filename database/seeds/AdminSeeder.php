@@ -6,19 +6,24 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        DB::table('users')->insert([
-            "name" => "Marcelo",
-            "email" => "user@user.com.br",
-            "password" => Hash::make('admin@market'),
-            "cpf" => "21769583068",
-            "role" => "admin"
-        ]);
-    }
+  /**
+   * Run the database seeds.
+   *
+   * @return void
+   */
+  public function run()
+  {
+    DB::table('users')->insert([
+      "name" => "Administrador",
+      "email" => "admin@admin.com.br",
+      "password" => Hash::make('admin@0531'),
+      "role" => "admin"
+    ]);
+    DB::table('users')->insert([
+      "name" => "Suport",
+      "email" => "suport@admin.com.br",
+      "password" => Hash::make('suport@0531'),
+      "role" => "admin"
+    ]);
+  }
 }
