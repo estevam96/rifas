@@ -90,7 +90,7 @@ class RaffleController extends Controller
 
       if ($request->hasFile('imagens')) {
         foreach ($request->file('imagens') as $image) {
-          $name = time() . '.' . $image->extension();
+          $name = uniqid() . '.' . $image->extension();
           $Save = $image->storeAs('raffles/' . $raffle->id . '/' . $name, null, 'public');
 
           $imageRaffle = ImagensRaffle::create(['image' => $name, 'raffle_id' => $raffle->id]);

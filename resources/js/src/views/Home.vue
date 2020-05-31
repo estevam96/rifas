@@ -111,9 +111,7 @@
             :title="raffle.title"
             :img-alt="raffle.title"
             img-top
-            border-variant="dark"
-            text-variant="white"
-            bg-variant="dark"
+            border-variant="secondary"
             title-tag="h4"
             style="max-width: 20rem;"
             class="mb-2"
