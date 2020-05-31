@@ -140,6 +140,7 @@
             class="mt-4"
             :class="{ 'show-success': !modal.operating && modal.success }"
           >
+            <b-spinner variant="light" small v-if="modal.operating" />
             <b>CADASTRAR</b>
           </b-button>
         </b-col>

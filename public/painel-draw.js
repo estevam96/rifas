@@ -441,6 +441,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1200,7 +1201,16 @@ var render = function() {
                       },
                       attrs: { type: "submit", variant: "primary", squared: "" }
                     },
-                    [_c("b", [_vm._v("CADASTRAR")])]
+                    [
+                      _vm.modal.operating
+                        ? _c("b-spinner", {
+                            attrs: { variant: "light", small: "" }
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("b", [_vm._v("CADASTRAR")])
+                    ],
+                    1
                   )
                 ],
                 1

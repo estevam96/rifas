@@ -115,6 +115,7 @@
             class="mt-4"
             :class="{ 'show-success': !modal.operating && modal.success }"
           >
+          <b-spinner variant="light" small v-if="modal.operating" />
             <b>CADASTRAR</b>
           </b-button>
         </b-col>
@@ -189,7 +190,7 @@ export default {
     },
     async saveRaflle() {
       let data = new FormData();
-
+      this.modal.operating = true;
       data.append("title", this.raffle.title);
       data.append("tickets", this.raffle.tickets);
       data.append("price", this.raffle.price);
@@ -214,6 +215,7 @@ export default {
 
       await Raffle.update(this.id, data).then(() => {
         this.isSuccess = true;
+        this.modal.operating = false;
       });
       this.$emit("update");
       this.raffle = {};

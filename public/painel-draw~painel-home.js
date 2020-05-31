@@ -145,6 +145,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -243,6 +244,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 data = new FormData();
+                _this2.modal.operating = true;
                 data.append("title", _this2.raffle.title);
                 data.append("tickets", _this2.raffle.tickets);
                 data.append("price", _this2.raffle.price);
@@ -257,19 +259,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 if (typeof _this2.raffle.banner != "string") data.append("banner", _this2.file);
                 data.append("_method", "PUT");
                 if (_this2.ondlRiffle.winner !== _this2.raffle.winner) data.append("status", "concluded");
-                _context2.next = 13;
+                _context2.next = 14;
                 return _api__WEBPACK_IMPORTED_MODULE_1__["Raffle"].update(_this2.id, data).then(function () {
                   _this2.isSuccess = true;
+                  _this2.modal.operating = false;
                 });
 
-              case 13:
+              case 14:
                 _this2.$emit("update");
 
                 _this2.raffle = {};
 
                 _this2.close();
 
-              case 16:
+              case 17:
               case "end":
                 return _context2.stop();
             }
@@ -640,7 +643,16 @@ var render = function() {
                       },
                       attrs: { type: "submit", variant: "primary", squared: "" }
                     },
-                    [_c("b", [_vm._v("CADASTRAR")])]
+                    [
+                      _vm.modal.operating
+                        ? _c("b-spinner", {
+                            attrs: { variant: "light", small: "" }
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("b", [_vm._v("CADASTRAR")])
+                    ],
+                    1
                   )
                 ],
                 1
