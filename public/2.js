@@ -315,7 +315,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.customCarousel {\n  height: auto;\n}\n.bannerBackground {\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: center center;\n}\n.banner {\n  height: 60vh;\n}\n@media only screen and (max-width: 600px) {\n.banner {\n    height: 23vh;\n}\n}\n.num {\n  color: white;\n  font-size: x-large;\n  font-weight: bold;\n}\n.number {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.instruction {\n  height: 100px;\n  display: flex;\n  align-items: center;\n}\n.instruction p {\n  text-align: justify;\n  font-size: 15px;\n}\n", ""]);
+exports.push([module.i, "\n.content-raffle {\n  min-height: 40vh;\n}\n.customCarousel {\n  height: auto;\n}\n.bannerBackground {\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: center center;\n}\n.banner {\n  height: 60vh;\n}\n@media only screen and (max-width: 600px) {\n.banner {\n    height: 23vh;\n}\n}\n.num {\n  color: white;\n  font-size: x-large;\n  font-weight: bold;\n}\n.number {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.instruction {\n  height: 100px;\n  display: flex;\n  align-items: center;\n}\n.instruction p {\n  text-align: justify;\n  font-size: 15px;\n}\n", ""]);
 
 // exports
 
@@ -629,149 +629,82 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "container mt-3" },
+        { staticClass: "container content-raffle mt-3" },
         [
-          _c("h4", [_vm._v("GANHADORES DOS ÚLTIMOS SORTEIOS REALIZADOS")]),
+          _vm.lastRaffles.length > 0
+            ? _c("div", { staticClass: "mt-4 mb-2" }, [
+                _c("h4", [_vm._v("PROXIMOS SORTEIOS")])
+              ])
+            : _vm._e(),
           _vm._v(" "),
-          _c("b-col", { attrs: { lg: "12" } }, [
-            _c(
-              "div",
-              { staticClass: "ganhadores" },
-              [
-                _c(
-                  "vue-glide",
-                  { attrs: { options: _vm.options } },
-                  [
-                    _c(
-                      "vue-glide-slide",
-                      [
-                        _c("b-img", {
-                          attrs: {
-                            src: "https://picsum.photos/536/354/?image=41",
-                            fluid: "",
-                            alt: "Fluid image"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "vue-glide-slide",
-                      [
-                        _c("b-img", {
-                          attrs: {
-                            src: "https://picsum.photos/536/354/?image=42",
-                            fluid: "",
-                            alt: "Fluid image"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "vue-glide-slide",
-                      [
-                        _c("b-img", {
-                          attrs: {
-                            src: "https://picsum.photos/536/354/?image=43",
-                            fluid: "",
-                            alt: "Fluid image"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "vue-glide-slide",
-                      [
-                        _c("b-img", {
-                          attrs: {
-                            src: "https://picsum.photos/536/354/?image=44",
-                            fluid: "",
-                            alt: "Fluid image"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "b-row",
-            _vm._l(_vm.lastRaffles, function(raffle, index) {
-              return _c(
-                "b-col",
-                {
-                  key: "id-" + index,
-                  staticClass: "d-flex justify-content-center",
-                  attrs: { md: "4" }
-                },
-                [
-                  _c(
-                    "b-card",
+          _vm.lastRaffles.length > 0
+            ? _c(
+                "b-row",
+                _vm._l(_vm.lastRaffles, function(raffle, index) {
+                  return _c(
+                    "b-col",
                     {
-                      staticClass: "mb-2",
-                      staticStyle: { "max-width": "20rem" },
-                      attrs: {
-                        "img-src": raffle.url_banner,
-                        title: raffle.title,
-                        "img-alt": raffle.title,
-                        "img-top": "",
-                        "border-variant": "dark",
-                        "text-variant": "white",
-                        "bg-variant": "dark",
-                        "title-tag": "h4"
-                      }
+                      key: "id-" + index,
+                      staticClass: "d-flex justify-content-center",
+                      attrs: { md: "4" }
                     },
                     [
-                      _c("b-card-text", [
-                        _vm._v(
-                          "\n            Sorteio " +
-                            _vm._s(
-                              _vm._f("moment")(
-                                raffle.draw_day,
-                                "dddd, D MMMM  YYYY"
-                              )
-                            ) +
-                            "\n          "
-                        )
-                      ]),
-                      _vm._v(" "),
                       _c(
-                        "router-link",
+                        "b-card",
                         {
-                          staticClass: "btn btn-success btn-block rounded-pill",
-                          attrs: { to: "/draw/show/" + raffle.id }
+                          staticClass: "mb-2",
+                          staticStyle: { "max-width": "20rem" },
+                          attrs: {
+                            "img-src": raffle.url_banner,
+                            title: raffle.title,
+                            "img-alt": raffle.title,
+                            "img-top": "",
+                            "border-variant": "dark",
+                            "text-variant": "white",
+                            "bg-variant": "dark",
+                            "title-tag": "h4"
+                          }
                         },
                         [
-                          _c("b", [_vm._v("COMPRA RIFA")]),
+                          _c("b-card-text", [
+                            _vm._v(
+                              "\n            Sorteio " +
+                                _vm._s(
+                                  _vm._f("moment")(
+                                    raffle.draw_day,
+                                    "dddd, D MMMM  YYYY"
+                                  )
+                                ) +
+                                "\n          "
+                            )
+                          ]),
                           _vm._v(" "),
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "check"] }
-                          })
+                          _c(
+                            "router-link",
+                            {
+                              staticClass:
+                                "btn btn-success btn-block rounded-pill",
+                              attrs: { to: "/draw/show/" + raffle.id }
+                            },
+                            [
+                              _c("b", [_vm._v("COMPRA RIFA")]),
+                              _vm._v(" "),
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["fas", "check"] }
+                              })
+                            ],
+                            1
+                          )
                         ],
                         1
                       )
                     ],
                     1
                   )
-                ],
+                }),
                 1
               )
-            }),
-            1
-          )
+            : _vm._e()
         ],
         1
       ),
@@ -781,16 +714,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-4 mb-2" }, [
-      _c("h4", [_vm._v("PROXIMOS SORTEIOS")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

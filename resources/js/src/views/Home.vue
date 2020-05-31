@@ -60,8 +60,8 @@
         </b-col>
       </b-row>
     </div>
-    <div class="container mt-3">
-      <h4>GANHADORES DOS ÚLTIMOS SORTEIOS REALIZADOS</h4>
+    <div class="container content-raffle mt-3">
+      <!--  <h4>GANHADORES DOS ÚLTIMOS SORTEIOS REALIZADOS</h4>
       <b-col lg="12">
         <div class="ganhadores">
           <vue-glide :options="options">
@@ -95,11 +95,11 @@
             </vue-glide-slide>
           </vue-glide>
         </div>
-      </b-col>
-      <div class="mt-4 mb-2">
+      </b-col> -->
+      <div class="mt-4 mb-2" v-if="lastRaffles.length > 0">
         <h4>PROXIMOS SORTEIOS</h4>
       </div>
-      <b-row>
+      <b-row v-if="lastRaffles.length > 0">
         <b-col
           md="4"
           v-for="(raffle, index) in lastRaffles"
@@ -208,6 +208,9 @@ export default {
 </script>
 
 <style>
+.content-raffle {
+  min-height: 40vh;
+}
 .customCarousel {
   height: auto;
 }
