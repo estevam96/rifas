@@ -1,9 +1,9 @@
 <template>
   <div class="container mt-4">
-    <h4 class="text-white text-center mb-4">
+    <h4 class="text-center mb-4">
       Veja como é fácil entra em contato contato conosco..
     </h4>
-    <h6 class="text-white text-center mb-5">
+    <h6 class="text-center mb-5">
       Logo a baixo iremos disponibilizar alguns botões com links para os nossos
       contatos referente a cada sorteio é só clicar no botão.
     </h6>
@@ -32,9 +32,6 @@ export default {};
 </script>
 
 <style>
-.separator {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
 .btn-custom-color {
   background-color: #b618a8;
 }

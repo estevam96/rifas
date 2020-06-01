@@ -1,9 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+// Variables
+@import 'variables';
+
 body {
   font-family: "Nunito", sans-serif;
+  min-height: 100vh;
 }
+
+main {
+  min-height: 80vh;
+}
+
 .navbar {
   min-height: 80px;
   background-color: #008000;
+}
+
+.separator {
+  border-bottom: 1px solid #1b1e21;
+  margin-bottom: 10px;
 }
