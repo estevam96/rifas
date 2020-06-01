@@ -24,6 +24,7 @@
           <b-form-group label="Nome *">
             <b-input
               type="text"
+              name="Name"
               v-model.lazy="order.name"
               placeholder="Nome e sobrenome"
             />
@@ -33,6 +34,7 @@
           <b-form-group label="Telefone *">
             <b-input
               type="text"
+              name="fone"
               v-model.lazy="order.phone"
               placeholder="(99) 99999-999"
               v-mask="{ mask: '(99) 99999-9999', autoUnmask: true }"
@@ -52,7 +54,8 @@
             class="mt-4"
             :class="{ 'show-success': !modal.operating && modal.success }"
           >
-            <b>SALVA</b>
+            <b-spinner variant="light" small v-if="modal.operating" />
+            <b v-else>SALVA</b>
           </b-button>
         </b-col>
       </b-row>
@@ -83,6 +86,7 @@ export default {
   },
   methods: {
     async saveOrder() {
+      this.modal.operating = true;
       await Order.store({
         name: this.order.name,
         phone: this.order.phone,
@@ -90,6 +94,7 @@ export default {
         tickets: this.tickets
       }).then(response => {
         this.$emit("update");
+        this.modal.operating = false;
         this.close();
       });
     },

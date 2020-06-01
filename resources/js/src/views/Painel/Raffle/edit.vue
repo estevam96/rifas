@@ -7,7 +7,10 @@
     hide-footer
     class="p-2"
   >
-    <b-form @submit.prevent="saveRaflle">
+    <b-row v-if="modal.loading" class="d-flex justify-content-center">
+      <b-spinner size="md" variant="primary" /> {{ modal.loadingTitle }}
+    </b-row>
+    <b-form @submit.prevent="saveRaflle" v-if="!modal.loading && id != -1">
       <b-row>
         <b-col sm="12">
           <div v-if="raffle.banner != null">
@@ -115,8 +118,8 @@
             class="mt-4"
             :class="{ 'show-success': !modal.operating && modal.success }"
           >
-          <b-spinner variant="light" small v-if="modal.operating" />
-            <b>CADASTRAR</b>
+            <b-spinner variant="light" small v-if="modal.operating" />
+            <b v-else>CADASTRAR</b>
           </b-button>
         </b-col>
       </b-row>
@@ -226,6 +229,7 @@ export default {
     },
     show(id) {
       this.id = id;
+      this.modal.loading = true;
       this.fetchRaffle(id);
       this.$refs.editmodal.show();
     },

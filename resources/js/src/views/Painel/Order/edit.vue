@@ -95,10 +95,10 @@ export default {
       });
     },
     async saveOrder() {
-      this.operating = true;
+      this.modal.operating = true;
       await Order.update(this.id, { status: this.order.status }).then(res => {
-        this.operating = false;
         this.$emit("update");
+        this.modal.operating = false;
         this.close();
       });
     },

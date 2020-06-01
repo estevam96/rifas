@@ -517,6 +517,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["tickets", "price"],
@@ -546,7 +549,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                _this.modal.operating = true;
+                _context.next = 3;
                 return _api__WEBPACK_IMPORTED_MODULE_1__["Order"].store({
                   name: _this.order.name,
                   phone: _this.order.phone,
@@ -555,10 +559,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }).then(function (response) {
                   _this.$emit("update");
 
+                  _this.modal.operating = false;
+
                   _this.close();
                 });
 
-              case 2:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -1278,6 +1284,7 @@ var render = function() {
                       _c("b-input", {
                         attrs: {
                           type: "text",
+                          name: "Name",
                           placeholder: "Nome e sobrenome"
                         },
                         model: {
@@ -1316,7 +1323,11 @@ var render = function() {
                               "{ mask: '(99) 99999-9999', autoUnmask: true }"
                           }
                         ],
-                        attrs: { type: "text", placeholder: "(99) 99999-999" },
+                        attrs: {
+                          type: "text",
+                          name: "fone",
+                          placeholder: "(99) 99999-999"
+                        },
                         model: {
                           value: _vm.order.phone,
                           callback: function($$v) {
@@ -1366,7 +1377,14 @@ var render = function() {
                       },
                       attrs: { type: "submit", variant: "primary", squared: "" }
                     },
-                    [_c("b", [_vm._v("SALVA")])]
+                    [
+                      _vm.modal.operating
+                        ? _c("b-spinner", {
+                            attrs: { variant: "light", small: "" }
+                          })
+                        : _c("b", [_vm._v("SALVA")])
+                    ],
+                    1
                   )
                 ],
                 1

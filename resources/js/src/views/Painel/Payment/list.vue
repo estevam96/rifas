@@ -40,13 +40,16 @@ export default {
   },
   data() {
     return {
-      payment: []
+      payment: [],
+      isLoad: false
     };
   },
   methods: {
     async fetchBanks() {
+      this.isLoad = true;
       await Payment.list().then(response => {
         this.payment = response.data;
+        this.isLoad = false;
       });
     },
     remove(id) {

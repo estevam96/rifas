@@ -24,7 +24,16 @@
         small
         fixed
         striped
+        :busy="isBusy"
+        empty-text="Não há rifas para mostra"
+        show-empty
       >
+        <template v-slot:table-busy>
+          <div class="text-center text-success my-2">
+            <b-spinner class="align-middle"></b-spinner>
+            <strong>Carregando...</strong>
+          </div>
+        </template>
         <template v-slot:cell(created_at)="row">
           {{ row.item.created_at | moment("DD/MM/YYYY HH:mm") }}
         </template>
@@ -86,6 +95,7 @@ export default {
       perPage: 10,
       total: 0,
       lastPage: 0,
+      isBusy: false,
       fields: [
         {
           key: "title",
@@ -117,6 +127,7 @@ export default {
   },
   methods: {
     async fetchRaffle(ctx) {
+      this.isBusy = true;
       let item = [];
       await Raffle.list(ctx.currentPage, ctx.perPage)
         .then(response => {
@@ -129,7 +140,7 @@ export default {
         .catch(() => {
           item = [];
         });
-
+      this.isBusy = false;
       return item;
     },
     remove(id) {

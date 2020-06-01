@@ -194,6 +194,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -210,6 +219,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       perPage: 10,
       total: 0,
       lastPage: 0,
+      isBusy: false,
       fields: [{
         key: "title",
         label: "Titulo",
@@ -243,8 +253,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                _this.isBusy = true;
                 item = [];
-                _context.next = 3;
+                _context.next = 4;
                 return _api__WEBPACK_IMPORTED_MODULE_1__["Raffle"].list(ctx.currentPage, ctx.perPage).then(function (response) {
                   _this.total = response.data.total;
                   item = response.data.data;
@@ -255,10 +266,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   item = [];
                 });
 
-              case 3:
+              case 4:
+                _this.isBusy = false;
                 return _context.abrupt("return", item);
 
-              case 4:
+              case 6:
               case "end":
                 return _context.stop();
             }
@@ -718,9 +730,30 @@ var render = function() {
               "no-provider-sorting": "",
               small: "",
               fixed: "",
-              striped: ""
+              striped: "",
+              busy: _vm.isBusy,
+              "empty-text": "Não há rifas para mostra",
+              "show-empty": ""
             },
             scopedSlots: _vm._u([
+              {
+                key: "table-busy",
+                fn: function() {
+                  return [
+                    _c(
+                      "div",
+                      { staticClass: "text-center text-success my-2" },
+                      [
+                        _c("b-spinner", { staticClass: "align-middle" }),
+                        _vm._v(" "),
+                        _c("strong", [_vm._v("Carregando...")])
+                      ],
+                      1
+                    )
+                  ]
+                },
+                proxy: true
+              },
               {
                 key: "cell(created_at)",
                 fn: function(row) {
@@ -1214,9 +1247,7 @@ var render = function() {
                         ? _c("b-spinner", {
                             attrs: { variant: "light", small: "" }
                           })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c("b", [_vm._v("CADASTRAR")])
+                        : _c("b", [_vm._v("CADASTRAR")])
                     ],
                     1
                   )

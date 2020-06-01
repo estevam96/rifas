@@ -381,7 +381,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
-      payment: []
+      payment: [],
+      isLoad: false
     };
   },
   methods: {
@@ -393,12 +394,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                _this.isLoad = true;
+                _context.next = 3;
                 return _api__WEBPACK_IMPORTED_MODULE_1__["Payment"].list().then(function (response) {
                   _this.payment = response.data;
+                  _this.isLoad = false;
                 });
 
-              case 2:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -573,6 +576,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -600,7 +604,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _this.loading = true;
+                _this.modal.operating = true;
                 data = new FormData();
                 data.append("image", _this.payment.image);
                 data.append("bank", _this.payment.bank);
@@ -611,6 +615,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.next = 10;
                 return _api__WEBPACK_IMPORTED_MODULE_1__["Payment"].store(data).then(function (response) {
                   _this.$emit("update");
+
+                  _this.modal.operating = false;
 
                   _this.close();
 
@@ -1521,7 +1527,14 @@ var render = function() {
                       },
                       attrs: { type: "submit", variant: "primary", squared: "" }
                     },
-                    [_c("b", [_vm._v("CADASTRAR")])]
+                    [
+                      _vm.modal.operating
+                        ? _c("b-spinner", {
+                            attrs: { variant: "light", small: "" }
+                          })
+                        : _c("b", [_vm._v("CADASTRAR")])
+                    ],
+                    1
                   )
                 ],
                 1

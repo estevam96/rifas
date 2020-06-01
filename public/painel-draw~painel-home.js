@@ -146,6 +146,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -285,6 +288,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     show: function show(id) {
       this.id = id;
+      this.modal.loading = true;
       this.fetchRaffle(id);
       this.$refs.editmodal.show();
     },
@@ -335,322 +339,341 @@ var render = function() {
       }
     },
     [
-      _c(
-        "b-form",
-        {
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.saveRaflle($event)
-            }
-          }
-        },
-        [
-          _c(
+      _vm.modal.loading
+        ? _c(
             "b-row",
+            { staticClass: "d-flex justify-content-center" },
             [
-              _c("b-col", { attrs: { sm: "12" } }, [
-                _vm.raffle.banner != null
-                  ? _c(
-                      "div",
-                      [
-                        _c("span", [_vm._v("Previsão do Banner:")]),
-                        _vm._v(" "),
-                        _c("b-img", {
-                          staticStyle: { width: "100%", height: "337px" },
-                          attrs: {
-                            src: _vm.imgPreview || _vm.raffle.banner,
-                            fluid: "",
-                            alt: "Previsão"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                { attrs: { md: "12" } },
-                [
-                  _c(
-                    "b-form-group",
-                    {
-                      attrs: {
-                        label: "Banner",
-                        description:
-                          "utilize imagem com 1365x404, para evitar distorção  "
-                      }
-                    },
-                    [
-                      _c("b-form-file", {
-                        ref: "banner",
-                        attrs: {
-                          name: "banner",
-                          placeholder: "Escolha um arquivo ou solte-o aqui ...",
-                          "drop-placeholder": "olte-o aqui...",
-                          type: "file"
-                        },
-                        model: {
-                          value: _vm.file,
-                          callback: function($$v) {
-                            _vm.file = $$v
-                          },
-                          expression: "file"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                { attrs: { md: "12" } },
-                [
-                  _c(
-                    "b-form-group",
-                    { attrs: { label: "Titulo" } },
-                    [
-                      _c("b-form-input", {
-                        attrs: { name: "title", type: "text" },
-                        model: {
-                          value: _vm.raffle.title,
-                          callback: function($$v) {
-                            _vm.$set(_vm.raffle, "title", $$v)
-                          },
-                          expression: "raffle.title"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                { attrs: { md: "12" } },
-                [
-                  _c(
-                    "b-form-group",
-                    { attrs: { label: "Numero de tickets" } },
-                    [
-                      _c("b-form-input", {
-                        attrs: {
-                          name: "ticket",
-                          type: "number",
-                          min: "100",
-                          max: "1000",
-                          step: "1"
-                        },
-                        model: {
-                          value: _vm.raffle.tickets,
-                          callback: function($$v) {
-                            _vm.$set(_vm.raffle, "tickets", $$v)
-                          },
-                          expression: "raffle.tickets"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                { attrs: { md: "12" } },
-                [
-                  _c(
-                    "b-form-group",
-                    { attrs: { label: "Preço do ticket" } },
-                    [
-                      _c("b-form-input", {
-                        attrs: {
-                          name: "price",
-                          type: "number",
-                          min: "0",
-                          max: "9999.99",
-                          step: "0.01"
-                        },
-                        model: {
-                          value: _vm.raffle.price,
-                          callback: function($$v) {
-                            _vm.$set(_vm.raffle, "price", $$v)
-                          },
-                          expression: "raffle.price"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                { attrs: { md: "12" } },
-                [
-                  _c(
-                    "b-form-group",
-                    { attrs: { label: "Ticket vencendor" } },
-                    [
-                      _c("b-form-input", {
-                        attrs: {
-                          name: "winnerTicket",
-                          type: "number",
-                          min: "0",
-                          max: "1000",
-                          step: "1"
-                        },
-                        model: {
-                          value: _vm.raffle.winning_ticket,
-                          callback: function($$v) {
-                            _vm.$set(_vm.raffle, "winning_ticket", $$v)
-                          },
-                          expression: "raffle.winning_ticket"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                { attrs: { md: "12" } },
-                [
-                  _c(
-                    "b-form-group",
-                    { attrs: { label: "Nome do ganhador" } },
-                    [
-                      _c("b-form-input", {
-                        attrs: { name: "winner", type: "text" },
-                        model: {
-                          value: _vm.raffle.winner,
-                          callback: function($$v) {
-                            _vm.$set(_vm.raffle, "winner", $$v)
-                          },
-                          expression: "raffle.winner"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                { attrs: { md: "12" } },
-                [
-                  _c(
-                    "b-form-group",
-                    { attrs: { label: "Data do Sorteio" } },
-                    [
-                      _c("vc-date-picker", {
-                        attrs: {
-                          mode: "single",
-                          "min-date": new Date(),
-                          "input-props": {
-                            class: "form-control"
-                          }
-                        },
-                        model: {
-                          value: _vm.raffle.draw_day,
-                          callback: function($$v) {
-                            _vm.$set(_vm.raffle, "draw_day", $$v)
-                          },
-                          expression: "raffle.draw_day"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                { attrs: { md: "12" } },
-                [
-                  _c(
-                    "b-form-group",
-                    { attrs: { label: "Descrição" } },
-                    [
-                      _c("quill-editor", {
-                        attrs: {
-                          value: _vm.raffle.description,
-                          options: _vm.editorOption
-                        },
-                        model: {
-                          value: _vm.raffle.description,
-                          callback: function($$v) {
-                            _vm.$set(_vm.raffle, "description", $$v)
-                          },
-                          expression: "raffle.description"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
+              _c("b-spinner", { attrs: { size: "md", variant: "primary" } }),
+              _vm._v(" " + _vm._s(_vm.modal.loadingTitle) + "\n  ")
             ],
             1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-row",
-            { staticClass: "d-flex justify-content-end" },
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.modal.loading && _vm.id != -1
+        ? _c(
+            "b-form",
+            {
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.saveRaflle($event)
+                }
+              }
+            },
             [
               _c(
-                "b-col",
-                {
-                  staticClass: "d-flex justify-content-end",
-                  attrs: { sm: "6" }
-                },
+                "b-row",
                 [
+                  _c("b-col", { attrs: { sm: "12" } }, [
+                    _vm.raffle.banner != null
+                      ? _c(
+                          "div",
+                          [
+                            _c("span", [_vm._v("Previsão do Banner:")]),
+                            _vm._v(" "),
+                            _c("b-img", {
+                              staticStyle: { width: "100%", height: "337px" },
+                              attrs: {
+                                src: _vm.imgPreview || _vm.raffle.banner,
+                                fluid: "",
+                                alt: "Previsão"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
                   _c(
-                    "b-button",
-                    {
-                      staticClass: "mt-4 mr-2",
-                      attrs: { type: "button", squared: "" },
-                      on: { click: _vm.close }
-                    },
-                    [_c("b", [_vm._v("CANCELAR")])]
+                    "b-col",
+                    { attrs: { md: "12" } },
+                    [
+                      _c(
+                        "b-form-group",
+                        {
+                          attrs: {
+                            label: "Banner",
+                            description:
+                              "utilize imagem com 1365x404, para evitar distorção  "
+                          }
+                        },
+                        [
+                          _c("b-form-file", {
+                            ref: "banner",
+                            attrs: {
+                              name: "banner",
+                              placeholder:
+                                "Escolha um arquivo ou solte-o aqui ...",
+                              "drop-placeholder": "olte-o aqui...",
+                              type: "file"
+                            },
+                            model: {
+                              value: _vm.file,
+                              callback: function($$v) {
+                                _vm.file = $$v
+                              },
+                              expression: "file"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
                   ),
                   _vm._v(" "),
                   _c(
-                    "b-button",
+                    "b-col",
+                    { attrs: { md: "12" } },
+                    [
+                      _c(
+                        "b-form-group",
+                        { attrs: { label: "Titulo" } },
+                        [
+                          _c("b-form-input", {
+                            attrs: { name: "title", type: "text" },
+                            model: {
+                              value: _vm.raffle.title,
+                              callback: function($$v) {
+                                _vm.$set(_vm.raffle, "title", $$v)
+                              },
+                              expression: "raffle.title"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { attrs: { md: "12" } },
+                    [
+                      _c(
+                        "b-form-group",
+                        { attrs: { label: "Numero de tickets" } },
+                        [
+                          _c("b-form-input", {
+                            attrs: {
+                              name: "ticket",
+                              type: "number",
+                              min: "100",
+                              max: "1000",
+                              step: "1"
+                            },
+                            model: {
+                              value: _vm.raffle.tickets,
+                              callback: function($$v) {
+                                _vm.$set(_vm.raffle, "tickets", $$v)
+                              },
+                              expression: "raffle.tickets"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { attrs: { md: "12" } },
+                    [
+                      _c(
+                        "b-form-group",
+                        { attrs: { label: "Preço do ticket" } },
+                        [
+                          _c("b-form-input", {
+                            attrs: {
+                              name: "price",
+                              type: "number",
+                              min: "0",
+                              max: "9999.99",
+                              step: "0.01"
+                            },
+                            model: {
+                              value: _vm.raffle.price,
+                              callback: function($$v) {
+                                _vm.$set(_vm.raffle, "price", $$v)
+                              },
+                              expression: "raffle.price"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { attrs: { md: "12" } },
+                    [
+                      _c(
+                        "b-form-group",
+                        { attrs: { label: "Ticket vencendor" } },
+                        [
+                          _c("b-form-input", {
+                            attrs: {
+                              name: "winnerTicket",
+                              type: "number",
+                              min: "0",
+                              max: "1000",
+                              step: "1"
+                            },
+                            model: {
+                              value: _vm.raffle.winning_ticket,
+                              callback: function($$v) {
+                                _vm.$set(_vm.raffle, "winning_ticket", $$v)
+                              },
+                              expression: "raffle.winning_ticket"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { attrs: { md: "12" } },
+                    [
+                      _c(
+                        "b-form-group",
+                        { attrs: { label: "Nome do ganhador" } },
+                        [
+                          _c("b-form-input", {
+                            attrs: { name: "winner", type: "text" },
+                            model: {
+                              value: _vm.raffle.winner,
+                              callback: function($$v) {
+                                _vm.$set(_vm.raffle, "winner", $$v)
+                              },
+                              expression: "raffle.winner"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { attrs: { md: "12" } },
+                    [
+                      _c(
+                        "b-form-group",
+                        { attrs: { label: "Data do Sorteio" } },
+                        [
+                          _c("vc-date-picker", {
+                            attrs: {
+                              mode: "single",
+                              "min-date": new Date(),
+                              "input-props": {
+                                class: "form-control"
+                              }
+                            },
+                            model: {
+                              value: _vm.raffle.draw_day,
+                              callback: function($$v) {
+                                _vm.$set(_vm.raffle, "draw_day", $$v)
+                              },
+                              expression: "raffle.draw_day"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { attrs: { md: "12" } },
+                    [
+                      _c(
+                        "b-form-group",
+                        { attrs: { label: "Descrição" } },
+                        [
+                          _c("quill-editor", {
+                            attrs: {
+                              value: _vm.raffle.description,
+                              options: _vm.editorOption
+                            },
+                            model: {
+                              value: _vm.raffle.description,
+                              callback: function($$v) {
+                                _vm.$set(_vm.raffle, "description", $$v)
+                              },
+                              expression: "raffle.description"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-row",
+                { staticClass: "d-flex justify-content-end" },
+                [
+                  _c(
+                    "b-col",
                     {
-                      staticClass: "mt-4",
-                      class: {
-                        "show-success":
-                          !_vm.modal.operating && _vm.modal.success
-                      },
-                      attrs: { type: "submit", variant: "primary", squared: "" }
+                      staticClass: "d-flex justify-content-end",
+                      attrs: { sm: "6" }
                     },
                     [
-                      _vm.modal.operating
-                        ? _c("b-spinner", {
-                            attrs: { variant: "light", small: "" }
-                          })
-                        : _vm._e(),
+                      _c(
+                        "b-button",
+                        {
+                          staticClass: "mt-4 mr-2",
+                          attrs: { type: "button", squared: "" },
+                          on: { click: _vm.close }
+                        },
+                        [_c("b", [_vm._v("CANCELAR")])]
+                      ),
                       _vm._v(" "),
-                      _c("b", [_vm._v("CADASTRAR")])
+                      _c(
+                        "b-button",
+                        {
+                          staticClass: "mt-4",
+                          class: {
+                            "show-success":
+                              !_vm.modal.operating && _vm.modal.success
+                          },
+                          attrs: {
+                            type: "submit",
+                            variant: "primary",
+                            squared: ""
+                          }
+                        },
+                        [
+                          _vm.modal.operating
+                            ? _c("b-spinner", {
+                                attrs: { variant: "light", small: "" }
+                              })
+                            : _c("b", [_vm._v("CADASTRAR")])
+                        ],
+                        1
+                      )
                     ],
                     1
                   )
@@ -660,9 +683,7 @@ var render = function() {
             ],
             1
           )
-        ],
-        1
-      )
+        : _vm._e()
     ],
     1
   )

@@ -169,6 +169,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -187,6 +201,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       perPage: 10,
       total: 0,
       lastPage: 0,
+      isBusy: false,
       fields: [{
         key: "title",
         label: "Titulo",
@@ -214,6 +229,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         total: 0,
         lastPage: 0,
         filter: null,
+        isBusy: false,
         filterOn: [],
         fields: [{
           key: "name",
@@ -273,7 +289,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 item = [];
-                _context.next = 3;
+                _this.isBusy = true;
+                _context.next = 4;
                 return _api__WEBPACK_IMPORTED_MODULE_1__["Raffle"].listValiable(ctx.currentPage, ctx.perPage).then(function (response) {
                   _this.total = response.data.total;
                   item = response.data.data;
@@ -284,10 +301,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   item = [];
                 });
 
-              case 3:
+              case 4:
+                _this.isBusy = false;
                 return _context.abrupt("return", item);
 
-              case 4:
+              case 6:
               case "end":
                 return _context.stop();
             }
@@ -305,7 +323,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 item = [];
-                _context2.next = 3;
+                _this2.orderTable.isBusy = true;
+                _context2.next = 4;
                 return _api__WEBPACK_IMPORTED_MODULE_1__["Order"].list(ctx.currentPage, ctx.perPage, ctx.filter).then(function (response) {
                   _this2.orderTable.total = response.data.total;
                   item = response.data.data;
@@ -316,10 +335,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   item = [];
                 });
 
-              case 3:
+              case 4:
+                _this2.orderTable.isBusy = false;
                 return _context2.abrupt("return", item);
 
-              case 4:
+              case 6:
               case "end":
                 return _context2.stop();
             }
@@ -577,14 +597,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _this2.operating = true;
+                _this2.modal.operating = true;
                 _context2.next = 3;
                 return _api__WEBPACK_IMPORTED_MODULE_1__["Order"].update(_this2.id, {
                   status: _this2.order.status
                 }).then(function (res) {
-                  _this2.operating = false;
-
                   _this2.$emit("update");
+
+                  _this2.modal.operating = false;
 
                   _this2.close();
                 });
@@ -751,7 +771,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .row-value {\n  width: 100px;\n}\n.row-status {\n  width: 150px;\n}\n.row-action {\n  width: 120px;\n} */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .row-value {\n  width: 100px;\n}\n.row-status {\n  width: 150px;\n}\n.row-action {\n  width: 120px;\n} */\n", ""]);
 
 // exports
 
@@ -839,10 +859,29 @@ var render = function() {
               small: "",
               fixed: "",
               striped: "",
+              busy: _vm.isBusy,
               "empty-text": "Não há rifas para mostra",
               "show-empty": ""
             },
             scopedSlots: _vm._u([
+              {
+                key: "table-busy",
+                fn: function() {
+                  return [
+                    _c(
+                      "div",
+                      { staticClass: "text-center text-success my-2" },
+                      [
+                        _c("b-spinner", { staticClass: "align-middle" }),
+                        _vm._v(" "),
+                        _c("strong", [_vm._v("Carregando...")])
+                      ],
+                      1
+                    )
+                  ]
+                },
+                proxy: true
+              },
               {
                 key: "cell(created_at)",
                 fn: function(row) {
@@ -996,10 +1035,29 @@ var render = function() {
               striped: "",
               filter: _vm.orderTable.filter,
               "empty-text": "Não há pagamentos para mostra",
-              "show-empty": ""
+              "show-empty": "",
+              busy: _vm.orderTable.isBusy
             },
             scopedSlots: _vm._u(
               [
+                {
+                  key: "table-busy",
+                  fn: function() {
+                    return [
+                      _c(
+                        "div",
+                        { staticClass: "text-center text-success my-2" },
+                        [
+                          _c("b-spinner", { staticClass: "align-middle" }),
+                          _vm._v(" "),
+                          _c("strong", [_vm._v("Carregando...")])
+                        ],
+                        1
+                      )
+                    ]
+                  },
+                  proxy: true
+                },
                 _vm.orderTable.total > 0
                   ? {
                       key: "cell(raffle)",

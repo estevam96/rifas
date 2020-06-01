@@ -72,7 +72,8 @@
             class="mt-4"
             :class="{ 'show-success': !modal.operating && modal.success }"
           >
-            <b>CADASTRAR</b>
+            <b-spinner variant="light" small v-if="modal.operating" />
+            <b v-else>CADASTRAR</b>
           </b-button>
         </b-col>
       </b-row>
@@ -100,7 +101,7 @@ export default {
   },
   methods: {
     async savePayment() {
-      this.loading = true;
+      this.modal.operating = true;
       let data = new FormData();
       data.append("image", this.payment.image);
       data.append("bank", this.payment.bank);
@@ -110,6 +111,7 @@ export default {
       data.append("type", this.payment.type);
       await Payment.store(data).then(response => {
         this.$emit("update");
+        this.modal.operating = false;
         this.close();
         this.payment = {};
       });

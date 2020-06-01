@@ -141,7 +141,7 @@
             :class="{ 'show-success': !modal.operating && modal.success }"
           >
             <b-spinner variant="light" small v-if="modal.operating" />
-            <b>CADASTRAR</b>
+            <b v-else>CADASTRAR</b>
           </b-button>
         </b-col>
       </b-row>
