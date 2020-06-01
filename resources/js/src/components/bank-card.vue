@@ -1,7 +1,9 @@
 <template>
   <b-row class="mb-5">
     <b-col
-      md="3"
+      sm="6"
+      md="4"
+      lg="3"
       v-for="(data, index) in payment"
       :key="`id -${index}`"
       class="d-flex justify-content-center"

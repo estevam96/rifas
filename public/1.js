@@ -51,6 +51,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -246,7 +248,7 @@ var render = function() {
         {
           key: "id -" + index,
           staticClass: "d-flex justify-content-center",
-          attrs: { md: "3" }
+          attrs: { sm: "6", md: "4", lg: "3" }
         },
         [
           _c(
