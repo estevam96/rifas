@@ -162,6 +162,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -179,6 +186,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       page: 1,
       perPage: 10,
       total: 0,
+      lastPage: 0,
       fields: [{
         key: "title",
         label: "Titulo",
@@ -192,8 +200,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         label: "Data de Cadastro",
         sortable: true
       }, {
-        key: "draw-day",
-        label: "Dia Sorteio",
+        key: "draw_day",
+        label: "Dia sorteio",
         sortable: true
       }, {
         key: "action",
@@ -204,6 +212,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         page: 1,
         perPage: 10,
         total: 0,
+        lastPage: 0,
         filter: null,
         filterOn: [],
         fields: [{
@@ -270,6 +279,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   item = response.data.data;
                   _this.perPage = ctx.perPage;
                   _this.page = ctx.currentPage;
+                  _this.lastPage = response.data.last_page;
                 })["catch"](function () {
                   item = [];
                 });
@@ -301,6 +311,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   item = response.data.data;
                   _this2.orderTable.perPage = ctx.perPage;
                   _this2.orderTable.page = ctx.currentPage;
+                  _this2.orderTable.lastPage = response.data.last_page;
                 })["catch"](function () {
                   item = [];
                 });
@@ -740,7 +751,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .row-value {\n  width: 100px;\n}\n.row-status {\n  width: 150px;\n}\n.row-action {\n  width: 120px;\n} */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .row-value {\n  width: 100px;\n}\n.row-status {\n  width: 150px;\n}\n.row-action {\n  width: 120px;\n} */\n", ""]);
 
 // exports
 
@@ -827,7 +838,9 @@ var render = function() {
               "no-provider-sorting": "",
               small: "",
               fixed: "",
-              striped: ""
+              striped: "",
+              "empty-text": "Não há rifas para mostra",
+              "show-empty": ""
             },
             scopedSlots: _vm._u([
               {
@@ -848,15 +861,15 @@ var render = function() {
                 }
               },
               {
-                key: "cell(draw-day)",
+                key: "cell(draw_day)",
                 fn: function(row) {
                   return [
                     _vm._v(
                       "\n        " +
                         _vm._s(
                           _vm._f("moment")(
-                            row.item.created_at,
-                            "dddd, D MMMM  YYYY"
+                            row.item.draw_day,
+                            "dddd, DD/MM/YYYY"
                           )
                         ) +
                         "\n      "
@@ -911,30 +924,32 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c(
-        "b-col",
-        {
-          staticClass: "d-flex justify-content-center align-items-center",
-          attrs: { xl: "12" }
-        },
-        [
-          _c("b-pagination", {
-            attrs: {
-              "total-rows": _vm.total,
-              "per-page": _vm.perPage,
-              align: "center"
+      _vm.lastPage > 1
+        ? _c(
+            "b-col",
+            {
+              staticClass: "d-flex justify-content-center align-items-center",
+              attrs: { xl: "12" }
             },
-            model: {
-              value: _vm.page,
-              callback: function($$v) {
-                _vm.page = $$v
-              },
-              expression: "page"
-            }
-          })
-        ],
-        1
-      ),
+            [
+              _c("b-pagination", {
+                attrs: {
+                  "total-rows": _vm.total,
+                  "per-page": _vm.perPage,
+                  align: "center"
+                },
+                model: {
+                  value: _vm.page,
+                  callback: function($$v) {
+                    _vm.page = $$v
+                  },
+                  expression: "page"
+                }
+              })
+            ],
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
       _c("b-col", { staticClass: "mt-4", attrs: { xl: "6" } }, [
         _c("h4", { staticClass: "text-uppercase" }, [_vm._v("Ultimas Compras")])
@@ -1154,30 +1169,33 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c(
-        "b-col",
-        {
-          staticClass: "d-flex justify-content-center align-items-center mb-4",
-          attrs: { xl: "12" }
-        },
-        [
-          _c("b-pagination", {
-            attrs: {
-              "total-rows": _vm.orderTable.total,
-              "per-page": _vm.orderTable.perPage,
-              align: "center"
+      _vm.orderTable.lastPage > 1
+        ? _c(
+            "b-col",
+            {
+              staticClass:
+                "d-flex justify-content-center align-items-center mb-4",
+              attrs: { xl: "12" }
             },
-            model: {
-              value: _vm.orderTable.page,
-              callback: function($$v) {
-                _vm.$set(_vm.orderTable, "page", $$v)
-              },
-              expression: "orderTable.page"
-            }
-          })
-        ],
-        1
-      )
+            [
+              _c("b-pagination", {
+                attrs: {
+                  "total-rows": _vm.orderTable.total,
+                  "per-page": _vm.orderTable.perPage,
+                  align: "center"
+                },
+                model: {
+                  value: _vm.orderTable.page,
+                  callback: function($$v) {
+                    _vm.$set(_vm.orderTable, "page", $$v)
+                  },
+                  expression: "orderTable.page"
+                }
+              })
+            ],
+            1
+          )
+        : _vm._e()
     ],
     1
   )

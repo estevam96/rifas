@@ -18,12 +18,14 @@
         small
         fixed
         striped
+        empty-text="Não há rifas para mostra"
+        show-empty
       >
         <template v-slot:cell(created_at)="row">
           {{ row.item.created_at | moment("DD/MM/YYYY HH:mm") }}
         </template>
-        <template v-slot:cell(draw-day)="row">
-          {{ row.item.created_at | moment("dddd, D MMMM  YYYY") }}
+        <template v-slot:cell(draw_day)="row">
+          {{ row.item.draw_day | moment("dddd, DD/MM/YYYY") }}
         </template>
         <template v-slot:cell(action)="row">
           <b-button pill :to="`/draw/show/${row.item.id}`" size="sm"
@@ -40,7 +42,11 @@
       </b-table>
     </b-col>
 
-    <b-col xl="12" class="d-flex justify-content-center align-items-center">
+    <b-col
+      xl="12"
+      v-if="lastPage > 1"
+      class="d-flex justify-content-center align-items-center"
+    >
       <b-pagination
         v-model="page"
         :total-rows="total"
@@ -124,6 +130,7 @@
     </b-col>
 
     <b-col
+      v-if="orderTable.lastPage > 1"
       xl="12"
       class="d-flex justify-content-center align-items-center mb-4"
     >
@@ -156,6 +163,7 @@ export default {
       page: 1,
       perPage: 10,
       total: 0,
+      lastPage: 0,
       fields: [
         {
           key: "title",
@@ -173,8 +181,8 @@ export default {
           sortable: true
         },
         {
-          key: "draw-day",
-          label: "Dia Sorteio",
+          key: "draw_day",
+          label: "Dia sorteio",
           sortable: true
         },
         {
@@ -187,6 +195,7 @@ export default {
         page: 1,
         perPage: 10,
         total: 0,
+        lastPage: 0,
         filter: null,
         filterOn: [],
         fields: [
@@ -258,6 +267,7 @@ export default {
           item = response.data.data;
           this.perPage = ctx.perPage;
           this.page = ctx.currentPage;
+          this.lastPage = response.data.last_page;
         })
         .catch(() => {
           item = [];
@@ -273,6 +283,7 @@ export default {
           item = response.data.data;
           this.orderTable.perPage = ctx.perPage;
           this.orderTable.page = ctx.currentPage;
+          this.orderTable.lastPage = response.data.last_page;
         })
         .catch(() => {
           item = [];

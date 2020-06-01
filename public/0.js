@@ -514,6 +514,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["tickets", "price"],
@@ -1301,6 +1302,18 @@ var render = function() {
                     { attrs: { label: "Telefone *" } },
                     [
                       _c("b-input", {
+                        directives: [
+                          {
+                            name: "mask",
+                            rawName: "v-mask",
+                            value: {
+                              mask: "(99) 99999-9999",
+                              autoUnmask: true
+                            },
+                            expression:
+                              "{ mask: '(99) 99999-9999', autoUnmask: true }"
+                          }
+                        ],
                         attrs: { type: "text", placeholder: "(99) 99999-999" },
                         model: {
                           value: _vm.order.phone,

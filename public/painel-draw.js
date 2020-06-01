@@ -190,6 +190,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -205,6 +209,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       page: 1,
       perPage: 10,
       total: 0,
+      lastPage: 0,
       fields: [{
         key: "title",
         label: "Titulo",
@@ -219,7 +224,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sortable: true
       }, {
         key: "draw_day",
-        label: "Dia Sorteio",
+        label: "Dia sorteio",
         sortable: true
       }, {
         key: "action",
@@ -245,6 +250,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   item = response.data.data;
                   _this.perPage = ctx.perPage;
                   _this.page = ctx.currentPage;
+                  _this.lastPage = response.data.last_page;
                 })["catch"](function () {
                   item = [];
                 });
@@ -733,7 +739,7 @@ var render = function() {
                 }
               },
               {
-                key: "cell(draw-day)",
+                key: "cell(draw_day)",
                 fn: function(row) {
                   return [
                     _vm._v(
@@ -811,30 +817,32 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c(
-        "b-col",
-        {
-          staticClass: "d-flex justify-content-center align-items-center",
-          attrs: { xl: "12" }
-        },
-        [
-          _c("b-pagination", {
-            attrs: {
-              "total-rows": _vm.total,
-              "per-page": _vm.perPage,
-              align: "center"
+      _vm.lastPage > 1
+        ? _c(
+            "b-col",
+            {
+              staticClass: "d-flex justify-content-center align-items-center",
+              attrs: { xl: "12" }
             },
-            model: {
-              value: _vm.page,
-              callback: function($$v) {
-                _vm.page = $$v
-              },
-              expression: "page"
-            }
-          })
-        ],
-        1
-      )
+            [
+              _c("b-pagination", {
+                attrs: {
+                  "total-rows": _vm.total,
+                  "per-page": _vm.perPage,
+                  align: "center"
+                },
+                model: {
+                  value: _vm.page,
+                  callback: function($$v) {
+                    _vm.page = $$v
+                  },
+                  expression: "page"
+                }
+              })
+            ],
+            1
+          )
+        : _vm._e()
     ],
     1
   )
