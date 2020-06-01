@@ -150,10 +150,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_bank_card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/bank-card */ "./resources/js/src/components/bank-card.vue");
 /* harmony import */ var _order_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./order-modal */ "./resources/js/src/views/Draw/order-modal.vue");
 /* harmony import */ var _containers_Introduction__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../containers/Introduction */ "./resources/js/src/containers/Introduction.vue");
-/* harmony import */ var hooper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! hooper */ "./node_modules/hooper/dist/hooper.esm.js");
-/* harmony import */ var hooper_dist_hooper_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! hooper/dist/hooper.css */ "./node_modules/hooper/dist/hooper.css");
-/* harmony import */ var hooper_dist_hooper_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(hooper_dist_hooper_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../api */ "./resources/js/src/api/index.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../api */ "./resources/js/src/api/index.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -267,11 +264,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
-
+/* import { Hooper, Slide } from "hooper";
+import "hooper/dist/hooper.css"; */
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -280,14 +290,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     "vue-glide-slide": vue_glide_js__WEBPACK_IMPORTED_MODULE_1__["GlideSlide"],
     "bank-card": _components_bank_card__WEBPACK_IMPORTED_MODULE_2__["default"],
     instruction: _containers_Introduction__WEBPACK_IMPORTED_MODULE_4__["default"],
-    "modal-order": _order_modal__WEBPACK_IMPORTED_MODULE_3__["default"],
-    Hooper: hooper__WEBPACK_IMPORTED_MODULE_5__["Hooper"],
-    Slide: hooper__WEBPACK_IMPORTED_MODULE_5__["Slide"]
+    "modal-order": _order_modal__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
-      active: 4,
-      raffle: {},
+      active: 1,
+      raffle: {
+        title: "",
+        tickets: "",
+        price: "",
+        description: "",
+        draw_day: "",
+        banner: "",
+        winner: null,
+        winning_ticket: null,
+        images: []
+      },
       options: {
         gap: 5,
         perView: 1,
@@ -314,7 +332,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _api__WEBPACK_IMPORTED_MODULE_7__["Raffle"].show(_this.$route.params.id).then(function (response) {
+                return _api__WEBPACK_IMPORTED_MODULE_5__["Raffle"].show(_this.$route.params.id).then(function (response) {
                   _this.raffle = response.data;
                 });
 
@@ -336,7 +354,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _this2.ticketsButtons = [];
                 _context2.next = 3;
-                return _api__WEBPACK_IMPORTED_MODULE_7__["Ticket"].ReserveTickets(_this2.$route.params.id).then(function (response) {
+                return _api__WEBPACK_IMPORTED_MODULE_5__["Ticket"].ReserveTickets(_this2.$route.params.id).then(function (response) {
                   var _loop = function _loop(index) {
                     var el = response.data.find(function (num) {
                       return num.ticket === index;
@@ -592,7 +610,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.separator {\n  border-bottom: 1px solid #808080;\n}\n.scroll {\n  height: 500px;\n}\n", ""]);
+exports.push([module.i, "\n.separator {\n  border-bottom: 1px solid #808080;\n  margin-bottom: 10px;\n}\n.scroll {\n  height: 500px;\n}\n.imgs {\n  max-width: 100%;\n  max-height: 400px;\n  width: auto;\n  height: auto;\n}\n", ""]);
 
 // exports
 
@@ -882,27 +900,35 @@ var render = function() {
                 "b-col",
                 { attrs: { md: "6" } },
                 [
-                  _c(
-                    "vue-glide",
-                    { attrs: { options: _vm.options } },
-                    _vm._l(_vm.raffle.images, function(img, index) {
-                      return _c(
-                        "vue-glide-slide",
-                        { key: "idx-" + index },
-                        [
-                          _c("b-img", {
-                            attrs: {
-                              src: img.url_image,
-                              fluid: "",
-                              alt: "Fluid image"
-                            }
-                          })
-                        ],
+                  _vm.raffle.images.length
+                    ? _c(
+                        "vue-glide",
+                        {
+                          attrs: { options: _vm.options },
+                          model: {
+                            value: _vm.active,
+                            callback: function($$v) {
+                              _vm.active = $$v
+                            },
+                            expression: "active"
+                          }
+                        },
+                        _vm._l(_vm.raffle.images, function(img, index) {
+                          return _c(
+                            "vue-glide-slide",
+                            { key: "idx-" + index },
+                            [
+                              _c("b-img", {
+                                staticClass: "imgs",
+                                attrs: { src: img.url_image, alt: "imagens" }
+                              })
+                            ],
+                            1
+                          )
+                        }),
                         1
                       )
-                    }),
-                    1
-                  )
+                    : _vm._e()
                 ],
                 1
               ),
@@ -911,6 +937,39 @@ var render = function() {
                 _c("h4", {}, [_vm._v(_vm._s(_vm.raffle.title))]),
                 _vm._v(" "),
                 _c("div", { staticClass: "separator" }),
+                _vm._v(" "),
+                _vm.raffle.winning_ticket
+                  ? _c("div", { staticClass: "winner-t" }, [
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "text-white btn text-uppercase btn rounded-pill btn-success"
+                        },
+                        [
+                          _vm._v(
+                            "Centena prêmiada\n            " +
+                              _vm._s(
+                                ("0000" + _vm.raffle.winning_ticket).slice(-4)
+                              )
+                          )
+                        ]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.raffle.winner
+                  ? _c("div", { staticClass: "winner mt-2" }, [
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "text-white text-uppercase btn rounded-pill btn-danger"
+                        },
+                        [_vm._v("\n            " + _vm._s(_vm.raffle.winner))]
+                      )
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
                 _c("div", { staticClass: "description  mt-2" }, [
                   _c("p", {
@@ -931,13 +990,20 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("span", { staticClass: "text-secondary" }, [
-                    _vm._v(
-                      _vm._s(
-                        _vm._f("moment")(_vm.raffle["draw_day"], "DD/MM/YYYY")
-                      )
-                    )
-                  ])
+                  _vm.raffle.draw_day
+                    ? _c("span", { staticClass: "text-secondary" }, [
+                        _vm._v(
+                          _vm._s(
+                            _vm._f("moment")(
+                              _vm.raffle["draw_day"],
+                              "DD/MM/YYYY"
+                            )
+                          )
+                        )
+                      ])
+                    : _c("span", { staticClass: "text-secondary" }, [
+                        _vm._v("Data não informada")
+                      ])
                 ])
               ])
             ],
@@ -1006,7 +1072,9 @@ var render = function() {
                                     {
                                       attrs: {
                                         pill: "",
-                                        disabled: item.order !== null,
+                                        disabled:
+                                          item.order !== null ||
+                                          _vm.raffle.winner !== null,
                                         variant:
                                           item.type === "reserved"
                                             ? "warning"

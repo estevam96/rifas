@@ -12,9 +12,7 @@
           title="Carro 0 km"
           img-alt="carro 0km"
           img-top
-          border-variant="dark"
-          text-variant="white"
-          bg-variant="dark"
+          border-variant="secondary"
           title-tag="h4"
           style="max-width: 20rem;"
           class="mb-2"

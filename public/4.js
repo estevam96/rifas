@@ -72,8 +72,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -160,9 +158,7 @@ var render = function() {
                       title: "Carro 0 km",
                       "img-alt": "carro 0km",
                       "img-top": "",
-                      "border-variant": "dark",
-                      "text-variant": "white",
-                      "bg-variant": "dark",
+                      "border-variant": "secondary",
                       "title-tag": "h4"
                     }
                   },
