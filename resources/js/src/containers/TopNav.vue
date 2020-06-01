@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar class="custom-bg" toggleable="lg" type="dark" variant="dark">
+    <b-navbar toggleable="lg" type="dark">
       <b-navbar-brand v-b-toggle.sidebar v-if="currentUser"
         ><font-awesome-icon :icon="['fa', 'bars']"
       /></b-navbar-brand>
@@ -56,10 +56,4 @@ export default {
 </script>
 
 <style>
-.navbar {
-  min-height: 80px;
-}
-.custom-bg {
-  background-color: black !important;
-}
 </style>

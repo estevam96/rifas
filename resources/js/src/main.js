@@ -3,14 +3,10 @@ import App from './App.vue';
 
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import VueGlide from 'vue-glide-js'
 
 import router from './router';
 import store from './store';
-
-import VueGlide from 'vue-glide-js'
-import 'vue-glide-js/dist/vue-glide.css'
 
 import VCalendar from 'v-calendar';
 
@@ -20,16 +16,12 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab, } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import vSelect from 'vue-select'
-import 'vue-select/dist/vue-select.css';
 
 import moment from 'moment';
 require('moment/locale/pt-br')
 
 import VueQuillEditor from 'vue-quill-editor'
 
-import 'quill/dist/quill.core.css'
-import 'quill/dist/quill.snow.css'
-import 'quill/dist/quill.bubble.css'
 
 Vue.use(VueQuillEditor);
 
@@ -61,6 +53,7 @@ Vue.use(require('vue-moment'), {
   moment
 })
 
+import './index'
 
 export default new Vue({
   router,
