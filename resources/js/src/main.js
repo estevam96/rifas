@@ -22,7 +22,7 @@ require('moment/locale/pt-br')
 
 import VueQuillEditor from 'vue-quill-editor'
 
-
+import VueInputMask from "vue-inputmask";
 Vue.use(VueQuillEditor);
 
 library.add(fab, fas);
@@ -49,6 +49,7 @@ Vue.component('vue-perfect-scrollbar', vuePerfectScrollbar);
 Vue.use(VueGlide)
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
+Vue.use(VueInputMask.default);
 Vue.use(require('vue-moment'), {
   moment
 })

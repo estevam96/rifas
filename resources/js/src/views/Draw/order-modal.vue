@@ -35,6 +35,7 @@
               type="text"
               v-model.lazy="order.phone"
               placeholder="(99) 99999-999"
+              v-mask="{ mask: '(99) 99999-9999', autoUnmask: true }"
             />
           </b-form-group>
         </b-col>
