@@ -54,7 +54,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.separator {\n  border-bottom: 1px solid rgba(255, 255, 255, 0.1);\n}\n.btn-custom-color {\n  background-color: #b618a8;\n}\n.btn-custom-color:hover {\n  background-color: #7a297a;\n}\n", ""]);
+exports.push([module.i, "\n.btn-custom-color {\n  background-color: #b618a8;\n}\n.btn-custom-color:hover {\n  background-color: #7a297a;\n}\n", ""]);
 
 // exports
 
@@ -110,11 +110,11 @@ var render = function() {
     "div",
     { staticClass: "container mt-4" },
     [
-      _c("h4", { staticClass: "text-white text-center mb-4" }, [
+      _c("h4", { staticClass: "text-center mb-4" }, [
         _vm._v("\n    Veja como é fácil entra em contato contato conosco..\n  ")
       ]),
       _vm._v(" "),
-      _c("h6", { staticClass: "text-white text-center mb-5" }, [
+      _c("h6", { staticClass: "text-center mb-5" }, [
         _vm._v(
           "\n    Logo a baixo iremos disponibilizar alguns botões com links para os nossos\n    contatos referente a cada sorteio é só clicar no botão.\n  "
         )

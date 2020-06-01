@@ -13,7 +13,8 @@
               <b-form-input type="password" v-model="form.password" />
             </b-form-group>
             <b-button type="submit">
-              <b>Entra</b>
+              <b-spinner variant="light" small v-if="processing" />
+              <b v-else>Entra</b>
             </b-button>
           </b-form>
         </div>
@@ -27,6 +28,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
+      loading: false,
       form: {
         email: "",
         password: ""
@@ -34,7 +36,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["currentUser"])
+    ...mapGetters(["currentUser", "processing"])
   },
   methods: {
     ...mapActions(["login"]),

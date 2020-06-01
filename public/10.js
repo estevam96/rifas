@@ -1,1 +1,331 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{189:function(t,e,n){"use strict";var a=n(20);n.n(a).a},190:function(t,e,n){(t.exports=n(6)(!1)).push([t.i,"\n.content-raffle {\n  min-height: 40vh;\n}\n.customCarousel {\n  height: auto;\n}\n.bannerBackground {\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: center center;\n}\n.banner {\n  height: 60vh;\n}\n@media only screen and (max-width: 600px) {\n.banner {\n    height: 23vh;\n}\n}\n.num {\n  color: white;\n  font-size: x-large;\n  font-weight: bold;\n}\n.number {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n.instruction {\n  height: 100px;\n  display: flex;\n  align-items: center;\n}\n.instruction p {\n  text-align: justify;\n  font-size: 15px;\n}\n",""])},20:function(t,e,n){var a=n(190);"string"==typeof a&&(a=[[t.i,a,""]]);var s={hmr:!0,transform:void 0,insertInto:void 0};n(7)(a,s);a.locals&&(t.exports=a.locals)},251:function(t,e,n){"use strict";n.r(e);var a=n(1),s=n.n(a),o=n(12),i=n(14),r=(n(187),n(28)),c=n(4);function l(t,e,n,a,s,o,i){try{var r=t[o](i),c=r.value}catch(t){return void n(t)}r.done?e(c):Promise.resolve(c).then(a,s)}function d(t){return function(){var e=this,n=arguments;return new Promise((function(a,s){var o=t.apply(e,n);function i(t){l(o,a,s,i,r,"next",t)}function r(t){l(o,a,s,i,r,"throw",t)}i(void 0)}))}}var u={components:{"vue-glide":o.Glide,"vue-glide-slide":o.GlideSlide,instruction:r.a,Hooper:i.a,Slide:i.d,HooperPagination:i.c,HooperNavigation:i.b},data:function(){return{slide:0,sliding:null,options:{gap:5,perView:3,type:"carousel",autoplay:3e3,breakpoints:{600:{perView:1},1400:{perView:3}}},lastRaffles:[],recentRaffles:[]}},methods:{onSlideStart:function(t){this.sliding=!0},onSlideEnd:function(t){this.sliding=!1},fetchLastRaffle:function(){var t=this;return d(s.a.mark((function e(){return s.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,c.d.last().then((function(e){t.lastRaffles=e.data}));case 2:case"end":return e.stop()}}),e)})))()},fetchRecentRaffle:function(){var t=this;return d(s.a.mark((function e(){return s.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,c.d.recent().then((function(e){t.recentRaffles=e.data}));case 2:case"end":return e.stop()}}),e)})))()}},mounted:function(){this.fetchRecentRaffle(),this.fetchLastRaffle()}},f=(n(189),n(3)),v=Object(f.a)(u,(function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",[n("div",[n("hooper",{staticClass:"customCarousel",attrs:{infiniteScroll:!0,mouseDrag:!1}},[t._l(t.recentRaffles,(function(e,a){return n("slide",{key:"id-"+a,attrs:{index:a}},[n("div",{staticClass:"bannerBackground",style:"background-image: url("+e.url_banner+")"},[n("div",{staticClass:"banner container "},[n("b-row",{staticClass:"h-100 d-flex align-items-center"},[n("b-col",{attrs:{cols:"6"}},[n("h3",{staticClass:"text-white text-uppercase",staticStyle:{"font-size":"5vw"}},[t._v("\n                  "+t._s(e.title)+"\n                ")]),t._v(" "),n("b-button",{attrs:{variant:"outline-light",to:"/draw/show/"+e.id}},[n("b",{staticClass:"text-uppercase"},[t._v("\n                    compra rifa\n                  ")])])],1)],1)],1)])])})),t._v(" "),n("hooper-pagination",{attrs:{slot:"hooper-addons"},slot:"hooper-addons"}),t._v(" "),n("hooper-navigation",{attrs:{slot:"hooper-addons"},slot:"hooper-addons"})],2)],1),t._v(" "),n("div",{staticClass:"container mt-1"},[n("b-row",[n("b-col",{attrs:{md:"6"}},[n("router-link",{staticClass:"btn btn-block",attrs:{to:"#"}},[n("font-awesome-icon",{style:{color:"#ffc107"},attrs:{icon:["fab","whatsapp"],size:"2x"}}),t._v(" "),n("p",{staticStyle:{color:"#ffc107"}},[t._v("\n            Envio de Comprovantes\n          ")])],1)],1),t._v(" "),n("b-col",{attrs:{md:"6"}},[n("router-link",{staticClass:"btn btn-block",attrs:{to:"#"}},[n("font-awesome-icon",{style:{color:"#28a745"},attrs:{icon:["fab","whatsapp"],size:"2x"}}),t._v(" "),n("p",{staticStyle:{color:"#28a745"}},[t._v("Duvidas: Entre para o grupo")])],1)],1)],1)],1),t._v(" "),n("div",{staticClass:"container content-raffle mt-3"},[t.lastRaffles.length>0?n("div",{staticClass:"mt-4 mb-2"},[n("h4",[t._v("PROXIMOS SORTEIOS")])]):t._e(),t._v(" "),t.lastRaffles.length>0?n("b-row",t._l(t.lastRaffles,(function(e,a){return n("b-col",{key:"id-"+a,staticClass:"d-flex justify-content-center",attrs:{md:"4"}},[n("b-card",{staticClass:"mb-2",staticStyle:{"max-width":"20rem"},attrs:{"img-src":e.url_banner,title:e.title,"img-alt":e.title,"img-top":"","border-variant":"secondary","title-tag":"h4"}},[n("b-card-text",[t._v("\n            Sorteio "+t._s(t._f("moment")(e.draw_day,"dddd, D MMMM  YYYY"))+"\n          ")]),t._v(" "),n("router-link",{staticClass:"btn btn-success btn-block rounded-pill",attrs:{to:"/draw/show/"+e.id}},[n("b",[t._v("COMPRA RIFA")]),t._v(" "),n("font-awesome-icon",{attrs:{icon:["fas","check"]}})],1)],1)],1)})),1):t._e()],1),t._v(" "),n("instruction")],1)}),[],!1,null,null,null);e.default=v.exports},28:function(t,e,n){"use strict";var a={},s=n(3),o=Object(s.a)(a,(function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",{staticClass:"bg-secondary pt-5 pb-3"},[n("div",{staticClass:"container"},[n("b-row",[n("b-col",{attrs:{md:"3"}},[n("h5",{staticClass:"text-white mb-2"},[t._v("1º  ESCOLHA O SORTEIO")]),t._v(" "),n("div",{staticClass:"text-white-50"},[n("p",[t._v("Escolha o prêmio que gostaria de concorrer, verifique a descrição, regulamento do sorteio e fotos em caso de dúvidas entre em contato com o administrado")])])]),t._v(" "),n("b-col",{attrs:{md:"3"}},[n("h5",{staticClass:"text-white mb-2"},[t._v("2º  SELECIONE SEUS NÚMEROS")]),t._v(" "),n("div",{staticClass:"text-white-50"},[n("p",[t._v("Você pode escolher quantos números desejar! Mais números, mais chances de ganhar")])])]),t._v(" "),n("b-col",{attrs:{md:"3"}},[n("h5",{staticClass:"text-white mb-2"},[t._v("3º  FAÇA O PAGAMENTO")]),t._v(" "),n("div",{staticClass:"text-white-50"},[n("p",[t._v("Faça o pagamento em umas das contas exibidas. Envie o comprovante ao administrador via whatsapp.")])])]),t._v(" "),n("b-col",{attrs:{md:"3"}},[n("h5",{staticClass:"text-white mb-2"},[t._v("4º  AGUARDE O SORTEIO")]),t._v(" "),n("div",{staticClass:"text-white-50"},[n("p",[t._v("Aguarde o sorteio pela Loteria Federal Cruze os dedos Você pode ser o próximo sorteado")])])])],1)],1)])}),[],!1,null,null,null);e.a=o.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[10],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api */ "./resources/js/src/api/index.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      raffles: [],
+      page: 1,
+      perPage: 10,
+      lastPage: 1,
+      total: 0
+    };
+  },
+  methods: {
+    fetchRaffle: function fetchRaffle() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _api__WEBPACK_IMPORTED_MODULE_1__["Raffle"].list(_this.page, _this.perPage).then(function (res) {
+                  _this.raffles = res.data.data;
+                  _this.page = res.data.current_page;
+                  _this.perPage = res.data.per_page;
+                  _this.lastPage = res.data.last_page;
+                  _this.total = res.data.total;
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  },
+  mounted: function mounted() {
+    this.fetchRaffle();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container mt-5" },
+    [
+      _c(
+        "b-row",
+        [
+          _vm._l(_vm.raffles, function(raffle, index) {
+            return _c(
+              "b-col",
+              {
+                key: "id-" + index,
+                staticClass: "d-flex justify-content-center",
+                attrs: { md: "4" }
+              },
+              [
+                _c(
+                  "b-card",
+                  {
+                    staticClass: "mb-2",
+                    staticStyle: { "max-width": "20rem" },
+                    attrs: {
+                      "img-src": raffle.url_banner,
+                      title: "Carro 0 km",
+                      "img-alt": "carro 0km",
+                      "img-top": "",
+                      "border-variant": "secondary",
+                      "title-tag": "h4"
+                    }
+                  },
+                  [
+                    _c("b-card-text", [
+                      _vm._v(
+                        "\n          Sorteio " +
+                          _vm._s(
+                            _vm._f("moment")(
+                              raffle.draw_day,
+                              "dddd, D MMMM  YYYY"
+                            )
+                          ) +
+                          "\n        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    raffle.status === null
+                      ? _c(
+                          "router-link",
+                          {
+                            staticClass:
+                              "btn btn-success btn-block rounded-pill",
+                            attrs: { to: "/draw/show/" + raffle.id }
+                          },
+                          [
+                            _c("b", { staticClass: "text-uppercase" }, [
+                              _vm._v("COMPRA RIFA")
+                            ]),
+                            _vm._v(" "),
+                            _c("font-awesome-icon", {
+                              attrs: { icon: ["fas", "check"] }
+                            })
+                          ],
+                          1
+                        )
+                      : _c(
+                          "router-link",
+                          {
+                            staticClass:
+                              "btn btn-danger btn-block rounded-pill",
+                            attrs: { to: "/draw/show/" + raffle.id }
+                          },
+                          [
+                            _c("b", { staticClass: "text-uppercase" }, [
+                              _vm._v("ver resultado")
+                            ]),
+                            _vm._v(" "),
+                            _c("font-awesome-icon", {
+                              attrs: { icon: ["fas", "check"] }
+                            })
+                          ],
+                          1
+                        )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          }),
+          _vm._v(" "),
+          _c(
+            "b-col",
+            {
+              staticClass: "d-flex justify-content-center align-items-center",
+              attrs: { xl: "12" }
+            },
+            [
+              _c("b-pagination", {
+                attrs: {
+                  "total-rows": _vm.total,
+                  "per-page": _vm.perPage,
+                  align: "center"
+                },
+                model: {
+                  value: _vm.page,
+                  callback: function($$v) {
+                    _vm.page = $$v
+                  },
+                  expression: "page"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        2
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/src/views/Draw/Draw.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/src/views/Draw/Draw.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Draw.vue?vue&type=template&id=58f0c415& */ "./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415&");
+/* harmony import */ var _Draw_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Draw.vue?vue&type=script&lang=js& */ "./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Draw_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/views/Draw/Draw.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Draw_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Draw.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Draw/Draw.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Draw_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Draw.vue?vue&type=template&id=58f0c415& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/Draw/Draw.vue?vue&type=template&id=58f0c415&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Draw_vue_vue_type_template_id_58f0c415___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

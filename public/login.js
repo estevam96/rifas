@@ -40,17 +40,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      loading: false,
       form: {
         email: "",
         password: ""
       }
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["currentUser"])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["currentUser", "processing"])),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["login"])), {}, {
     formSubmit: function formSubmit() {
       this.login({
@@ -202,9 +204,18 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _c("b-button", { attrs: { type: "submit" } }, [
-                      _c("b", [_vm._v("Entra")])
-                    ])
+                    _c(
+                      "b-button",
+                      { attrs: { type: "submit" } },
+                      [
+                        _vm.processing
+                          ? _c("b-spinner", {
+                              attrs: { variant: "light", small: "" }
+                            })
+                          : _c("b", [_vm._v("Entra")])
+                      ],
+                      1
+                    )
                   ],
                   1
                 )

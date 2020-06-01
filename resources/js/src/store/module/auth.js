@@ -25,9 +25,13 @@ export default {
       state.processing = false
       state.loginError = null
     },
+    setProcessing(state, payload) {
+      state.processing = payload
+    }
   },
   actions: {
     async login({ commit }, payload) {
+      commit('setProcessing', true)
       await Auth.login(
         payload.email,
         payload.password
