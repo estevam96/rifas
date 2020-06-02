@@ -15,18 +15,23 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab, } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import vSelect from 'vue-select'
+import vSelect from 'vue-select';
 
+import Vuelidate from 'vuelidate'
 import moment from 'moment';
 require('moment/locale/pt-br')
 
 import VueQuillEditor from 'vue-quill-editor'
 
 import VueInputMask from "vue-inputmask";
-Vue.use(VueQuillEditor);
+
+import Notifications from './components/Notification'
 
 library.add(fab, fas);
 
+Vue.use(Notifications);
+Vue.use(Vuelidate);
+Vue.use(VueQuillEditor);
 Vue.use(VCalendar, {
   componentPrefix: 'vc',
   firstDayOfWeek: 2,

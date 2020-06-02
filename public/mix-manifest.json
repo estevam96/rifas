@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/Erro.js": "/Erro.js",
     "/app.js": "/app.js",
     "/app~painel.js": "/app~painel.js",
     "/draw.js": "/draw.js",
@@ -9,6 +10,5 @@
     "/painel-draw.js": "/painel-draw.js",
     "/painel-draw~painel-home.js": "/painel-draw~painel-home.js",
     "/painel-home.js": "/painel-home.js",
-    "/painel-payment.js": "/painel-payment.js",
-    "/Erro.js": "/Erro.js"
+    "/painel-payment.js": "/painel-payment.js"
 }

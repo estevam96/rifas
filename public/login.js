@@ -71,6 +71,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, 200);
       }
     }
+  },
+  mounted: function mounted() {
+    this.$notify("error", "Login Inválido", null, {
+      duration: 3000,
+      permanent: true
+    });
   }
 });
 
