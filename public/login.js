@@ -10,6 +10,8 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuelidate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuelidate */ "./node_modules/vuelidate/lib/index.js");
+/* harmony import */ var vuelidate__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuelidate__WEBPACK_IMPORTED_MODULE_1__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -41,10 +43,52 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+var _require = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js"),
+    required = _require.required,
+    email = _require.email;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      showAlert: false,
       loading: false,
       form: {
         email: "",
@@ -52,13 +96,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["currentUser", "processing"])),
+  mixins: [vuelidate__WEBPACK_IMPORTED_MODULE_1__["validationMixin"]],
+  validations: {
+    form: {
+      email: {
+        required: required,
+        email: email
+      },
+      password: {
+        required: required
+      }
+    }
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(["currentUser", "processing", "loginError"])),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["login"])), {}, {
     formSubmit: function formSubmit() {
-      this.login({
-        email: this.form.email,
-        password: this.form.password
-      });
+      this.$v.$touch();
+
+      if (!this.$v.$error) {
+        this.login({
+          email: this.form.email,
+          password: this.form.password
+        });
+      }
     }
   }),
   watch: {
@@ -70,13 +130,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           _this.$router.push("/painel");
         }, 200);
       }
+    },
+    loginError: function loginError(val) {
+      if (val != null) {
+        this.$notify("error", "Login Inválido", val, {
+          duration: 3000,
+          permanent: false
+        });
+        this.showAlert = true;
+      }
     }
-  },
-  mounted: function mounted() {
-    this.$notify("error", "Login Inválido", null, {
-      duration: 3000,
-      permanent: true
-    });
   }
 });
 
@@ -157,78 +220,156 @@ var render = function() {
         "b-col",
         { staticClass: "mx-auto my-auto", attrs: { xs: "4", md: "6" } },
         [
-          _c("b-card", { attrs: { "no-body": "" } }, [
-            _c(
-              "div",
-              { staticClass: "form-side" },
-              [
-                _c(
-                  "b-form",
-                  {
-                    attrs: { title: "Login" },
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.formSubmit($event)
+          _c(
+            "b-card",
+            { attrs: { "border-variant": "secondary", "no-body": "" } },
+            [
+              _c(
+                "div",
+                { staticClass: "form-side" },
+                [
+                  _c(
+                    "b-form",
+                    {
+                      attrs: { title: "Login" },
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.formSubmit($event)
+                        }
                       }
-                    }
-                  },
-                  [
-                    _c(
-                      "b-form-group",
-                      { attrs: { label: "E-mail" } },
-                      [
-                        _c("b-form-input", {
-                          attrs: { type: "email" },
-                          model: {
-                            value: _vm.form.email,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "email", $$v)
-                            },
-                            expression: "form.email"
+                    },
+                    [
+                      _c(
+                        "b-alert",
+                        {
+                          attrs: {
+                            variant: "danger",
+                            dismissible: "",
+                            fade: "",
+                            show: _vm.showAlert
+                          },
+                          on: {
+                            dismissed: function($event) {
+                              _vm.showAlert = false
+                            }
                           }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-form-group",
-                      { attrs: { label: "Senha" } },
-                      [
-                        _c("b-form-input", {
-                          attrs: { type: "password" },
-                          model: {
-                            value: _vm.form.password,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "password", $$v)
+                        },
+                        [
+                          _vm._v(
+                            "\n            " +
+                              _vm._s(_vm.loginError) +
+                              "\n          "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-form-group",
+                        { attrs: { label: "E-mail" } },
+                        [
+                          _c("b-form-input", {
+                            attrs: {
+                              type: "email",
+                              name: "form.email",
+                              autocomplete: "email",
+                              placeholder: "Digite a sue email",
+                              state: _vm.$v.form.email.$error ? false : null
                             },
-                            expression: "form.password"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-button",
-                      { attrs: { type: "submit" } },
-                      [
+                            model: {
+                              value: _vm.$v.form.email.$model,
+                              callback: function($$v) {
+                                _vm.$set(_vm.$v.form.email, "$model", $$v)
+                              },
+                              expression: "$v.form.email.$model"
+                            }
+                          }),
+                          _vm._v(" "),
+                          !_vm.$v.form.email.required
+                            ? _c("b-form-invalid-feedback", [
+                                _vm._v(
+                                  "\n              Você deve informar o seu email\n            "
+                                )
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          !_vm.$v.form.email.email
+                            ? _c("b-form-invalid-feedback", [
+                                _vm._v(
+                                  "\n              Você deve informar um email válido\n            "
+                                )
+                              ])
+                            : _vm._e()
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-form-group",
+                        { attrs: { label: "Senha" } },
+                        [
+                          _c("b-form-input", {
+                            attrs: {
+                              type: "password",
+                              name: "form.password",
+                              autocomplete: "current-password",
+                              placeholder: "Digite a sua senha",
+                              state: _vm.$v.form.password.$error ? false : null
+                            },
+                            model: {
+                              value: _vm.$v.form.password.$model,
+                              callback: function($$v) {
+                                _vm.$set(_vm.$v.form.password, "$model", $$v)
+                              },
+                              expression: "$v.form.password.$model"
+                            }
+                          }),
+                          _vm._v(" "),
+                          !_vm.$v.form.password.required
+                            ? _c("b-form-invalid-feedback", [
+                                _vm._v(
+                                  "\n              Você deve informar a sua senha\n            "
+                                )
+                              ])
+                            : _vm._e()
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("b-button", { attrs: { type: "submit" } }, [
                         _vm.processing
-                          ? _c("b-spinner", {
-                              attrs: { variant: "light", small: "" }
-                            })
+                          ? _c(
+                              "div",
+                              { staticClass: "d-flex flex-row" },
+                              [
+                                _c("b-spinner", {
+                                  attrs: {
+                                    small: "",
+                                    label: "Small Spinner",
+                                    type: "grow"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("b-spinner", {
+                                  attrs: {
+                                    small: "",
+                                    label: "Small Spinner",
+                                    type: "grow"
+                                  }
+                                })
+                              ],
+                              1
+                            )
                           : _c("b", [_vm._v("Entra")])
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ],
-              1
-            )
-          ])
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ]
+          )
         ],
         1
       )
