@@ -3,13 +3,10 @@
     "/css/app.css": "/css/app.css",
     "/Erro.js": "/Erro.js",
     "/app.js": "/app.js",
-    "/app~painel.js": "/app~painel.js",
     "/draw.js": "/draw.js",
     "/login.js": "/login.js",
     "/painel.js": "/painel.js",
     "/painel-draw.js": "/painel-draw.js",
-    "/painel-draw~painel-home.js": "/painel-draw~painel-home.js",
     "/painel-home.js": "/painel-home.js",
-    "/painel-payment.js": "/painel-payment.js",
-    "/vendors~login.js": "/vendors~login.js"
+    "/painel-payment.js": "/painel-payment.js"
 }
