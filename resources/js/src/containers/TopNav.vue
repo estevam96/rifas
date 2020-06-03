@@ -4,7 +4,7 @@
       <b-navbar-brand v-b-toggle.sidebar v-if="currentUser"
         ><font-awesome-icon :icon="['fa', 'bars']"
       /></b-navbar-brand>
-      <b-navbar-brand to="/home">Rifas</b-navbar-brand>
+      <b-navbar-brand to="/home">Rifas Nordeste</b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <!-- Right aligned nav items -->
