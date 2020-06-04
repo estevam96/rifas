@@ -16,12 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('auth', 'AuthController@login');
-Route::middleware('auth')->get('/user', function (Request $request) {
+Route::middleware('apiJWT')->get('/user', function (Request $request) {
   return $request->user();
 });
 
 
-Route::prefix('users')->middleware(['auth'])->group(function () {
+Route::prefix('users')->middleware(['apiJWT'])->group(function () {
   Route::apiResource('/', 'api\UserController');
   Route::get('/me', 'api\UserController@me');
 });
@@ -34,7 +34,7 @@ Route::get('tickets/raffle/{raffleId}', 'api\TicketController@index')->name('tic
 
 
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['apiJWT'])->group(function () {
   Route::get('raffle/avaliable', 'api\RaffleController@valiables');
   Route::apiResource('orders', 'api\OrderController')->except('store');
   Route::apiResource('raffle', 'api\RaffleController')->except(['index', 'show']);
