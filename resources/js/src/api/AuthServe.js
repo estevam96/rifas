@@ -2,7 +2,7 @@ import { Service } from "./Service";
 
 class AuthServe extends Service {
   constructor() {
-    super('oauth/token')
+    super('api/auth/')
   }
 
   async login(email, password) {
@@ -10,10 +10,7 @@ class AuthServe extends Service {
       method: 'POST',
       url: '/',
       data: {
-        grant_type: "password",
-        client_id: process.env.MIX_CLIENT_ID,
-        client_secret: process.env.MIX_CLIENT_SECRET,
-        username: email,
+        email: email,
         password: password
       }
     })

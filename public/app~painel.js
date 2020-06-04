@@ -363,7 +363,9 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          _c("b-navbar-brand", { attrs: { to: "/home" } }, [_vm._v("Rifas")]),
+          _c("b-navbar-brand", { attrs: { to: "/home" } }, [
+            _vm._v("Rifas Nordeste")
+          ]),
           _vm._v(" "),
           _c("b-navbar-toggle", { attrs: { target: "nav-collapse" } }),
           _vm._v(" "),

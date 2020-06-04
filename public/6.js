@@ -51,7 +51,7 @@ var AuthServe = /*#__PURE__*/function (_Service) {
   function AuthServe() {
     _classCallCheck(this, AuthServe);
 
-    return _super.call(this, 'oauth/token');
+    return _super.call(this, 'api/auth/');
   }
 
   _createClass(AuthServe, [{
@@ -67,10 +67,7 @@ var AuthServe = /*#__PURE__*/function (_Service) {
                   method: 'POST',
                   url: '/',
                   data: {
-                    grant_type: "password",
-                    client_id: "2",
-                    client_secret: "f5sUqnXLwAF5xvyZXOBZAwzcABg0SnXbdMWLpSxZ",
-                    username: email,
+                    email: email,
                     password: password
                   }
                 });
@@ -925,6 +922,7 @@ var Service = /*#__PURE__*/function () {
     this.request = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
       baseURL: ["http://localhost:8000", baseUrl].join('/')
     });
+    this.request.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     this.applyToken();
   }
 

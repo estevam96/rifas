@@ -46,23 +46,23 @@ export default {
       await Auth.login(
         payload.email,
         payload.password
-      ).then(async ({ data }) => {
-        localStorage.setItem('app_token', data.access_token);
-        localStorage.setItem('reflesh_token', data.refresh_token);
+      ).then(res => {
+        localStorage.setItem('app_token', res.data.access_token);
         applyAuthHeader();
-        await User.me().then(response => {
-          const user = {
-            id: response.data.id,
-            name: response.data.name,
-            role: response.data.role,
-          }
-          localStorage.setItem('user', JSON.stringify(user));
-          commit('setUser', user);
-        })
+
+        const user = {
+          id: res.data.user.id,
+          name: res.data.user.name,
+          role: res.data.user.role,
+        }
+        localStorage.setItem('user', JSON.stringify(user));
+        commit('setUser', user);
+
       }).catch(erro => {
         commit('setError', 'Não foi possível efetuar o login. Credenciais inválidas!')
         localStorage.removeItem('app_token');
         localStorage.removeItem('reflesh_token');
+        localStorage.removeItem('user');
       })
     },
 

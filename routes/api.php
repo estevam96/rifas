@@ -14,27 +14,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+
+Route::post('auth', 'AuthController@login');
+Route::middleware('auth')->get('/user', function (Request $request) {
   return $request->user();
 });
 
-Route::middleware(['auth:api'])->group(function () {
-  Route::get('raffle/avaliable', 'api\RaffleController@valiables');
-});
 
-Route::get('raffle/last', 'api\RaffleController@lastRaffle');
-Route::get('raffle/recent', 'api\RaffleController@recentRaffle');
-Route::apiResources([
-  'raffle' => 'api\RaffleController',
-  'orders' => 'api\OrderController'
-]);
-Route::prefix('users')->middleware(['auth:api'])->group(function () {
+Route::prefix('users')->middleware(['auth'])->group(function () {
   Route::apiResource('/', 'api\UserController');
   Route::get('/me', 'api\UserController@me');
 });
 
-Route::apiResource('tickets', 'api\TicketController')->except(['index']);
+
+Route::get('raffle/last', 'api\RaffleController@lastRaffle');
+Route::get('raffle/recent', 'api\RaffleController@recentRaffle');
 
 Route::get('tickets/raffle/{raffleId}', 'api\TicketController@index')->name('tickets.raffle.index');
 
-Route::apiResource('payment', 'api\PaymentController');
+
+
+Route::middleware(['auth'])->group(function () {
+  Route::get('raffle/avaliable', 'api\RaffleController@valiables');
+  Route::apiResource('orders', 'api\OrderController')->except('store');
+  Route::apiResource('raffle', 'api\RaffleController')->except(['index', 'show']);
+  Route::apiResource('payment', 'api\PaymentController')->only(['store', 'update', 'destroy']);
+  Route::apiResource('tickets', 'api\TicketController')->except(['index']);
+});
+
+Route::apiResource('payment', 'api\PaymentController')->except(['store', 'update', 'destroy']);
+Route::resource('raffle', 'api\RaffleController')->only(['index', 'show']);
