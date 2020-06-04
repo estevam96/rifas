@@ -6,7 +6,6 @@ export class Service {
       baseURL: [process.env.MIX_URL_BASE, baseUrl].join('/')
     })
     this.request.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-    this.request.defaults.headers.common['Accept '] = 'application/json';
     this.applyToken();
   }
 
