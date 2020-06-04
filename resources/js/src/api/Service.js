@@ -5,7 +5,7 @@ export class Service {
     this.request = axios.create({
       baseURL: [process.env.MIX_URL_BASE, baseUrl].join('/')
     })
-
+    this.request.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     this.applyToken();
   }
 
