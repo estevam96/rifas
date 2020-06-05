@@ -6,6 +6,7 @@
       <b-card border-variant="secondary" no-body>
         <div class="form-side">
           <b-form @submit.prevent="formSubmit" title="Login">
+            <input type="hidden" name="_token" :value="csrf" />
             <b-alert
               variant="danger"
               dismissible
@@ -65,6 +66,9 @@ const { required, email } = require("vuelidate/lib/validators");
 export default {
   data() {
     return {
+      crfs: document
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute("content"),
       showAlert: false,
       loading: false,
       form: {
