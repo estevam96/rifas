@@ -9,6 +9,9 @@ class AuthServe extends Service {
     return await this.request({
       method: 'POST',
       url: '/',
+      headers: {
+        Accept: 'application/json'
+      },
       data: {
         email: email,
         password: password
