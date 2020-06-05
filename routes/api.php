@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-//Route::post('auth', 'AuthController@login');
+Route::post('auth', 'AuthController@login');
 Route::middleware('apiJWT')->get('/user', function (Request $request) {
   return $request->user();
 });
