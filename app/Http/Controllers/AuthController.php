@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Laravel\Passport\Client as OClient;
 
 class AuthController extends Controller
 {
@@ -14,7 +11,7 @@ class AuthController extends Controller
   {
     $credentials = request(['email', 'password']);
 
-    if (!$token = auth()->attempt($credentials)) {
+    if (!$token = auth('api')->attempt($credentials)) {
       return response()->json(['error' => 'Unauthorized'], 401);
     }
 
