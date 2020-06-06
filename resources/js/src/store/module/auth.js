@@ -47,6 +47,7 @@ export default {
         payload.email,
         payload.password
       ).then(res => {
+        console.log(res)
         localStorage.setItem('app_token', res.data.access_token);
         applyAuthHeader();
 
