@@ -31,8 +31,7 @@ Route::get('raffle/last', 'api\RaffleController@lastRaffle');
 Route::get('raffle/recent', 'api\RaffleController@recentRaffle');
 
 Route::get('tickets/raffle/{raffleId}', 'api\TicketController@index')->name('tickets.raffle.index');
-
-
+Route::post('orders', 'api\OrderController@store');
 
 Route::middleware(['apiJWT'])->group(function () {
   Route::get('raffle/avaliable', 'api\RaffleController@valiables');
