@@ -2,7 +2,7 @@ import { Service } from "./Service";
 
 class AuthServe extends Service {
   constructor() {
-    super('api/auth/')
+    super('api/auth')
   }
 
   async login(email, password) {
