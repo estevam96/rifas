@@ -8,7 +8,7 @@ class AuthServe extends Service {
   async login(email, password) {
     return await this.request({
       method: 'POST',
-      url: '/',
+      url: '',
       headers: {
         Accept: 'application/json'
       },
