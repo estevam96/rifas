@@ -59,6 +59,7 @@ export default {
         commit('setUser', user);
 
       }).catch(erro => {
+        console.log(erro);
         commit('setError', 'Não foi possível efetuar o login. Credenciais inválidas!')
         localStorage.removeItem('app_token');
         localStorage.removeItem('reflesh_token');
