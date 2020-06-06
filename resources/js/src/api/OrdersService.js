@@ -8,7 +8,7 @@ class OrderService extends Service {
   async store(data) {
     return await this.request({
       method: 'POST',
-      url: '/',
+      url: '',
       data
     })
   }
@@ -16,7 +16,7 @@ class OrderService extends Service {
   async list(page = 1, perPage = 10, search = '') {
     return await this.request({
       method: "GET",
-      url: '/',
+      url: '',
       params: { page, perPage, search }
     })
   }

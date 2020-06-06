@@ -8,7 +8,7 @@ class PaymentService extends Service {
   async list() {
     return await this.request({
       method: "GET",
-      url: '/',
+      url: '',
     })
   }
 
@@ -22,7 +22,7 @@ class PaymentService extends Service {
   async store(data = new FormData()) {
     return await this.request({
       method: "POST",
-      url: '/',
+      url: '',
       data
     })
   }

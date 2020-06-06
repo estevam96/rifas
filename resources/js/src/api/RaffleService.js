@@ -16,7 +16,7 @@ class RaffleService extends Service {
   async list(page = 1, perPage = 10) {
     return await this.request({
       method: "GET",
-      url: '/',
+      url: '',
       params: { page, perPage }
     })
   }
@@ -24,7 +24,7 @@ class RaffleService extends Service {
   async store(data = new FormData()) {
     return await this.request({
       method: "POST",
-      url: '/',
+      url: '',
       data
     })
   }

@@ -4,11 +4,11 @@ class TicketsService extends Service {
   constructor() {
     super('api/tickets');
   }
-  
+
   async store(data) {
     return await this.request({
       method: "POST",
-      url: '/',
+      url: '',
       data
     })
   }
