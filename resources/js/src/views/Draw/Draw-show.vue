@@ -105,7 +105,7 @@
         </b-col>
         <b-col md="12">
           <b-button v-if="tickets.length > 0" @click="show" block variant="info"
-            >Reserva</b-button
+            >Reservar</b-button
           >
         </b-col>
       </b-row>

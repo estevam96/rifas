@@ -22,7 +22,7 @@
                     :to="`/draw/show/${slide.id}`"
                   >
                     <b class="text-uppercase">
-                      compra rifa
+                      comprar rifa
                     </b>
                   </b-button>
                 </b-col>
@@ -123,7 +123,7 @@
               :to="`/draw/show/${raffle.id}`"
               class="btn btn-success btn-block rounded-pill"
             >
-              <b>COMPRA RIFA</b>
+              <b>COMPRAR RIFA</b>
               <font-awesome-icon :icon="['fas', 'check']" />
             </router-link>
           </b-card>

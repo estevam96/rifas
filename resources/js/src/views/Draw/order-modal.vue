@@ -92,11 +92,28 @@ export default {
         phone: this.order.phone,
         raffle_id: this.id,
         tickets: this.tickets
-      }).then(response => {
-        this.$emit("update");
-        this.modal.operating = false;
-        this.close();
-      });
+      })
+        .then(response => {
+          this.$emit("update");
+          this.modal.operating = false;
+          this.close();
+          this.$notify(
+            "success",
+            "Sucesso!",
+            `Os Tickets foram reservados para ${this.order.name}`,
+            {
+              duration: 3000,
+              permanent: false
+            }
+          );
+        })
+        .catch(error => {
+          this.modal.operating = false;
+          this.$notify("error", "Error!" , "Não foi possível concluir", {
+            duration: 3000,
+            permanent: false
+          });
+        });
     },
     show(id) {
       this.id = id;

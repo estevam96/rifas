@@ -25,7 +25,7 @@
             :to="`/draw/show/${raffle.id}`"
             class="btn btn-success btn-block rounded-pill"
           >
-            <b class="text-uppercase">COMPRA RIFA</b>
+            <b class="text-uppercase">COMPRAR RIFA</b>
             <font-awesome-icon :icon="['fas', 'check']" />
           </router-link>
           <router-link
