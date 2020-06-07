@@ -24,21 +24,29 @@
           <b-form-group label="Nome *">
             <b-input
               type="text"
-              name="Name"
-              v-model.lazy="order.name"
+              name="order.name"
+              v-model="$v.order.name.$model"
+              :state="$v.order.name.$error ? false : null"
               placeholder="Nome e sobrenome"
             />
+            <b-form-invalid-feedback v-if="!$v.order.name.require">
+              Você deve informar o seu nome
+            </b-form-invalid-feedback>
           </b-form-group>
         </b-col>
         <b-col lg="12">
           <b-form-group label="Telefone *">
             <b-input
               type="text"
-              name="fone"
-              v-model.lazy="order.phone"
+              name="order.phone"
+              v-model="$v.order.phone.$model"
+              :state="$v.order.phone.$error ? false : null"
               placeholder="(99) 99999-999"
               v-mask="{ mask: '(99) 99999-9999', autoUnmask: true }"
             />
+            <b-form-invalid-feedback v-if="!$v.order.phone.require">
+              Você deve informar o seu telefone
+            </b-form-invalid-feedback>
           </b-form-group>
         </b-col>
       </b-row>
@@ -64,6 +72,8 @@
 </template>
 
 <script>
+import { validationMixin } from "vuelidate";
+const { required, email } = require("vuelidate/lib/validators");
 import { Order } from "../../api";
 export default {
   props: ["tickets", "price"],
@@ -84,36 +94,52 @@ export default {
       }
     };
   },
+  mixins: [validationMixin],
+  validations: {
+    order: {
+      name: {
+        required
+      },
+      phone: {
+        required
+      }
+    }
+  },
   methods: {
     async saveOrder() {
       this.modal.operating = true;
-      await Order.store({
-        name: this.order.name,
-        phone: this.order.phone,
-        raffle_id: this.id,
-        tickets: this.tickets
-      })
-        .then(response => {
-          this.$emit("update");
-          this.modal.operating = false;
-          this.close();
-          this.$notify(
-            "success",
-            "Sucesso!",
-            `Os Tickets foram reservados para ${this.order.name}`,
-            {
+      this.$v.$touch();
+      if (!this.$v.$error) {
+        await Order.store({
+          name: this.order.name,
+          phone: this.order.phone,
+          raffle_id: this.id,
+          tickets: this.tickets
+        })
+          .then(response => {
+            this.$emit("update");
+            this.modal.operating = false;
+            this.close();
+            this.$notify(
+              "success",
+              "Sucesso!",
+              `Os Tickets foram reservados para ${this.order.name}`,
+              {
+                duration: 3000,
+                permanent: false
+              }
+            );
+          })
+          .catch(error => {
+            this.modal.operating = false;
+            this.$notify("error", "Error!", "Não foi possível concluir", {
               duration: 3000,
               permanent: false
-            }
-          );
-        })
-        .catch(error => {
-          this.modal.operating = false;
-          this.$notify("error", "Error!" , "Não foi possível concluir", {
-            duration: 3000,
-            permanent: false
+            });
           });
-        });
+      } else {
+        this.modal.operating = false;
+      }
     },
     show(id) {
       this.id = id;
@@ -124,6 +150,7 @@ export default {
         name: "",
         phone: ""
       };
+      this.$v.$reset();
       this.$refs.modalOrder.hide();
     }
   }

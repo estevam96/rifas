@@ -20,51 +20,66 @@
           </div>
         </b-col>
         <b-col md="12">
-          <b-form-group label="Titulo" label-size="sm">
+          <b-form-group label="Título" label-size="sm">
             <b-input
               type="text"
-              name="title"
-              v-model="raffle.title"
+              name="raffle.title"
+              v-model="$v.raffle.title.$model"
+              :state="$v.raffle.title.$error ? false : null"
               size="sm"
             />
+            <b-form-invalid-feedback v-if="!$v.raffle.title.required">
+              Você deve informar o título para a rifa
+            </b-form-invalid-feedback>
           </b-form-group>
         </b-col>
         <b-col md="12">
           <b-form-group label="Numero de tickets" label-size="sm">
             <b-input
               type="number"
-              name="tickets"
-              v-model="raffle.tickets"
+              name="raffle.tickets"
+              v-model="$v.raffle.tickets.$model"
+              :state="$v.raffle.tickets.$error ? false : null"
               min="200"
               max="1000"
               step="1"
               size="sm"
             />
+            <b-form-invalid-feedback v-if="!$v.raffle.tickets.required">
+              Você deve informar a quantidade de tickets
+            </b-form-invalid-feedback>
           </b-form-group>
         </b-col>
         <b-col md="12">
           <b-form-group label="Preço do ticket" label-size="sm">
             <b-input
               type="number"
-              name="price"
-              v-model="raffle.price"
+              name="raffle.price"
+              v-model="$v.raffle.price.$model"
+              :state="$v.raffle.price.$error ? false : null"
               min="0"
               max="9999.99"
               step="0.01"
               size="sm"
             />
+            <b-form-invalid-feedback v-if="!$v.raffle.price.required">
+              Você deve informar o valor dos tickets
+            </b-form-invalid-feedback>
           </b-form-group>
         </b-col>
         <b-col md="12">
           <b-form-group label="Data do Sorteio" label-size="sm">
             <vc-date-picker
               mode="single"
-              :min-date="new Date()"
-              v-model="raffle.draw_day"
+              :min-date="currentDate.getTime() + 86400000"
+              v-model="$v.raffle.draw_day.$model"
               :input-props="{
                 class: 'form-control'
               }"
-            ></vc-date-picker>
+            />
+            <b-form-invalid-feedback v-if="!$v.raffle.draw_day.minDate">
+              Você deve informar o valor dos tickets
+            </b-form-invalid-feedback>
           </b-form-group>
         </b-col>
         <b-col md="12">
@@ -150,12 +165,27 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+import { validationMixin } from "vuelidate";
+const {
+  required,
+  minValue,
+  maxValue,
+  withParams
+} = require("vuelidate/lib/validators");
 import { Raffle } from "../../../api";
 import moment from "moment";
+const tomorrow = new Date();
+const minDate = value => value >= tomorrow.getTime() + 86400000;
 export default {
   data() {
     return {
+      currentDate: new Date(),
       raffle: {
+        title: "",
+        tickets: 200,
+        price: undefined,
+        draw_day: "",
         imagens: []
       },
       file: null,
@@ -185,32 +215,66 @@ export default {
       }
     };
   },
+  mixins: [validationMixin],
+  validations: {
+    raffle: {
+      title: {
+        required
+      },
+      tickets: {
+        required,
+        minValue: 200,
+        maxValue: 1000
+      },
+      price: {
+        required
+      },
+      draw_day: {
+        minDate
+      }
+    }
+  },
   methods: {
     async saveRaflle() {
-      this.modal.operating = true;
-      let data = new FormData();
+      this.$v.$touch();
+      if (!this.$v.$error) {
+        this.modal.operating = true;
+        let data = new FormData();
 
-      data.append("title", this.raffle.title);
-      data.append("tickets", this.raffle.tickets);
-      data.append("price", this.raffle.price);
-      data.append("description", this.raffle.description);
-      data.append(
-        "draw_day",
-        moment(this.raffle.draw_day).format("YYYY-MM-DD")
-      );
-      data.append("banner", this.file);
+        data.append("title", this.raffle.title);
+        data.append("tickets", this.raffle.tickets);
+        data.append("price", this.raffle.price);
+        data.append("description", this.raffle.description);
+        data.append(
+          "draw_day",
+          moment(this.raffle.draw_day).format("YYYY-MM-DD")
+        );
+        data.append("banner", this.file);
 
-      for (var i = 0; i < this.raffle.imagens.length; i++) {
-        let file = this.raffle.imagens[i];
-        data.append("imagens[" + i + "]", file);
+        for (var i = 0; i < this.raffle.imagens.length; i++) {
+          let file = this.raffle.imagens[i];
+          data.append("imagens[" + i + "]", file);
+        }
+
+        await Raffle.store(data)
+          .then(() => {
+            this.isSuccess = true;
+            this.modal.operating = false;
+            this.$notify("success", "Sucesso!", `Rifa cadastrada`, {
+              duration: 3000,
+              permanent: false
+            });
+          })
+          .catch(error => {
+            this.$notify("error", "Error!", "Não foi cadastra a rifa", {
+              duration: 3000,
+              permanent: false
+            });
+          });
+
+        this.$emit("update");
+        this.close();
       }
-
-      await Raffle.store(data).then(() => {
-        this.isSuccess = true;
-        this.modal.operating = false;
-      });
-      this.$emit("update");
-      this.close();
     },
     handleFilesUpload() {
       let file = this.$refs.imagens.files;
@@ -228,6 +292,7 @@ export default {
     close() {
       this.raffle = {};
       this.file = null;
+      this.$v.$reset();
       this.$refs.registemodal.hide();
     }
   },
