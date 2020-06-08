@@ -15,7 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::post('auth', 'AuthController@login');
+Route::prefix('auth')->group(function () {
+  Route::post('/', 'AuthController@login');
+  Route::post('refresh', 'AuthController@refresh');
+  Route::post('logout', 'AuthController@logout')->middleware('apiJWT');
+  Route::get('me', 'AuthController@me')->middleware('apiJWT');
+});
+
 Route::middleware('apiJWT')->get('/user', function (Request $request) {
   return $request->user();
 });

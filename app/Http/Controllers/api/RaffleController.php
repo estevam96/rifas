@@ -61,15 +61,16 @@ class RaffleController extends Controller
       $rules = [
         'banner' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         'title' => 'required',
-        'draw_day' => 'required|date|after:today',
+        'draw_day' => 'date|after:today',
         'tickets' => 'required|numeric',
         'price' => 'required',
-        'imagens' => 'required',
         'imagens.*' => 'image|mimes:jpeg,png,jpg|max:2048',
         'description' => '',
       ];
-
-      $validaror = Validator::make($request->all(), $rules);
+      $messages = [
+        'draw_day.after' => 'O sorteio não poder ser agendado para hoje'
+      ];
+      $validaror = Validator::make($request->all(), $rules, $messages);
       if ($validaror->fails()) {
         return Response()->json($validaror->errors(), 400);
       }

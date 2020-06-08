@@ -10,7 +10,7 @@
     <b-form @submit.prevent="saveRaflle">
       <b-row>
         <b-col sm="12">
-          <div v-if="file != null">
+          <div v-if="raffle.banner != null">
             <span>Previsão do Banner:</span>
             <img
               style="width: 100%; height: 20%;"
@@ -85,12 +85,13 @@
         <b-col md="12">
           <b-form-group
             label="Banner"
-            description="utilize imagem com 1365x404, para evitar distorção  "
+            description="Utilize imagem com 1365x404, para evitar distorção. formatos aceitos jpg, jpeg e png  "
             label-size="sm"
           >
             <b-form-file
               ref="banner"
-              v-model="file"
+              v-model="$v.raffle.banner.$model"
+              :state="$v.raffle.banner.$error ? false : null"
               placeholder="Escolha um arquivo ou solte-o aqui ..."
               drop-placeholder="solte-o aqui..."
               type="file"
@@ -98,6 +99,9 @@
               name="banner"
               accept="image/png, image/jpeg"
             />
+            <b-form-invalid-feedback v-if="!$v.raffle.banner.required">
+              Você deve adicionar uma imagem como banner
+            </b-form-invalid-feedback>
           </b-form-group>
         </b-col>
         <b-col md="12">
@@ -182,6 +186,7 @@ export default {
     return {
       currentDate: new Date(),
       raffle: {
+        banner: null,
         title: "",
         tickets: 200,
         price: undefined,
@@ -218,6 +223,9 @@ export default {
   mixins: [validationMixin],
   validations: {
     raffle: {
+      banner: {
+        required
+      },
       title: {
         required
       },
@@ -249,7 +257,7 @@ export default {
           "draw_day",
           moment(this.raffle.draw_day).format("YYYY-MM-DD")
         );
-        data.append("banner", this.file);
+        data.append("banner", this.raffle.banner);
 
         for (var i = 0; i < this.raffle.imagens.length; i++) {
           let file = this.raffle.imagens[i];
@@ -298,8 +306,8 @@ export default {
   },
   computed: {
     imgPreview() {
-      if (this.file) {
-        return URL.createObjectURL(this.file);
+      if (this.raffle.banner) {
+        return URL.createObjectURL(this.raffle.banner);
       }
       return null;
     },
