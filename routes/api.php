@@ -38,6 +38,8 @@ Route::get('raffle/recent', 'api\RaffleController@recentRaffle');
 
 Route::get('tickets/raffle/{raffleId}', 'api\TicketController@index')->name('tickets.raffle.index');
 Route::post('orders', 'api\OrderController@store');
+Route::get('contacts/footer', 'api\ContactController@footer');
+Route::get('contacts', 'api\ContactController@index');
 
 Route::middleware(['apiJWT'])->group(function () {
   Route::get('raffle/avaliable', 'api\RaffleController@valiables');
@@ -45,7 +47,9 @@ Route::middleware(['apiJWT'])->group(function () {
   Route::apiResource('raffle', 'api\RaffleController')->except(['index', 'show']);
   Route::apiResource('payment', 'api\PaymentController')->only(['store', 'update', 'destroy']);
   Route::apiResource('tickets', 'api\TicketController')->except(['index']);
+  Route::apiResource('contacts', 'api\ContactController')->except('index');
 });
 
 Route::apiResource('payment', 'api\PaymentController')->except(['store', 'update', 'destroy']);
 Route::resource('raffle', 'api\RaffleController')->only(['index', 'show']);
+

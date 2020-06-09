@@ -8,7 +8,7 @@
     </b-col>
     <b-col sm="6" class="d-flex justify-content-end mb-2">
       <b-button variant="info" @click="$refs.registe.show()"
-        ><b>CADASTRA</b>
+        ><b>CADASTRAR</b>
       </b-button>
     </b-col>
     <b-col xl="12">

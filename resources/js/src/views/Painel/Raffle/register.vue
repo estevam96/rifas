@@ -274,10 +274,15 @@ export default {
             });
           })
           .catch(error => {
-            this.$notify("error", "Error!", "Não foi cadastra a rifa", {
-              duration: 3000,
-              permanent: false
-            });
+            this.$notify(
+              "error",
+              "Error!",
+              "Não foi possivel cadastra a rifa",
+              {
+                duration: 3000,
+                permanent: false
+              }
+            );
           });
 
         this.$emit("update");

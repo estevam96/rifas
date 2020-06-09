@@ -11,11 +11,10 @@
 
 <script>
 import TopNav from "../containers/TopNav";
-import Footer from "../containers/Footer";
 export default {
   components: {
     "top-nav": TopNav,
-    "footer-component": Footer
+    "footer-component": () => import("../containers/Footer")
   }
 };
 </script>

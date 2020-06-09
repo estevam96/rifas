@@ -2,12 +2,19 @@
     "/painel-draw~painel-home.js": "/painel-draw~painel-home.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/Contact.js": "/Contact.js",
+    "/Draw-list.js": "/Draw-list.js",
+    "/Draw-lshow.js": "/Draw-lshow.js",
     "/Erro.js": "/Erro.js",
+    "/Home.js": "/Home.js",
+    "/Payment.js": "/Payment.js",
     "/app.js": "/app.js",
     "/draw.js": "/draw.js",
     "/login.js": "/login.js",
     "/painel.js": "/painel.js",
+    "/painel-contact.js": "/painel-contact.js",
     "/painel-draw.js": "/painel-draw.js",
     "/painel-home.js": "/painel-home.js",
-    "/painel-payment.js": "/painel-payment.js"
+    "/painel-payment.js": "/painel-payment.js",
+    "/vendors~Home.js": "/vendors~Home.js"
 }

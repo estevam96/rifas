@@ -14,6 +14,7 @@ const routes = [
       { path: 'home', component: () => import(/* webpackChunkName: "painel-home" */ './views/Painel/Home.vue'), },
       { path: 'raffle', component: () => import(/* webpackChunkName: "painel-draw" */ './views/Painel/Raffle/list.vue'), },
       { path: 'payment', component: () => import(/* webpackChunkName: "painel-payment" */ './views/Painel/Payment/list.vue'), },
+      { path: 'contact', component: () => import(/* webpackChunkName: "painel-contact" */ './views/Painel/Contact/list.vue'), },
     ]
   },
   {
@@ -23,24 +24,24 @@ const routes = [
     children: [
       {
         path: 'home',
-        component: () => import('./views/Home.vue')
+        component: () => import(/* webpackChunkName: "Home" */'./views/Home.vue')
       },
       {
         path: 'draw',
         redirect: 'draw/list',
-        component: () => import(/* webpackChunkName: "draw" */'./views/Draw'),
+        component: () => import(/* webpackChunkName: "draw" */ './views/Draw'),
         children: [
-          { path: 'list', component: () => import('./views/Draw/Draw.vue') },
-          { path: 'show/:id', component: () => import('./views/Draw/Draw-show.vue'), }
+          { path: 'list', component: () => import(/* webpackChunkName: "Draw-list" */ './views/Draw/Draw.vue') },
+          { path: 'show/:id', component: () => import(/* webpackChunkName: "Draw-lshow" */'./views/Draw/Draw-show.vue'), }
         ]
       },
       {
         path: 'payment',
-        component: () => import('./views/Payment.vue')
+        component: () => import(/* webpackChunkName: "Payment" */'./views/Payment.vue')
       },
       {
         path: 'contact',
-        component: () => import('./views/Contact.vue')
+        component: () => import(/* webpackChunkName: "Contact" */'./views/Contact.vue')
       }
     ],
   },

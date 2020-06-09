@@ -22,7 +22,7 @@
             <template v-slot:button-content>
               {{ currentUser.name }}
             </template>
-            <b-dropdown-item to="/painel">Painel</b-dropdown-item>
+            <b-dropdown-item to="/painel" exact >Painel</b-dropdown-item>
             <b-dropdown-item @click="logout">Sair</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
@@ -30,9 +30,35 @@
     </b-navbar>
     <b-sidebar id="sidebar" backdrop width="250px">
       <b-nav pills vertical class="pr-2 pl-2">
-        <b-nav-item to="/painel/home">Home</b-nav-item>
-        <b-nav-item to="/painel/raffle">Rifas</b-nav-item>
-        <b-nav-item to="/painel/payment">Formas de pagamento</b-nav-item>
+        <b-nav-item to="/painel/home"
+          ><font-awesome-icon
+            :icon="['fa', 'home']"
+            size="lg"
+            class="mr-2"
+          />Home</b-nav-item
+        >
+        <b-nav-item to="/painel/raffle"
+          ><font-awesome-icon
+            :icon="['fa', 'dollar-sign']"
+            size="lg"
+            class="mr-2"
+          />Rifas</b-nav-item
+        >
+        <b-nav-item to="/painel/payment"
+          ><font-awesome-icon
+            :icon="['fa', 'wallet']"
+            size="lg"
+            class="mr-2"
+          />Formas de pagamento</b-nav-item
+        >
+
+        <b-nav-item to="/painel/contact"
+          ><font-awesome-icon
+            :icon="['fa', 'users']"
+            size="lg"
+            class="mr-2"
+          />Rede sociais/contatos</b-nav-item
+        >
       </b-nav>
     </b-sidebar>
   </div>

@@ -7,28 +7,63 @@
       Logo a baixo iremos disponibilizar alguns botões com links para os nossos
       contatos referente a cada sorteio é só clicar no botão.
     </h6>
-    <b-col md="12" class="d-flex justify-content-center">
-      <b-button class="mb-2" variant="success" squared>
-        <b class="text-uppercase">
-          <font-awesome-icon :icon="['fab', 'whatsapp']" />
-          Grupo no whatsapp
-        </b>
-      </b-button>
-    </b-col>
-    <div class="separator mb-2"></div>
-    <b-col md="12" class="d-flex justify-content-center">
-      <b-button class="btn-custom-color mb-2" squared>
-        <b class="text-uppercase">
-          <font-awesome-icon :icon="['fab', 'instagram']" />
-          Nosso Instagram
-        </b>
-      </b-button>
-    </b-col>
+
+    <b-row>
+      <b-col
+        md="4"
+        class="d-flex justify-content-center "
+        v-for="(item, index) in contact"
+        :key="`key-${index}`"
+      >
+        <b-card
+          class="d-flex justify-content-center align-items-center m-2"
+          v-if="item.type !== 'email-rodape' && item.type !== 'telefone-rodape'"
+        >
+          <b-link
+            class="text-decoration-none"
+            :href="
+              `${item.social === 'envelope' ? 'mailto:' : ''}${item.contact}`
+            "
+          >
+            <font-awesome-icon
+              class="text-body"
+              :icon="[
+                `${
+                  item.social === 'envelope' || item.social === 'phone'
+                    ? 'fa'
+                    : 'fab'
+                }`,
+                item.social
+              ]"
+              size="2x"
+            />
+            <b class="ml-2 text-body text-uppercase">{{ item.type }}</b>
+          </b-link>
+        </b-card>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
 <script>
-export default {};
+import { Contact } from "../api";
+export default {
+  data() {
+    return {
+      contact: []
+    };
+  },
+  methods: {
+    async fetchContact() {
+      await Contact.list().then(({ data }) => {
+        this.contact = data;
+      });
+    }
+  },
+  mounted() {
+    this.fetchContact();
+  }
+};
 </script>
 
 <style>

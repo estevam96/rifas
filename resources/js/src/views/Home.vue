@@ -37,7 +37,7 @@
     <div class="container mt-1">
       <b-row>
         <b-col md="6">
-          <router-link to="#" class="btn btn-block">
+          <b-link :href="whasComprovant.contact" target="_blank" class="btn btn-block">
             <font-awesome-icon
               :icon="['fab', 'whatsapp']"
               size="2x"
@@ -46,17 +46,16 @@
             <p style="color:#ffc107">
               Envio de Comprovantes
             </p>
-          </router-link>
-        </b-col>
+          </b-link>      </b-col>
         <b-col md="6">
-          <router-link to="#" class="btn btn-block">
+          <b-link :href="whasDuvidas.contact" target="_blank" class="btn btn-block">
             <font-awesome-icon
               :icon="['fab', 'whatsapp']"
               size="2x"
               :style="{ color: '#28a745' }"
             />
             <p style="color: #28a745">Duvidas: Entre para o grupo</p>
-          </router-link>
+          </b-link>
         </b-col>
       </b-row>
     </div>
@@ -146,7 +145,7 @@ import {
 import "hooper/dist/hooper.css";
 
 import Instruction from "../containers/Introduction";
-import { Raffle } from "../api";
+import { Raffle, Contact } from "../api";
 
 export default {
   components: {
@@ -177,7 +176,9 @@ export default {
         }
       },
       lastRaffles: [],
-      recentRaffles: []
+      recentRaffles: [],
+      whasComprovant: {},
+      whasDuvidas: {}
     };
   },
   methods: {
@@ -186,6 +187,14 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
+    },
+    async fetchContact() {
+      await Contact.list("whatsapp-comprovantes").then(({ data }) => {
+        this.whasComprovant = data;
+      });
+      await Contact.list("whatsapp-duvidas").then(({ data }) => {
+        this.whasDuvidas = data;
+      });
     },
     async fetchLastRaffle() {
       await Raffle.last().then(res => {
@@ -199,6 +208,7 @@ export default {
     }
   },
   mounted() {
+    this.fetchContact();
     this.fetchRecentRaffle();
     this.fetchLastRaffle();
   }

@@ -115,7 +115,7 @@ class RaffleController extends Controller
     try {
       $raffle = Raffle::with('images')->find($id);
       if ($raffle == NULL) {
-        return Response()->json(['message' => 'Raffle not found'], 401);
+        return Response()->json(['message' => 'Raffle not found'], 404);
       }
       return Response()->json($raffle, 200);
     } catch (BadRequestHttpException $ex) {
@@ -148,7 +148,7 @@ class RaffleController extends Controller
 
       $raffle = Raffle::find($id);
       if ($raffle == NULL) {
-        return Response()->json(['message' => 'Raffle not found'], 401);
+        return Response()->json(['message' => 'Raffle not found'], 404);
       }
 
       $data = $request->only([
@@ -185,7 +185,7 @@ class RaffleController extends Controller
     try {
       $raffle = Raffle::find($id);
       if ($raffle == NULL) {
-        return Response()->json(['message' => 'Raffle not found'], 401);
+        return Response()->json(['message' => 'Raffle not found'], 404);
       }
       $raffle->delete();
     } catch (BadRequestHttpException $ex) {
